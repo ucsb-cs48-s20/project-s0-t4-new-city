@@ -18,8 +18,13 @@ As a suggestion, the first few team agreements, might be these:
 Questions:
 
 When the team works together, what should the atmosphere/culture/planning/grooming process be?
+- Talk about it and then vote.
 
-When differences/challenges arise how do you want to be and how do you want to address them:
+When differences/challenges arise how do you want to be and how do you want to address them?
+
+- Each of us should present their view on the problem and we should all listen.
+- If we still do not solve it, we could all do more research on the topic and later vote on it.
+
 
 What would make this team’s work together successful?
 
