@@ -11,20 +11,23 @@ As a suggestion, the first few team agreements, might be these:
 Questions:
 
 When the team works together, what should the atmosphere/culture/planning/grooming process be?
+- We will try to meet via zoom to make communication easier
 - Talk about it and then vote.
 
 When differences/challenges arise how do you want to be and how do you want to address them?
-
 - Each of us should present their view on the problem and we should all listen.
 - If we still do not solve it, we could all do more research on the topic and later vote on it.
 
 
 What would make this team’s work together successful?
-
-What will help this team flourish?
-
-What intention (plan or aim) are we out to fulﬁll (goals for the time this team will be together). What would make this team’s work successful?
+- Good communication 
+- Trying to all work on it together
+- Meeting every week via zoom
+- Set and meet deadlines
 
 What can we count on from each other?
+- Help each other when anyone needs it
+- Go to the meetings if possible
+- 
 
 
