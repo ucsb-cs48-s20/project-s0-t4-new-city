@@ -24,10 +24,15 @@ What would make this team’s work together successful?
 - Trying to all work on it together
 - Meeting every week via zoom
 - Set and meet deadlines
+- Be albe to express opinions as well as listen to others' opinions
+- Be kind and friendly to all team members
+
 
 What can we count on from each other?
 - Help each other when anyone needs it
 - Go to the meetings if possible
 - 
+
+
 
 
