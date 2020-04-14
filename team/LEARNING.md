@@ -1,4 +1,4 @@
-#Strengths:
+# Strengths:
 
 Ari Polakof
 
@@ -8,7 +8,7 @@ Steven Seong- Know spring boot and some Java
 
 Brian Kang- Know spring boot and some Java
 
-#Commitments: 
+# Commitments: 
 
 
 Ari Polakof-Learn html and css week 3
