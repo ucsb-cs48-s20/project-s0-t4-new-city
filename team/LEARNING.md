@@ -18,7 +18,7 @@ Xilin Wang -Learn spring boot week 3
            -Look into API 
             
 Steven Seong -Brush up on Spring boot and html (look back cs56 work) week 3
-             -Look into API 
+             -Look into API and figure out how to create a basic website
              
 Brian Kang  -Brush up on Spring boot and html (look back cs56 work)  week 3
             - Learn css and API
