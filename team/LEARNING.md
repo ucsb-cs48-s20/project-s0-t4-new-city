@@ -1,6 +1,8 @@
 Strengths:
 
 Ari Polakof
+
+
 Xilin Wang
 Steven Seong- Know spring boot and some Java
 Brian Kang- Know spring boot and some Java
