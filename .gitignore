@@ -1,3 +1,12 @@
+# secret properties files
+
+secrets-*.properties
+
+# Credentials downloaded from Google
+
+credential*.json
+
+
 # Emacs/vim
 
 *~
@@ -15,10 +24,13 @@
 
 .DS_Store
 
+
 # CS48 specific: Secrets files
 
 localhost.json
 heroku.json
+
+
 
 # Maven (from: https://github.com/github/gitignore/blob/master/Maven.gitignore)
 
@@ -58,5 +70,9 @@ buildNumber.properties
 *.rar
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+
 hs_err_pid*
+
+
+
 
