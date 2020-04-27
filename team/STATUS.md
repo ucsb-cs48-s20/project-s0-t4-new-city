@@ -39,6 +39,7 @@ Support that would be helpful from course staff to completing MVP
 
 (Unresolved application design issues)
 * For our last iterations we will be incorporating more and better design, so I think that later in the quarter we will encounter more design issues.
+
 (Unresolved technical issues)
 
 * to do.
