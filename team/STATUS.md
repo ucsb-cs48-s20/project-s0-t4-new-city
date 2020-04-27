@@ -33,9 +33,7 @@ What obstacles remain to completing MVP:
 Support that would be helpful from course staff to completing MVP
 * We might need help to upload from a csv file to a database and then to get the information from the database to the web app.
 
-## (Include anything else your team thinks is important to document)
-
-(Choose an appropriate heading or headings.  These might include:)
+## Other important things
 
 (Unresolved application design issues)
 * For our last iterations we will be incorporating more and better design, so I think that later in the quarter we will encounter more design issues.
