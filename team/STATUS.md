@@ -40,7 +40,9 @@ Support that would be helpful from course staff to completing MVP
 (Unresolved application design issues)
 * For our last iterations we will be incorporating more and better design, so I think that later in the quarter we will encounter more design issues.
 (Unresolved technical issues)
+
 * to do.
+
 (Key obstacles to future iterations (beyond MVP))
 * We might later need help with all the sorting parts for our later iterations, since the user should eventually be able to sort according to many inputs.
 
