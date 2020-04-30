@@ -1,6 +1,9 @@
 package edu.ucsb.cs48.s20.demo.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
+
+import edu.ucsb.cs48.s20.demo.repositories.CountyRepository;
+
 import org.springframework.stereotype.Controller;
 
 import java.util.HashMap;
@@ -18,8 +21,17 @@ public class ApplicationController{
     @Autowired
     private ClientRegistrationRepository clientRegistrationRepository;
 
+    
+    private CountyRepository countyRepository = null;
+    
+    @Autowired
+	public ApplicationController(CountyRepository countyRepository) {
+	       this.countyRepository = countyRepository;
+	}
+    
     @GetMapping("/")
     public String home(Model model){
+    	model.addAttribute("counties", countyRepository.findAll());
         return "index";
     }
 

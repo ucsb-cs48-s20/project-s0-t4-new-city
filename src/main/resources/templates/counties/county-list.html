@@ -1,0 +1,40 @@
+
+    <div class="container my-2">
+        <div class="card">
+            <div class="card-body">
+                <div th:switch="${counties}" class="container my-5">
+                    <p class="my-5">
+                       
+                    </p>
+                    <div class="col-md-10">
+                        <div>
+                            <table class="table table-striped table-responsive-md">
+                                <thead>
+                                    <tr>
+                                        <th>County</th>
+                                        <th>Population</th>
+                                        <th>Median House Hold Income</th>
+                                        <th>Median House price</th>
+                                        <th>Temperature(F)</th>
+                                        <th>Crime Rate(per 1000 people)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="county : ${counties}">
+                                        <td th:text="${county.name}"></td>
+                                        <td th:text="${county.population}"></td>
+                                        <td th:text="${county.averageIncome}"></td>
+                                        <td th:text="${county.housePrice}"></td>
+                                        <td th:text="${county.temperature}"></td>
+                                        <td th:text="${county.crimeRate}"></td>
+                                       
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
