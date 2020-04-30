@@ -31,7 +31,7 @@ What would make this team’s work together successful?
 What can we count on from each other?
 - Help each other when anyone needs it
 - Go to the meetings if possible
-- 
+
 
 
 
