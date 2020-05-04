@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.security.oauth2.client.registration.ClientRegistration;
@@ -18,6 +20,8 @@ import org.springframework.ui.Model;
 @Controller
 public class ApplicationController{
 
+	private Logger logger = LoggerFactory.getLogger(ApplicationController.class);
+	
     @Autowired
     private ClientRegistrationRepository clientRegistrationRepository;
 
@@ -31,6 +35,7 @@ public class ApplicationController{
     
     @GetMapping("/")
     public String home(Model model){
+    	logger.info("model={} countyRepository={}",model,countyRepository);
     	model.addAttribute("counties", countyRepository.findAll());
         return "index";
     }
