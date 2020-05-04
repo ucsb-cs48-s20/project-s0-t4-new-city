@@ -25,7 +25,6 @@ public class ApplicationController{
     private CountyRepository countyRepository = null;
     
     @Autowired
-	public ApplicationController(){}
 	public ApplicationController(CountyRepository countyRepository) {
 	       this.countyRepository = countyRepository;
 	}
