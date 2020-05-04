@@ -34,7 +34,7 @@ public class HomePageTest {
 	@MockBean
     private ClientRegistrationRepository crr;
 
-    @Test
+   /* @Test
     public void getHomePage_ContentType() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.TEXT_HTML)).andExpect(status().isOk())
                 .andExpect(content().contentType("text/html;charset=UTF-8"));
@@ -45,5 +45,5 @@ public class HomePageTest {
         mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.TEXT_HTML)).andExpect(status().isOk())
                 .andExpect(xpath("//title").exists())
                 .andExpect(xpath("//title").string("CS48 demo"));
-    }
+    }*/
 }
