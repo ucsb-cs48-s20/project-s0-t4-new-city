@@ -2,44 +2,44 @@ package edu.ucsb.cs48.s20.demo.formbeans;
 
 public class CountyFilter {
 
-private int minincome;
-private int maxincome;
-private int minhousecost;
-private int maxhousecost;
+private double minincome;
+private double maxincome;
+private double minhousecost;
+private double maxhousecost;
 
 public CountyFilter() {}
 
 // getters
-public int getMinincome() {
+public double getMinincome() {
     return minincome;
 }
 
-public int getMaxincome() {
+public double getMaxincome() {
     return maxincome;
 }
 
-public int getMinhousecost() {
+public double getMinhousecost() {
     return minhousecost;
 }
 
-public int getMaxhousecost() {
+public double getMaxhousecost() {
     return maxhousecost;
 }
 
 // setters
-public void setMinincome(int minPay) {
+public void setMinincome(double minPay) {
     minincome = minPay;
 }
 
-public void setMaxincome(int maxPay) {
+public void setMaxincome(double maxPay) {
     maxincome = maxPay;
 }
 
-public void setMinhousecost(int minHome) {
+public void setMinhousecost(double minHome) {
     minhousecost = minHome;
 }
 
-public void setMaxhousecost(int maxHome) {
+public void setMaxhousecost(double maxHome) {
     maxhousecost = maxHome;
 }
 

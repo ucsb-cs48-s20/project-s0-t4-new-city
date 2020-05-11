@@ -31,6 +31,7 @@ public class FilterController {
     public String getCountiesResults(Model model, CountyFilter countyFilter) {
         model.addAttribute("countyFilter", countyFilter);
         model.addAttribute("counties", countyRepository.findAll());
+        // todo: show only counties that fit criteria
         return "counties/results";
     }
 
