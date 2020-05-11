@@ -32,14 +32,14 @@ For the next retro leader, I would suggest ensuring that the retro discussion oc
 * a measurement: Seeing how often we meet our deadlines on the kanban board
 
 
-# Good:
+## Good:
 * teamwork, communication
 * kanban board - more organized
 
-# Best:
+## Best:
 * everyone is capable and independent
 
-# Better:
+## Better:
 * Spend more time on the project(last time was midterms week)
 * Start self assigned deadlines on kanban board to increase productivity
 
