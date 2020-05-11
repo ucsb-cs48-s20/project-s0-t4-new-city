@@ -22,13 +22,13 @@ public class FilterController {
 
     @GetMapping("/county/search")
 
-    public String getEarthquakesSearch(CountyFilter countyFilter) {
+    public String getCountiesFilter(CountyFilter countyFilter) {
         return "counties/filter";
     }
 
     @GetMapping("/county/results")
 
-    public String getEarthquakesResults(Model model, CountyFilter countyFilter) {
+    public String getCountiesResults(Model model, CountyFilter countyFilter) {
         model.addAttribute("countyFilter", countyFilter);
         model.addAttribute("counties", countyRepository.findAll());
         return "counties/results";
