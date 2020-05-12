@@ -30,8 +30,11 @@ public class FilterController {
 
     public String getCountiesResults(Model model, CountyFilter countyFilter) {
         model.addAttribute("countyFilter", countyFilter);
-        model.addAttribute("counties", countyRepository.findAll());
-        // todo: show only counties that fit criteria
+
+        model.addAttribute("counties",
+            countyRepository.findByAverageIncomeBetweenAndHousePriceBetween(countyFilter.getMinincome(),
+            countyFilter.getMaxincome(), countyFilter.getMinhousecost(), countyFilter.getMaxhousecost() ));
+
         return "counties/results";
     }
 

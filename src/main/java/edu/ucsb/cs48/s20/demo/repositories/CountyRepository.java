@@ -7,5 +7,10 @@ import org.springframework.data.repository.CrudRepository;
 import edu.ucsb.cs48.s20.demo.entities.County;
 
 public interface CountyRepository extends CrudRepository<County, Long>{
+	
 	public List<County> findByName(String name);
+
+	public List<County> findByAverageIncomeBetweenAndHousePriceBetween(double incomeLower, double incomeUpper,
+	double priceLower, double priceUpper);
+
 }
