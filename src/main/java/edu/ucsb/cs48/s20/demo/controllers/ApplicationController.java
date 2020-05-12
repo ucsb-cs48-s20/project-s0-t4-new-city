@@ -35,7 +35,7 @@ public class ApplicationController{
     
     @GetMapping("/")
     public String home(Model model){
-    	logger.info("model={} countyRepository={}",model,countyRepository);
+    	logger.info("model={} countyRepository={}",model,countyRepository); // prints to console information
     	model.addAttribute("counties", countyRepository.findAll());
         return "index";
     }
