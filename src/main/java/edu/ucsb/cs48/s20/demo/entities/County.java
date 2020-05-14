@@ -11,6 +11,7 @@ import com.opencsv.bean.CsvBindByPosition;
 @Entity
 public class County {
 
+	
 
 	
 	@Id
@@ -45,8 +46,17 @@ public class County {
 	@CsvBindByPosition(position = 5)
     @CsvBindByName
 	private double crimeRate;
+	
+	@CsvBindByPosition(position = 6)
+    @CsvBindByName
+	private double unEmploymentRate;
+	
+	@CsvBindByPosition(position = 7)
+    @CsvBindByName
+	private double studentEnrollment;
 		
-		
+	
+
 	public String getName() {
 		return name;
 	}
@@ -84,10 +94,27 @@ public class County {
 		this.crimeRate = crimeRate;
 	}
 	
+	//newly added
+	public double getUnEmploymentRate() {
+		return unEmploymentRate;
+	}
+	public void setUnEmploymentRate(double unEmploymentRate) {
+		this.unEmploymentRate = unEmploymentRate;
+	}
+	
+    public double getStudentEnrollment() {
+		return studentEnrollment;
+	}
+	public void setStudentEnrollment(double studentEnrollment) {
+		this.studentEnrollment = studentEnrollment;
+	}
+	
+	
 	@Override
 	public String toString() {
 		return "County [id=" + id + ", population=" + population + ", name=" + name + ", averageIncome=" + averageIncome
-				+ ", temperature=" + temperature + ", housePrice=" + housePrice + ", crimeRate=" + crimeRate + "]";
+				+ ", temperature=" + temperature + ", housePrice=" + housePrice + ", crimeRate=" + crimeRate + ", unEmploymentRate=" + unEmploymentRate
+	            + ", studentEnrollment=" + studentEnrollment + "]";
 	}
 	
 	
