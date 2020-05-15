@@ -14,19 +14,20 @@ import edu.ucsb.cs48.s20.demo.repositories.CountyRepository;
 
 
 @Controller
-public class SurveyController {
+public class MapController {
 	 
 	private final CountyRepository countyRepository;
 
 	@Autowired
-	public SurveyController(CountyRepository countyRepository) {
-	       this.countyRepository = countyRepository;
-	}
+	public MapController(CountyRepository countyRepository) {
+        this.countyRepository = countyRepository;
+ }
 
-    @GetMapping("/survey")
+    @GetMapping("/map")
     public String showSurveyForm(Model model) {
-        return "survey/index";
+        return "map/index";
     }
-
-
 }
+
+
+
