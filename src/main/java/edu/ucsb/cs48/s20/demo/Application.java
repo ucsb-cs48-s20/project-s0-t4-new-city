@@ -18,7 +18,7 @@ public class Application extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
         .authorizeRequests()
-            .antMatchers("/","/login**","/webjars/**","/error**","/site.css", "/survey**","/map**")
+            .antMatchers("/","/login**","/webjars/**","/error**","/county/**", "/survey**","/map**")
             .permitAll()
         .anyRequest()
             .authenticated()

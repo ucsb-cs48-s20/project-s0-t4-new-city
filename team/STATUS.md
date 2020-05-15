@@ -46,4 +46,40 @@ Support that would be helpful from course staff to completing MVP
 * We might later need help with all the sorting parts for our later iterations, since the user should eventually be able to sort according to many inputs.
 
 
+# Sprint Planning, 05/12/2020
+  
+* Leader: Ari
+* Present: All
+* Absent: None
+
+## Sprint Goal for 05/12-05/21
+  
+Which of the 10 powerful questions did you ask?
+  
+  What would need to happen while working on this Sprint Goal that would be cause for celebration?
+  
+  Ari: Recommendation feature
+  Brian: Complete issues
+  Steven: Link county names to wikipedia
+  Xilin: Comparsion feature
+  
+  We eventually agreed that the cause of celebration would be all of the team member work together to get 
+  recommendation feature finished.
+
+Describe your sprint goal here.
+
+  Have recommendation feature ready by demo day. (Recommendation feature: We will allow users to answer a survey 
+  to indicate their preferences, and according to that we will find suitable counties for users.)
+  
+Describe briefly how you came up with that goal.
+  
+  Because first it is an important feature for users as the users don't have to look at all counties but the ones 
+  they are interested about. Second, it is a challenging problem and we want to do it now so we don't leave it at 
+  the end of quarter when we have finals coming. 
+  
+## Discussion of previous Sprint Goal
+  
+Briefly: was the sprint goal acheived?  Was it too ambitious?  Too modest? 
+
+  Yes. It was a little bit modest because we could have put more effort and time into it. 
 
