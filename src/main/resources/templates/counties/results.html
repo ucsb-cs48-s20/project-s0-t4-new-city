@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <div th:replace="bootstrap/title.html"></div>
+    <div th:replace="bootstrap/bootstrap_head.html"></div>
+</head>
+
+<body>
+    <div class="container">
+        <div th:replace="bootstrap/bootstrap_nav_header.html"></div>
+
+        <h1>County Filter</h1>
+
+        <h5>Filter Again</h5>
+        <form action="#" th:action="@{/county/results}" th:object="${countyFilter}" method="get">
+            <table>
+                <tr class="form-group">
+                    <th><label for="minincome" class="col-form-label">Minimum Income</label></th>
+                    <td><input type="number" th:field="*{minincome}" class="form-control" id="minincome"></td>
+                </tr>
+                <tr class="form-group">
+                    <th><label for="maxincome" class="col-form-label">Maximum Income</label></th>
+                    <td><input type="number" th:field="*{maxincome}" class="form-control" id="maxincome"></td>
+                </tr>
+                <tr class="form-group">
+                    <th><label for="minhousecost" class="col-form-label">Minimum House Cost</label></th>
+                    <td><input type="number" th:field="*{minhousecost}" class="form-control" id="minhousecost"></td>
+                </tr>
+                <tr class="form-group">
+                    <th><label for="maxhousecost" class="col-form-label">Maximum House Cost</label></th>
+                    <td><input type="number" th:field="*{maxhousecost}" class="form-control" id="maxhousecost"></td>
+                </tr>
+
+            </table>
+
+            <input type="submit" class="btn btn-primary" value="Filter">
+        </form>
+
+        </br>
+
+        <h5>Applied Filters</h5>
+
+        <table class="table">
+            <tr>
+                <th>Minimum House Hold Income</th>
+                <td th:text="${countyFilter.minincome}"></td>
+            </tr>
+            <tr>
+                <th>Maximum House Hold Income</th>
+                <td th:text="${countyFilter.maxincome}"></td>
+            </tr>
+            <tr>
+                <th>Minimum House Cost</th>
+                <td th:text="${countyFilter.minhousecost}"></td>
+            </tr>
+            <tr>
+                <th>Maximum House Cost</th>
+                <td th:text="${countyFilter.maxhousecost}"></td>
+            </tr>
+        </table>
+
+    <div class="container">
+
+        <h5>All counties in California that fit within the specified criteria.</h5>
+        <div th:replace="counties/county-list.html"></div>
+        <div th:replace="bootstrap/bootstrap_footer.html"></div>
+    </div>
+    <div th:replace="bootstrap/bootstrap_scripts.html"></div>
+
+</body>
+
+</html>
