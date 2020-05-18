@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import edu.ucsb.cs48.s20.demo.formbeans.CountyFilter;
+import edu.ucsb.cs48.s20.demo.formbeans.SurveyResult;
 import edu.ucsb.cs48.s20.demo.repositories.CountyRepository;
 
 
@@ -24,9 +26,16 @@ public class SurveyController {
 	}
 
     @GetMapping("/survey")
-    public String showSurveyForm(Model model) {
+    public String getSurveyResult(SurveyResult surveryResult) {
         return "survey/index";
     }
 
+    @GetMapping("/survey/result")
+    public String getSurveyResults(Model model, SurveyResult surveyResult) {
+		model.addAttribute("surveyResult", surveyResult);
+
+        
+        return "survey/result";
+    }
 
 }

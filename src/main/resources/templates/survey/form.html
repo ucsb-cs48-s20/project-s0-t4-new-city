@@ -1,1 +1,181 @@
-<p>Form goes here</p>
+
+<div class="col-md-12 border border-light">
+<form action="#" th:action="@{/survey/result}" th:object="${surveyResult}" method="get">
+
+      
+        <h1 class="font-weight-bold text-center mt-3">Quick survey</h1>
+       	<p>Question 1: </p>
+        <hr>
+  
+  		
+        <div class="form-group">
+        	<h4> How important it is for you to live in a county with large population? </h4>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="option1" name="option1" class="custom-control-input" value=0.66 th:field="*{populationResult}">
+                <label class="custom-control-label" for="option1">Very important</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="option2" name="option2" class="custom-control-input" value="2" th:field="*{populationResult}">
+                <label class="custom-control-label" for="option2">Important</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="option3" name="option3" class="custom-control-input" value="3" th:field="*{populationResult}">
+                <label class="custom-control-label" for="option3">I don't care</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="option4" name="option4" class="custom-control-input" value="4" th:field="*{populationResult}">
+                <label class="custom-control-label" for="option4">I rather live in a smaller town</label>
+            </div>
+        </div>
+        <hr>
+     
+     	<p>Question 2: </p>
+     	<hr>
+     	<div class="form-group">
+        	<h4> How important it is for you to live in a county with higher median household income? </h4>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="option11" name="option11" class="custom-control-input" value="1" th:field="*{incomeResult}">
+                <label class="custom-control-label" for="option11">Very important</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="option12" name="option12" class="custom-control-input" value="2" th:field="*{incomeResult}">
+                <label class="custom-control-label" for="option12">Important</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="option13" name="option13" class="custom-control-input" value="3" th:field="*{incomeResult}">
+                <label class="custom-control-label" for="option13">I don't care</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="option14" name="option14" class="custom-control-input" value="4" th:field="*{incomeResult}">
+                <label class="custom-control-label" for="option14">I hate money</label>
+            </div>
+        </div>
+        <hr>
+        
+        
+        <p>Question 3: </p>
+     	<hr>
+     	<div class="form-group">
+        	<h4> How important it is for you to live in a county with lower median house price? </h4>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="option21" name="option21" class="custom-control-input" value="1" th:field="*{housePriceResult}">
+                <label class="custom-control-label" for="option21">Very important</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="option22" name="option22" class="custom-control-input" value="2" th:field="*{housePriceResult}">
+                <label class="custom-control-label" for="option22">Important</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="option23" name="option23" class="custom-control-input" value="3" th:field="*{housePriceResult}">
+                <label class="custom-control-label" for="option23">I don't care</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="option24" name="option24" class="custom-control-input" value="4" th:field="*{housePriceResult}">
+                <label class="custom-control-label" for="option24">I am rich</label>
+            </div>
+        </div>
+        <hr>
+        
+        <p>Question 4: </p>
+     	<hr>
+     	<div class="form-group">
+        	<h4> How important it is for you to live in a hot place? </h4>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="option31" name="option31" class="custom-control-input" value="1" th:field="*{temperatureResult}">
+                <label class="custom-control-label" for="option31">Very important</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="option32" name="option32" class="custom-control-input" value="2" th:field="*{temperatureResult}">
+                <label class="custom-control-label" for="option32">Important</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="option33" name="option33" class="custom-control-input" value="3" th:field="*{temperatureResult}">
+                <label class="custom-control-label" for="option33">I don't care</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="option34" name="option34" class="custom-control-input" value="4" th:field="*{temperatureResult}">
+                <label class="custom-control-label" for="option34">I want to live in a cooler place</label>
+            </div>
+        </div>
+        <hr>
+
+		<p>Question 5: </p>
+     	<hr>
+     	<div class="form-group">
+        	<h4> How important it is for you to live in a county with less crime?  </h4>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="option41" name="option41" class="custom-control-input" value="1" th:field="*{crimeRateResult}">
+                <label class="custom-control-label" for="option41">Very important</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="option42" name="option42" class="custom-control-input" value="2" th:field="*{crimeRateResult}">
+                <label class="custom-control-label" for="option42">Important</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="option43" name="option43" class="custom-control-input" value="3" th:field="*{crimeRateResult}">
+                <label class="custom-control-label" for="option43">I don't care</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="option44" name="option44" class="custom-control-input" value="4" th:field="*{crimeRateResult}">
+                <label class="custom-control-label" for="option44">I like danger</label>
+            </div>
+        </div>
+        <hr>
+        
+        
+        
+        <p>Question 6: </p>
+     	<hr>
+     	<div class="form-group">
+        	<h4> How important it is for you to live in a county with lower unemployment rate?  </h4>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="option51" name="option51" class="custom-control-input" value="1" th:field="*{unemploymentResult}">
+                <label class="custom-control-label" for="option51">Very important</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="option52" name="option52" class="custom-control-input" value="2" th:field="*{unemploymentResult}">
+                <label class="custom-control-label" for="option52">Important</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="option53" name="option53" class="custom-control-input" value="3" th:field="*{unemploymentResult}">
+                <label class="custom-control-label" for="option53">I don't care</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="option54" name="option54" class="custom-control-input" value="4" th:field="*{unemploymentResult}">
+                <label class="custom-control-label" for="option54">I am confidence about myself</label>
+            </div>
+        </div>
+        <hr>
+        
+        
+        
+        <p>Question 7: </p>
+     	<hr>
+     	<div class="form-group">
+        	<h4> How important it is for you to live in a county with many students?  </h4>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="option61" name="option61" class="custom-control-input" value="1" th:field="*{studentResult}">
+                <label class="custom-control-label" for="option61">Very important</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="option62" name="option62" class="custom-control-input" value="2" th:field="*{studentResult}">
+                <label class="custom-control-label" for="option62">Important</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="option63" name="option63" class="custom-control-input" value="3" th:field="*{studentResult}">
+                <label class="custom-control-label" for="option63">I don't care</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="option64" name="option64" class="custom-control-input" value="4" th:field="*{studentResult}">
+                <label class="custom-control-label" for="option64">I hate teenagers</label>
+            </div>
+        </div>
+        <hr>
+        
+        
+
+		<button class="btn btn-primary" type="submit">Submit form</button>
+</form>
+</div>
+
+
