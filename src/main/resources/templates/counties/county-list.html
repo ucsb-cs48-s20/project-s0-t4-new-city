@@ -2,25 +2,28 @@
     <thead class="thead-light">
         <tr>
             <th data-sortable="true">County</th>
-            <th data-sortable="true">Population</th>
-            <th data-sortable="true">Median House Hold Income</th>
-            <th data-sortable="true">Median House price</th>
-            <th data-sortable="true">Temperature(F)</th>
-            <th data-sortable="true">Crime Rate(per 1000 people)</th>
-            <th data-sortable="true">Unemployment Rate(%)</th>
-            <th data-sortable="true">Student Enrollment</th>
+            <th data-sortable="true">Populatio Rank</th>
+            <th data-sortable="true">Income Rank</th>
+            <th data-sortable="true">House Price Rank</th>
+            <th data-sortable="true">Temperature Rank</th>
+            <th data-sortable="true">Crime Rate Rank</th>
+            <th data-sortable="true">Unemployment Rate Rank</th>
+            <th data-sortable="true">Student Enrollment Rank</th>
+            
+            
         </tr>
     </thead>
     <tbody>
         <tr th:each="county : ${counties}">
             <td th:text="${county.name}"></td>
-            <td th:text="${county.population}"></td>
-            <td th:text="${county.averageIncome}"></td>
-            <td th:text="${county.housePrice}"></td>
-            <td th:text="${county.temperature}"></td>
-            <td th:text="${county.crimeRate}"></td>
-            <td th:text="${county.unEmploymentRate}"></td>
-            <td th:text="${county.studentEnrollment}"></td>
+            <td th:text="${county.populationRank}"></td>
+            <td th:text="${county.incomeRank}"></td>
+            <td th:text="${county.houseRank}"></td>
+            <td th:text="${county.temperatureRank}"></td>
+            <td th:text="${county.crimeRank}"></td>
+            <td th:text="${county.unemploymentRank}"></td>
+            <td th:text="${county.studentRank}"></td>
+            
         </tr>
     </tbody>
 </table>

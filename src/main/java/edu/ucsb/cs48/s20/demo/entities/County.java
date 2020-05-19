@@ -51,10 +51,39 @@ public class County {
     @CsvBindByName
 	private double unEmploymentRate;
 	
+	
+
 	@CsvBindByPosition(position = 7)
     @CsvBindByName
 	private double studentEnrollment;
-		
+	
+	@CsvBindByPosition(position = 8)
+    @CsvBindByName
+	private int populationRank;
+	
+	@CsvBindByPosition(position = 9)
+    @CsvBindByName
+	private int incomeRank;
+	
+	@CsvBindByPosition(position = 10)
+    @CsvBindByName
+	private int houseRank;
+	
+	@CsvBindByPosition(position = 11)
+    @CsvBindByName
+	private int temperatureRank;
+	
+	@CsvBindByPosition(position = 12)
+    @CsvBindByName
+	private int crimeRank;
+	
+	@CsvBindByPosition(position = 13)
+    @CsvBindByName
+	private int unemploymentRank;
+	
+	@CsvBindByPosition(position = 14)
+    @CsvBindByName
+	private int studentRank;
 	
 
 	public String getName() {
@@ -109,12 +138,59 @@ public class County {
 		this.studentEnrollment = studentEnrollment;
 	}
 	
+	public int getPopulationRank() {
+		return populationRank;
+	}
+	public void setPopulationRank(int populationRank) {
+		this.populationRank = populationRank;
+	}
+	public int getIncomeRank() {
+		return incomeRank;
+	}
+	public void setIncomeRank(int incomeRank) {
+		this.incomeRank = incomeRank;
+	}
+	public int getHouseRank() {
+		return houseRank;
+	}
+	public void setHouseRank(int houseRank) {
+		this.houseRank = houseRank;
+	}
+	public int getTemperatureRank() {
+		return temperatureRank;
+	}
+	public void setTemperatureRank(int temperatureRank) {
+		this.temperatureRank = temperatureRank;
+	}
+	public int getCrimeRank() {
+		return crimeRank;
+	}
+	public void setCrimeRank(int crimeRank) {
+		this.crimeRank = crimeRank;
+	}
+	public int getUnemploymentRank() {
+		return unemploymentRank;
+	}
+	public void setUnemploymentRank(int unemploymentRank) {
+		this.unemploymentRank = unemploymentRank;
+	}
+	public int getStudentRank() {
+		return studentRank;
+	}
+	public void setStudentRank(int studentRank) {
+		this.studentRank = studentRank;
+	}
+
+	
 	
 	@Override
 	public String toString() {
 		return "County [id=" + id + ", population=" + population + ", name=" + name + ", averageIncome=" + averageIncome
-				+ ", temperature=" + temperature + ", housePrice=" + housePrice + ", crimeRate=" + crimeRate + ", unEmploymentRate=" + unEmploymentRate
-	            + ", studentEnrollment=" + studentEnrollment + "]";
+				+ ", temperature=" + temperature + ", housePrice=" + housePrice + ", crimeRate=" + crimeRate
+				+ ", unEmploymentRate=" + unEmploymentRate + ", studentEnrollment=" + studentEnrollment
+				+ ", populationRank=" + populationRank + ", incomeRank=" + incomeRank + ", houseRank=" + houseRank
+				+ ", temperatureRank=" + temperatureRank + ", crimeRank=" + crimeRank + ", unemploymentRank="
+				+ unemploymentRank + ", studentRank=" + studentRank + "]";
 	}
 	
 	
