@@ -63,7 +63,32 @@
     <div class="container">
 
         <h5>All counties in California that fit within the specified criteria.</h5>
-        <div th:replace="counties/county-list.html"></div>
+        <table class="bootstrap-table" data-toggle="table" data-search="true" data-show-export="true" data-show-columns="true" data-show-columns-toggle-all="true">
+    		<thead class="thead-light">
+      		  <tr>
+        	    <th data-sortable="true">County</th>
+       		     <th data-sortable="true">Population</th>
+        	    <th data-sortable="true">Median House Hold Income</th>
+       		     <th data-sortable="true">Median House price</th>
+       		     <th data-sortable="true">Temperature(F)</th>
+       		     <th data-sortable="true">Crime Rate(per 1000 people)</th>
+       		     <th data-sortable="true">Unemployment Rate(%)</th>
+      	      <th data-sortable="true">Student Enrollment</th>
+       		 </tr>
+   		 	</thead>
+   		 	<tbody>
+        		<tr th:each="county : ${counties}">
+            		<td th:text="${county.name}"></td>
+            		<td th:text="${county.population}"></td>
+            		<td th:text="${county.averageIncome}"></td>
+            		<td th:text="${county.housePrice}"></td>
+            		<td th:text="${county.temperature}"></td>
+            		<td th:text="${county.crimeRate}"></td>
+            		<td th:text="${county.unEmploymentRate}"></td>
+            		<td th:text="${county.studentEnrollment}"></td>
+        	</tr>
+    		</tbody>
+		</table>
         <div th:replace="bootstrap/bootstrap_footer.html"></div>
     </div>
     <div th:replace="bootstrap/bootstrap_scripts.html"></div>

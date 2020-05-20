@@ -47,6 +47,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="/Users/xilinwang/Documents/workspace-spring-tool-suite-4-4.6.1.RELEASE"/>
 			<item value="/Users/xilinwang/Documents/cs48/project-s0-t4-new-city"/>
 		</list>
 	</section>

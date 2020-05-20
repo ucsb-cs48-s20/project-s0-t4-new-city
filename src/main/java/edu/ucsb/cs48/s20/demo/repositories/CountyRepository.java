@@ -12,5 +12,7 @@ public interface CountyRepository extends CrudRepository<County, Long>{
 
 	public List<County> findByAverageIncomeBetweenAndHousePriceBetween(double incomeLower, double incomeUpper,
 	double priceLower, double priceUpper);
+	
+	
 
 }

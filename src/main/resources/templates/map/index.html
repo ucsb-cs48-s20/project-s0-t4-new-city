@@ -33,15 +33,15 @@
       #floating-panel {
         position: absolute;
         top: 10px;
-        left: 25%;
+        left: 50%;
         z-index: 5;
         background-color: #fff;
-        padding: 5px;
+        padding: 2px;
         border: 1px solid #999;
         text-align: center;
         font-family: 'Roboto','sans-serif';
         line-height: 30px;
-        padding-left: 10px;
+        padding-left: 2px;
       }
     </style>
 
@@ -80,8 +80,10 @@
         });
       }
     </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap">
+   	 <script async defer
+    	src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap" 
+    	th:src="${googleMapsUrl}"
+    	>
     </script>
   </body>
 </html>
