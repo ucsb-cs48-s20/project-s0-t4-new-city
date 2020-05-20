@@ -10,8 +10,36 @@
 <body>
   <div class="container-fluid">
     <div th:replace="bootstrap/bootstrap_nav_header.html"></div>
-      <p>Here is everything you want to know about all counties in California! </p>
-	  <div th:replace="counties/county-list.html"></div>
+      <p> These counties fit you the most!</p>
+	  
+		<table class="bootstrap-table" data-show-export="true" data-show-columns="true" data-toggle="table">
+    		
+    		<thead class="thead-light"> 
+        		<tr> 
+            	<th>County\Ranking</th>
+            	<th>Population</th>
+            	<th>Income</th>
+            	<th>House Price</th>
+            	<th>Temperature(1 means hottest)</th>
+            	<th>Crime Rate (1 means safest)</th>
+            	<th>Unemployment Rate</th>
+            	<th>Student Enrollment Rank</th>
+        		</tr>
+    		</thead>
+    		<tbody>
+        		<tr th:each="county : ${counties}">
+            	<td th:text="${county.name}"></td>
+            	<td th:text="${county.populationRank}"></td>
+            	<td th:text="${county.incomeRank}"></td>
+            	<td th:text="${county.houseRank}"></td>
+            	<td th:text="${county.temperatureRank}"></td>
+            	<td th:text="${county.crimeRank}"></td>
+            	<td th:text="${county.unemploymentRank}"></td>
+            	<td th:text="${county.studentRank}"></td>
+        		</tr>
+    		</tbody>
+		</table>
+
     <div th:replace="bootstrap/bootstrap_footer.html"></div>
   </div>
   <div th:replace="bootstrap/bootstrap_scripts.html"></div>

@@ -59,10 +59,15 @@ public class SurveyController {
     	
     	DynamicCountyComparator s1 = new DynamicCountyComparator(surveyResult); 
     	
-    	
-    	
     	countyList.sort(s1);
-    	model.addAttribute("counties", countyList);
+    	
+    	ArrayList<County> result = new ArrayList<>();
+    	result.add(countyList.get(0));
+    	result.add(countyList.get(1));
+    	result.add(countyList.get(2));
+    	
+    	
+    	model.addAttribute("counties", result);
    
     	
     	return "survey/result";
