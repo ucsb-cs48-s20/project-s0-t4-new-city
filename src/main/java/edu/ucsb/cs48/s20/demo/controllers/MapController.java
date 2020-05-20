@@ -20,12 +20,12 @@ import edu.ucsb.cs48.s20.demo.repositories.CountyRepository;
 @Controller
 public class MapController {
 	 
-	//private Logger logger = LoggerFactory.getLogger(MapController.class);
+	private Logger logger = LoggerFactory.getLogger(MapController.class);
 	
 	private final CountyRepository countyRepository;
 	
-	//@Value("${newCity.googleMapKey}")
-	//private String key;
+	@Value("${newCity.googleMapKey}")
+	private String key;
 	
 	@Autowired
 	public MapController(CountyRepository countyRepository) {
@@ -34,9 +34,9 @@ public class MapController {
 
     @GetMapping("/map")
     public String showSurveyForm(Model model) {
-    	///logger.info("key={}",key);
-    	//String googleMapUrl = String.format("https://maps.googleapis.com/maps/api/js?key=%s&callback=initMap", key);
-    	//model.addAttribute("googleMapsUrl", googleMapUrl);
+    	logger.info("key={}",key);
+    	String googleMapUrl = String.format("https://maps.googleapis.com/maps/api/js?key=%s&callback=initMap", key);
+    	model.addAttribute("googleMapsUrl", googleMapUrl);
         return "map/index";
     }
 }
