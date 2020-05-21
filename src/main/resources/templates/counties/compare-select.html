@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <div th:replace="bootstrap/title.html"></div>
+    <div th:replace="bootstrap/bootstrap_head.html"></div>
+</head>
+
+<body>
+    <div class="container">
+        <div th:replace="bootstrap/bootstrap_nav_header.html"></div>
+
+        <h1>Compare Counties</h1>
+        <h5>Select</h5>
+        <form action="#" th:action="@{/county/compare-results}" th:object="${compareCounty}" method="get">
+
+            <!-- TODO: add dropdown -->
+            
+            <input type="submit" class="btn btn-primary" value="Compare">
+
+        </form>
+
+        <div th:replace="bootstrap/bootstrap_footer.html"></div>
+    </div>
+    <div th:replace="bootstrap/bootstrap_scripts.html"></div>
+</body>
+
+</html>
