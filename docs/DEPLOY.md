@@ -27,7 +27,7 @@ Follow the instructions here for installing Java 11 and Maven
 # Step 4: Get google map key
 You must have at least one API key associated with your project.
 To get an API key:
-* Go to the Google Cloud Platform Console.
+* Go to the Google Cloud Platform Console: cloud.google.com
 * Click the project drop-down and select or create the project for which you want to add an API key.
 * Click the menu button  and select APIs & Services > Credentials.
 * On the Credentials page, click Create credentials > API key.
