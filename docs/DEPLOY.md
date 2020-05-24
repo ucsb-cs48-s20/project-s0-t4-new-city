@@ -65,7 +65,7 @@ At this point, let’s try to run the app on localhost first
 
 Step 8b: Get Google Map Key
 
-We also includ google map feature in our app, so you will need to get a key for that
+We also include google map feature in our app, so you will need to get a key for that
 
 To get an API key:
 * Go to the Google Cloud Platform Console: cloud.google.com
