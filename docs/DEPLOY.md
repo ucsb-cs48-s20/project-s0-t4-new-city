@@ -70,6 +70,8 @@ Now let's have the code in your local end
 
 # Step 9: Setting up OAuth for Spring Boot
 
+Follow this link for a more detailed explaination: https://ucsb-cs48.github.io/topics/oauth_google_setup/
+
 Step 9a: Setting up localhost
 At this point, let’s try to run the app on localhost first
 * Navigate to https://developers.google.com/identity/sign-in/web/sign-in to create a Google OAuth Application.
