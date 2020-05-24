@@ -24,34 +24,19 @@ Follow the instructions here for installing Java 11 and Maven
 * Install Maven. Instructions are here: https://maven.apache.org/index.html
 * If you are a Mac user, try to install Maven using Homebrew. https://ucsb-cs56.github.io/topics/macos/ Type “brew install maven” in your Terminal. (Check if your mac have Homebrew installed firstly)
  
-# Step 4: Get google map key
-You must have at least one API key associated with your project.
-To get an API key:
-* Go to the Google Cloud Platform Console: cloud.google.com
-* Click the project drop-down and select or create the project for which you want to add an API key.
-* Click the menu button  and select APIs & Services > Credentials.
-* On the Credentials page, click Create credentials > API key.
-* The API key created dialog displays your newly created API key.
-* Click Close.
-* The new API key is listed on the Credentials page under API keys.
-* (Remember to restrict the API key before using it in production.)
 
-You will need this key later, copy and paste it somewhere handy
-
-
-
-# Step 5: Create Heroku App 
+# Step 4: Create Heroku App 
 After you have created a heroku account, you should:
 login to the Heroku Dashboard https://dashboard.heroku.com
 create a new Heroku app called anything you want
  
-# Step 6: Fetch Source Code
+# Step 5: Fetch Source Code
 After your app’s ready, put it aside for a second and navigate github.com
 * On github.com, search project-s0-t4-new-city
 * Fork the project repo to your own personal GitHub account by clicking on the “Fork” button at the upper right hand of the repo’s page on Github
 * After a few seconds you should have a repo contains the source code
 
-# Step 7: Deploy App 
+# Step 6: Deploy App 
 You should have the heroku app handy, then:
 * Navigate to the https://dashboard.heroku.com
 * Bring up the app you just created
@@ -63,21 +48,38 @@ You should have the heroku app handy, then:
 
 If you deploy now, you should see an error since we still need to set things up 
  
-# Step 8: Git clone
+# Step 7: Git clone
 Now let's have the code in your local end
 * Go to your repo, find the green clone or download button, copy the link there
 * In your terminal do "git clone URL", Where URL should be the one you just copied
 
-# Step 9: Setting up OAuth for Spring Boot
+# Step 8: Setting up OAuth for Spring Boot
 
 Follow this link for a more detailed explaination: https://ucsb-cs48.github.io/topics/oauth_google_setup/
 
-Step 9a: Setting up localhost
+Step 8a: Setting up localhost
 At this point, let’s try to run the app on localhost first
 * Navigate to https://developers.google.com/identity/sign-in/web/sign-in to create a Google OAuth Application.
 * If you are asked “Where are you calling from”, select “Web Server”
 * Set the Authorized Redirect URI to: http://localhost:8080/login/oauth2/code/google
-* Create a file called secrets-localhost.properties, and add these three items to it, filling out the client-id, client-secret, google-map-key with the values from your Google OAuth application
+
+Step 8b: Get Google Map Key
+
+We also includ google map feature in our app, so you will need to get a key for that
+
+To get an API key:
+* Go to the Google Cloud Platform Console: cloud.google.com
+* Click the project drop-down and select or create the project for which you want to add an API key.
+* Click the menu button  and select APIs & Services > Credentials.
+* On the Credentials page, click Create credentials > API key.
+* The API key created dialog displays your newly created API key.
+* Click Close.
+* The new API key is listed on the Credentials page under API keys.
+* Copy that key somewhere handy
+
+Now let's go to your directory
+
+Create a file called secrets-localhost.properties, and add these three items to it, filling out the client-id, client-secret, google-map-key with the values from your Google OAuth application
 
 spring.security.oauth2.client.registration.google.client-id: PUT-CLIENT-ID-HERE
 
@@ -92,11 +94,15 @@ And now you should see the app functioning on your localhost
 Let’s proceed to next step
  
 
-Step 9b: How to set up Google OAuth for Heroku
+Step 8c: How to set up Google OAuth for Heroku
+Basically repeat 9a and 9b with minor changes
 * Navigate to https://developers.google.com/identity/sign-in/web/sign-in to create a Google OAuth Application.
 * If you are asked “Where are you calling from”, select “Web Server”
 * Set the Authorized Redirect URI to: https://your-app-name.herokuapp.com/login/oauth2/code/google
-* Add the following items to your secrets-heroku.properties file, filling out them the values from your Google OAuth application and key
+* Get map key as above instruction
+
+
+Add the following items to your secrets-heroku.properties file, filling out them the values from your Google OAuth application and key
 
 spring.security.oauth2.client.registration.google.client-id: PUT-CLIENT-ID-HERE
 
@@ -111,7 +117,7 @@ heroku config:set PRODUCTION_PROPERTIES="$(cat secrets-heroku.properties)" "$@"
 
 If you deploy now, you will see the error still there. But don’t worry, we still need to connect our app to heroku psql database
 
-# Step 10: Connection to database
+# Step 9: Connection to database
 * Go to the Heroku Dashboard of your app, under `Settings`, and then `Reveal Config Vars`. Copy the current value of `PRODUCTION_PROPERTIES` and paste it somewhere handy.  You'll need to copy and paste that value in a moment.
 
 * Get the jdbc database url for your Heroku app by running the following command at a terminal prompt where you have the Heroku CLI installed, and are logged in to your Heroku account with `heroku login -i`
@@ -137,5 +143,5 @@ echo $PRODUCTION_PROPERTIES
 
 * Go to heroku.com and redeploy the master branch again. You should see our app, excpt there’s no data in it! And we have one last step to do.
 
-# Step 11: Fully functioning website
+# Step 10: Fully functioning website
 * Run mvn spring-boot:run -Dspring-boot.run.arguments="--filename=sheet.csv" on your terminal. By doing so, we are injecting data into the database. If you go to your app’s website now, you should see a fully functioning New-County-Searcher app.
