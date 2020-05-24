@@ -81,9 +81,9 @@ Now let's go to your directory
 
 Create a file called secrets-localhost.properties, and add these three items to it, filling out the client-id, client-secret, google-map-key with the values from your Google OAuth application
 
-spring.security.oauth2.client.registration.google.client-id: PUT-CLIENT-ID-HERE
+spring.security.oauth2.client.registration.google.client-id=PUT-CLIENT-ID-HERE
 
-spring.security.oauth2.client.registration.google.client-secret: PUT-CLIENT-SECRET-HERE
+spring.security.oauth2.client.registration.google.client-secret=PUT-CLIENT-SECRET-HERE
 
 newCity.googleMapKey=PUT-YOUR-KEY-HERE
 
@@ -104,9 +104,9 @@ Basically repeat 9a and 9b with minor changes
 
 Add the following items to your secrets-heroku.properties file, filling out them the values from your Google OAuth application and key
 
-spring.security.oauth2.client.registration.google.client-id: PUT-CLIENT-ID-HERE
+spring.security.oauth2.client.registration.google.client-id=PUT-CLIENT-ID-HERE
 
-spring.security.oauth2.client.registration.google.client-secret: PUT-CLIENT-SECRET-HERE
+spring.security.oauth2.client.registration.google.client-secret=PUT-CLIENT-SECRET-HERE
 
 newCity.googleMapKey=PUT-YOUR-KEY-HERE
  
