@@ -111,6 +111,7 @@ spring.security.oauth2.client.registration.google.client-secret=PUT-CLIENT-SECRE
 newCity.googleMapKey=PUT-YOUR-KEY-HERE
  
 * Run the script ./setHerokuEnv.sh --app appname
+
 If you don’t have a setHerokuEnv.sh script for your app, create one that looks like this:
 #!/usr/bin/env bash
 heroku config:set PRODUCTION_PROPERTIES="$(cat secrets-heroku.properties)" "$@"
