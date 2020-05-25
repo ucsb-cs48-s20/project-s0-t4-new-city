@@ -16,9 +16,9 @@ public class FilterController {
     private CountyRepository countyRepository = null;
 
     @Autowired
-	public void ApplicationController(CountyRepository countyRepository) {
-	       this.countyRepository = countyRepository;
-	}
+    public void ApplicationController(CountyRepository countyRepository) {
+        this.countyRepository = countyRepository;
+    }
 
     @GetMapping("/county/search")
 
@@ -32,8 +32,8 @@ public class FilterController {
         model.addAttribute("countyFilter", countyFilter);
 
         model.addAttribute("counties",
-            countyRepository.findByAverageIncomeBetweenAndHousePriceBetween(countyFilter.getMinincome(),
-            countyFilter.getMaxincome(), countyFilter.getMinhousecost(), countyFilter.getMaxhousecost() ));
+                           countyRepository.findByAverageIncomeBetweenAndHousePriceBetween(countyFilter.getMinincome(),
+                                   countyFilter.getMaxincome(), countyFilter.getMinhousecost(), countyFilter.getMaxhousecost() ));
 
         return "counties/results";
     }
