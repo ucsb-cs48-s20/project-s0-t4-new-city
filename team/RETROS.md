@@ -59,7 +59,7 @@ For the next retro leader, I would suggest ensuring that the retro discussion oc
 
 ## Action item
 
-# Setting stage Question: 
+Setting stage Question: 
 Hows everyone's long weekend? Did u chill a lot or work hard on any subject? 
 
 Data collected:<br>
@@ -74,27 +74,24 @@ Steven: satisfied with team, could done more personally<br>
 Brian: satisfied with team, want to do more in last iteration<br>
 
 
-Decide what to do
-goals: 1. Make sure we finish labs on time
-       2. Final project
-       3. Add a main page
+Decide what to do<br>
+goals: <br>
+* Make sure we finish labs on time<br>
+* Final project<br>
+* Add a main page<br>
 
-What can we do even better: 
-							1. On slack updating more often so two people don't do the same at the same time
-							2. Do more zoom calling because it is more effective
-							3. Put more deadline in last iteration
+What can we do even better: <br>
+* On slack updating more often so two people don't do the same at the same time<br>
+* Do more zoom calling because it is more effective<br>
+* Put more deadline in last iteration<br>
 
-a measurement: 
-                1. All labs need to be done.
-                2. Comparsion feature done by demo day
+a measurement: <br>
+* All labs need to be done.<br>
+* Comparsion feature done by demo day<br>
 
+Closing:<br>
+* appreciations: Say something nice to each other
 
-
-closing:
-appreciations
 ## Retro Assessment
-
-* A brief description of what retro outline or process you used.
-* A brief assessment of how it went.
-* What advice would you give to the next person leading a retro
-  based on what you learned today?
+I followed the Darby/Larsen’s five stages of a successful retro. The retro went smooth but didn't come up with many useful ideas that we can use in future iterations at beginning as our team is satisfied with what we have now and believe that our team is on the right track. But after Phill's help we recognized that a good software development team should always strive for better. So we took our time and come up with some more ideas that can improve our performance. I ended the retro by asking everyone to appreciate each other and that went smooth as well.
+For future retro leader, I suggest them don't be satisfied with team's current situation. Always come up with some questions to let team members reflect on themselves. 
