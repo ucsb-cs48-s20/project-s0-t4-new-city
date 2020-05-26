@@ -64,6 +64,7 @@ At this point, let’s try to run the app on localhost first
 * Set the Authorized Redirect URI to: http://localhost:8080/login/oauth2/code/google
 
 Step 8b: Get Google Map Key
+(You will need to input a credit card for this, but google gives you $300) 
 
 We also include google map feature in our app, so you will need to get a key for that
 
@@ -76,6 +77,11 @@ To get an API key:
 * Click Close.
 * The new API key is listed on the Credentials page under API keys.
 * Copy that key somewhere handy
+
+If you don't want to give your credit card away, skip following two steps, and don't include map feature in the app.
+
+* Now go to the drop down menu, find the billing option and input your credit info
+* Link your project with this billing acount and you are ready to go
 
 Now let's go to your directory
 
@@ -99,7 +105,7 @@ Basically repeat 9a and 9b with minor changes
 * Navigate to https://developers.google.com/identity/sign-in/web/sign-in to create a Google OAuth Application.
 * If you are asked “Where are you calling from”, select “Web Server”
 * Set the Authorized Redirect URI to: https://your-app-name.herokuapp.com/login/oauth2/code/google
-* Get map key as above instruction
+* You can use the same map key obtained in above instruction
 
 
 Add the following items to your secrets-heroku.properties file, filling out them the values from your Google OAuth application and key
@@ -119,28 +125,13 @@ heroku config:set PRODUCTION_PROPERTIES="$(cat secrets-heroku.properties)" "$@"
 If you deploy now, you will see the error still there. But don’t worry, we still need to connect our app to heroku psql database
 
 # Step 9: Connection to database
-* Go to the Heroku Dashboard of your app, under `Settings`, and then `Reveal Config Vars`. Copy the current value of `PRODUCTION_PROPERTIES` and paste it somewhere handy.  You'll need to copy and paste that value in a moment.
+* Run: source loaddata.sh YOUR_HEROKU_APP_NAME
 
-* Get the jdbc database url for your Heroku app by running the following command at a terminal prompt where you have the Heroku CLI installed, and are logged in to your Heroku account with `heroku login -i`
+when it is done, run:
 
-  heroku run -a YOUR_PROJECT_NAME echo \$JDBC_DATABASE_URL
-
-* Have the output of this command (the full output, not just the URL) ready to copy and paste as well.
-
-* Now, type the following `export` command at the shell prompt, in the same shell (terminal window) where you are going to run your app in a moment (with `mvn spring-boot:run...`)
-Copy/paste the values from steps 1 and 2 above before you press enter.
-
-
-export PRODUCTION_PROPERTIES="
-
-(paste the PRODUCTION_PROPERTIES from Step 1 here)
-
-spring.datasource.url=PASTE_URL_FROM_STEP2_HERE
-
-"
-
-* Basically, you want the `PRODUCTION_PROPERTIES` environment variable to be all of the `PRODUCTION_PROPERTIES` from your existing Heroku app, plus in addition, you want `spring.datasource.url` set equal to the value of `JDBC_DATABASE_URL` for your Heroku app. You can check whether it worked by typing
 echo $PRODUCTION_PROPERTIES
+
+Check if everything is there
 
 * Go to heroku.com and redeploy the master branch again. You should see our app, excpt there’s no data in it! And we have one last step to do.
 
