@@ -1,3 +1,7 @@
+An example of how to deploy the app is here:
+https://youtu.be/ht6yVkLW1xY
+
+
 # Step 1: Create Heroku Account 
 
 You will need a Heroku Account to use our app. 
