@@ -53,16 +53,45 @@ For the next retro leader, I would suggest ensuring that the retro discussion oc
 
 # Retro 05/26/20
 
-* Led by: name-goes-here
-* Present: name1, name2, ... , nameN
-* Absent: name1, name2, ...
+* Led by: Xilin Wang
+* Present: All
+* Absent: None
 
 ## Action item
 
-* a goal: identify something the team wants to get better at
-* a change: identify one thing that the team will change about how it works together
-* a measurement: identify at least one way to measure whether the change helped the team acheive the goal, or move closer to it.
+# Setting stage Question: 
+Hows everyone's long weekend? Did u chill a lot or work hard on any subject? 
 
+Data collected:<br>
+Number of meetings/communications?<br>
+Number of stories completed/in progress<br>
+how do everyone feel about this iteration, are u satisfied with team's result?<br>
+Are you satisifed with your own work?<br>
+
+
+Ari: satisfied with team, also with himself<br>
+Steven: satisfied with team, could done more personally<br>
+Brian: satisfied with team, want to do more in last iteration<br>
+
+
+Decide what to do
+goals: 1. Make sure we finish labs on time
+       2. Final project
+       3. Add a main page
+
+What can we do even better: 
+							1. On slack updating more often so two people don't do the same at the same time
+							2. Do more zoom calling because it is more effective
+							3. Put more deadline in last iteration
+
+a measurement: 
+                1. All labs need to be done.
+                2. Comparsion feature done by demo day
+
+
+
+closing:
+appreciations
 ## Retro Assessment
 
 * A brief description of what retro outline or process you used.
