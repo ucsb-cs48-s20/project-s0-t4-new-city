@@ -135,4 +135,6 @@ To check if everything is there
 
 
 # Step 10: Fully functioning website
-* Run mvn spring-boot:run -Dspring-boot.run.arguments="--filename=sheet.csv" on your terminal. By doing so, we are injecting data into the database. If you go to your app’s website now, you should see a fully functioning New-County-Searcher app.
+* On your terminal run<br/>
+mvn spring-boot:run -Dspring-boot.run.arguments="--filename=sheet.csv"<br/>
+By doing so, we are injecting data into the database. If you go to your app’s website now, you should see a fully functioning New-County-Searcher app.
