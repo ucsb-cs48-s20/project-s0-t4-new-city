@@ -95,7 +95,7 @@ newCity.googleMapKey=PUT-YOUR-KEY-HERE
 
 * Run mvn spring-boot:run -Dspring-boot.run.arguments="--filename=sheet.csv"
 
-And now you should see the app functioning on your localhost
+And now you should see the app functioning on your localhost, and if you don't see it working, its ok to ignore it for now
 
 Let’s proceed to next step
  
@@ -122,7 +122,7 @@ If you don’t have a setHerokuEnv.sh script for your app, create one that looks
 #!/usr/bin/env bash
 heroku config:set PRODUCTION_PROPERTIES="$(cat secrets-heroku.properties)" "$@"
 
-If you deploy now, you will see the error still there. But don’t worry, we still need to connect our app to heroku psql database
+If you deploy now, you will probably see our app without any data! That's fine and let's put data into it
 
 # Step 9: Connection to database
 * Run: source loaddata.sh YOUR_HEROKU_APP_NAME
@@ -131,9 +131,8 @@ when it is done, run:
 
 echo $PRODUCTION_PROPERTIES
 
-Check if everything is there
+To check if everything is there
 
-* Go to heroku.com and redeploy the master branch again. You should see our app, excpt there’s no data in it! And we have one last step to do.
 
 # Step 10: Fully functioning website
 * Run mvn spring-boot:run -Dspring-boot.run.arguments="--filename=sheet.csv" on your terminal. By doing so, we are injecting data into the database. If you go to your app’s website now, you should see a fully functioning New-County-Searcher app.
