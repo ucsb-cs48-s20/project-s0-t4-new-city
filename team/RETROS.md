@@ -63,15 +63,15 @@ Setting stage Question:
 Hows everyone's long weekend? Did u chill a lot or work hard on any subject? 
 
 Data collected:<br>
-Number of meetings/communications?<br>
-Number of stories completed/in progress<br>
-how do everyone feel about this iteration, are u satisfied with team's result?<br>
-Are you satisifed with your own work?<br>
+* Number of meetings/communications?<br>
+* Number of stories completed/in progress<br>
+* how do everyone feel about this iteration, are u satisfied with team's result?<br>
+* Are you satisifed with your own work?<br>
 
 
-Ari: satisfied with team, also with himself<br>
-Steven: satisfied with team, could done more personally<br>
-Brian: satisfied with team, want to do more in last iteration<br>
+* Ari: satisfied with team, also with himself<br>
+* Steven: satisfied with team, could done more personally<br>
+* Brian: satisfied with team, want to do more in last iteration<br>
 
 
 Decide what to do<br>
@@ -93,5 +93,5 @@ Closing:<br>
 * appreciations: Say something nice to each other
 
 ## Retro Assessment
-I followed the Darby/Larsen’s five stages of a successful retro. The retro went smooth but didn't come up with many useful ideas that we can use in future iterations at beginning as our team is satisfied with what we have now and believe that our team is on the right track. But after Phill's help we recognized that a good software development team should always strive for better. So we took our time and come up with some more ideas that can improve our performance. I ended the retro by asking everyone to appreciate each other and that went smooth as well.
-For future retro leader, I suggest them don't be satisfied with team's current situation. Always come up with some questions to let team members reflect on themselves. 
+* I followed the Darby/Larsen’s five stages of a successful retro. The retro went smooth but didn't come up with many useful ideas that we can use in future iterations at beginning as our team is satisfied with what we have now and believe that our team is on the right track. But after Phill's help we recognized that a good software development team should always strive for better. So we took our time and come up with some more ideas that can improve our performance. I ended the retro by asking everyone to appreciate each other and that went smooth as well.
+* For future retro leader, I suggest them don't be satisfied with team's current situation. Always come up with some questions to let team members reflect on themselves. 
