@@ -41,9 +41,16 @@ public class CommandLineRunner implements ApplicationRunner {
 		logger.info("hello world");
 		if (args.containsOption("filename")) {
 			loadDataFromFiles(args.getOptionValues("filename"));
-		}
+        }
+        if (args.containsOption("resetdatabase")) {
+			resetDatabase();
+        }
 	}
-	
+    
+    public void resetDatabase() {
+        countyRepository.deleteAll();
+    }
+
 	public void loadDataFromFiles(List<String> filenames) {
         for (var filename : filenames) {
             loadDataFromFile(filename);
