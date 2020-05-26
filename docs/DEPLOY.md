@@ -103,37 +103,34 @@ And now you should see the app functioning on your localhost, and if you don't s
 Let’s proceed to next step
  
 
-Step 8c: How to set up Google OAuth for Heroku
-Basically repeat 9a and 9b with minor changes
+# Step 8c: How to set up Google OAuth for Heroku
+Basically repeat 8a and 8b with minor changes
 * Navigate to https://developers.google.com/identity/sign-in/web/sign-in to create a Google OAuth Application.
 * If you are asked “Where are you calling from”, select “Web Server”
 * Set the Authorized Redirect URI to: https://your-app-name.herokuapp.com/login/oauth2/code/google
 * You can use the same map key obtained in above instruction
 
-
 Add the following items to your secrets-heroku.properties file, filling out them the values from your Google OAuth application and key
 
-spring.security.oauth2.client.registration.google.client-id=PUT-CLIENT-ID-HERE
-
-spring.security.oauth2.client.registration.google.client-secret=PUT-CLIENT-SECRET-HERE
-
+spring.security.oauth2.client.registration.google.client-id=PUT-CLIENT-ID-HERE<br/>
+spring.security.oauth2.client.registration.google.client-secret=PUT-CLIENT-SECRET-HERE<br/>
 newCity.googleMapKey=PUT-YOUR-KEY-HERE
  
-* Run the script ./setHerokuEnv.sh --app appname
+* Run the script<br/> 
+./setHerokuEnv.sh --app appname
 
-If you don’t have a setHerokuEnv.sh script for your app, create one that looks like this:
-#!/usr/bin/env bash
+If you don’t have a setHerokuEnv.sh script for your app, create one that looks like this:<br/>
+#!/usr/bin/env bash<br/>
 heroku config:set PRODUCTION_PROPERTIES="$(cat secrets-heroku.properties)" "$@"
 
 If you deploy now, you will probably see our app without any data! That's fine and let's put data into it
 
 # Step 9: Connection to database
-* Run: source loaddata.sh YOUR_HEROKU_APP_NAME
+* Run: <br/>
+source loaddata.sh YOUR_HEROKU_APP_NAME
 
-when it is done, run:
-
-echo $PRODUCTION_PROPERTIES
-
+when it is done, run:<br/>
+echo $PRODUCTION_PROPERTIES<br/>
 To check if everything is there
 
 
