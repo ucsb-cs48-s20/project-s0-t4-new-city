@@ -62,14 +62,14 @@ Now let's have the code in your local end
 
 Follow this link for a more detailed explaination: https://ucsb-cs48.github.io/topics/oauth_google_setup/
 
-Step 8a: Setting up localhost
+# Step 8a: Setting up localhost
 At this point, let’s try to run the app on localhost first
 * Navigate to https://developers.google.com/identity/sign-in/web/sign-in to create a Google OAuth Application.
 * If you are asked “Where are you calling from”, select “Web Server”
 * Set the Authorized Redirect URI to: http://localhost:8080/login/oauth2/code/google
 
-Step 8b: Get Google Map Key
-(You will need to input a credit card for this, but google gives you $300) 
+# Step 8b: Get Google Map Key
+(You will need to input a credit card for this, but google gives you $300 for free) 
 
 We also include google map feature in our app, so you will need to get a key for that
 
@@ -92,10 +92,8 @@ Now let's go to your directory
 
 Create a file called secrets-localhost.properties, and add these three items to it, filling out the client-id, client-secret, google-map-key with the values from your Google OAuth application
 
-spring.security.oauth2.client.registration.google.client-id=PUT-CLIENT-ID-HERE
-
-spring.security.oauth2.client.registration.google.client-secret=PUT-CLIENT-SECRET-HERE
-
+spring.security.oauth2.client.registration.google.client-id=PUT-CLIENT-ID-HERE<br/>
+spring.security.oauth2.client.registration.google.client-secret=PUT-CLIENT-SECRET-HERE<br/>
 newCity.googleMapKey=PUT-YOUR-KEY-HERE
 
 * Run mvn spring-boot:run -Dspring-boot.run.arguments="--filename=sheet.csv"
