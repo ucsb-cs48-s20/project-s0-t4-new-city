@@ -9,4 +9,5 @@
 | Thu 05/07 | Xilin Wang        | Did demo of MVP                                        | 
 | Mon 05/11 | Brian Kang        | Led second Retro                                       | 
 | Tue 05/12 | Ari Polakof       | Will lead Sprint Goal discussion                       | 
-| Tue 05/21 | Steven Seong      | Will do the 2nd demo video                             | 
+| Thu 05/21 | Steven Seong      | Will do the 2nd demo video                             | 
+| Tue 05/26 | Xilin wang        | Lead third retro                                       | 
