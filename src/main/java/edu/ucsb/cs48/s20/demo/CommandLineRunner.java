@@ -48,7 +48,9 @@ public class CommandLineRunner implements ApplicationRunner {
 	}
     
     public void resetDatabase() {
-        countyRepository.deleteAll();
+    	logger.warn("Starting delete all");
+    	countyRepository.deleteAll();
+    	logger.warn("Finished delete all");
     }
 
 	public void loadDataFromFiles(List<String> filenames) {
