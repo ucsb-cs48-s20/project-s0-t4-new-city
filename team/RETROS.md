@@ -68,7 +68,7 @@ Data collected:<br>
 * how do everyone feel about this iteration, are u satisfied with team's result?<br>
 * Are you satisifed with your own work?<br>
 
-
+Team answers:
 * Ari: satisfied with team, also with himself<br>
 * Steven: satisfied with team, could done more personally<br>
 * Brian: satisfied with team, want to do more in last iteration<br>
