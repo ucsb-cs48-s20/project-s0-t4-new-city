@@ -50,7 +50,9 @@ public class AuthControllerAdvice {
 
     @ModelAttribute("picture")
     public String getPicture(OAuth2AuthenticationToken token) {
-        if (token == null) return "";
+        if (token == null) {
+            return "";
+        }
         return token.getPrincipal().getAttributes().get("picture").toString();
     }
 
@@ -70,10 +72,14 @@ public class AuthControllerAdvice {
     }
 
     private void updateLoginTable(OAuth2AuthenticationToken token) {
-        if (token==null) return;
+        if (token==null) {
+            return;
+        }
 
         String email = membershipService.email(token);
-        if (email == null) return;
+        if (email == null) {
+            return;
+        }
 
         List<AppUser> appUsers = appUserRepository.findByEmail(email);
 

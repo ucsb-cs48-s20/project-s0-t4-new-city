@@ -48,8 +48,9 @@
 
 
     <module name="TreeWalker">
-<!--
+
         <module name="OuterTypeFilename"/>
+       
         <module name="IllegalTokenText">
             <property name="tokens" value="STRING_LITERAL, CHAR_LITERAL"/>
             <property name="format"
@@ -57,25 +58,29 @@
             <property name="message"
              value="Consider using special escape sequence instead of octal value or Unicode escaped value."/>
         </module>
+        
         <module name="AvoidEscapedUnicodeCharacters">
             <property name="allowEscapesForControlCharacters" value="true"/>
             <property name="allowByTailComment" value="true"/>
             <property name="allowNonPrintableEscapes" value="true"/>
         </module>
+        
         <module name="AvoidStarImport"/>
         <module name="OneTopLevelClass"/>
         <module name="NoLineWrap">
             <property name="tokens" value="PACKAGE_DEF, IMPORT, STATIC_IMPORT"/>
         </module>
+         <!--
         <module name="EmptyBlock">
             <property name="option" value="TEXT"/>
             <property name="tokens"
              value="LITERAL_TRY, LITERAL_FINALLY, LITERAL_IF, LITERAL_ELSE, LITERAL_SWITCH"/>
-        </module>
+        </module> -->
         <module name="NeedBraces">
             <property name="tokens"
              value="LITERAL_DO, LITERAL_ELSE, LITERAL_FOR, LITERAL_IF, LITERAL_WHILE"/>
         </module>
+        <!--
         <module name="LeftCurly">
             <property name="tokens"
              value="ANNOTATION_DEF, CLASS_DEF, CTOR_DEF, ENUM_CONSTANT_DEF, ENUM_DEF,
