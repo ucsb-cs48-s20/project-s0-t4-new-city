@@ -16,7 +16,7 @@ public class FilterController {
     private CountyRepository countyRepository = null;
 
     @Autowired
-    public void ApplicationController(CountyRepository countyRepository) {
+    public void applicationController(CountyRepository countyRepository) {
         this.countyRepository = countyRepository;
     }
 
