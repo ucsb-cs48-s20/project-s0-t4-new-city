@@ -6,7 +6,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.context.annotation.PropertySource;
 
-@PropertySource(value = "classpath:secrets-localhost.properties", ignoreResourceNotFound = true)
+@PropertySource(value = "classpath:secrets-localhost.properties",
+                ignoreResourceNotFound = true)
 @SpringBootApplication
 public class Application extends WebSecurityConfigurerAdapter {
 
@@ -18,7 +19,8 @@ public class Application extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
         .authorizeRequests()
-        .antMatchers("/","/login**","/webjars/**","/error**","/county/**", "/survey**","/map**", "/survey/result")
+        .antMatchers("/","/login**","/webjars/**","/error**","/county/**", "/survey**","/map**",
+                     "/survey/result")
         .permitAll()
         .anyRequest()
         .authenticated()

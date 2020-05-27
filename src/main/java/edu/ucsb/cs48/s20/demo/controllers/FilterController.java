@@ -32,8 +32,10 @@ public class FilterController {
         model.addAttribute("countyFilter", countyFilter);
 
         model.addAttribute("counties",
-                           countyRepository.findByAverageIncomeBetweenAndHousePriceBetween(countyFilter.getMinincome(),
-                                   countyFilter.getMaxincome(), countyFilter.getMinhousecost(), countyFilter.getMaxhousecost() ));
+                           countyRepository.findByAverageIncomeBetweenAndHousePriceBetween(
+                               countyFilter.getMinincome(),
+                               countyFilter.getMaxincome(), countyFilter.getMinhousecost(),
+                               countyFilter.getMaxhousecost() ));
 
         return "counties/results";
     }

@@ -35,7 +35,8 @@ public class MapController {
     @GetMapping("/map")
     public String showSurveyForm(Model model) {
         logger.info("key={}",key);
-        String googleMapUrl = String.format("https://maps.googleapis.com/maps/api/js?key=%s&callback=initMap", key);
+        String googleMapUrl =
+            String.format("https://maps.googleapis.com/maps/api/js?key=%s&callback=initMap", key);
         model.addAttribute("googleMapsUrl", googleMapUrl);
         return "map/index";
     }

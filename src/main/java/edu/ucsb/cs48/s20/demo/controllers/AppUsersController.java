@@ -67,7 +67,8 @@ public class AppUsersController {
                 redirAttrs.addFlashAttribute("alertDanger", "Cannot delete the current user");
             } else {
                 appUserRepository.delete(appUser);
-                redirAttrs.addFlashAttribute("alertSuccess", "User " + email + "successfully deleted.");
+                String message = "User " + email + "successfully deleted.";
+                redirAttrs.addFlashAttribute("alertSuccess", message);
             }
         }
         model.addAttribute("users", appUserRepository.findAll());

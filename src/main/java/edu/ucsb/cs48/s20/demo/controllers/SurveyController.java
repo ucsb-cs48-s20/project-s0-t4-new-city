@@ -55,7 +55,6 @@ public class SurveyController {
         counties.forEach(countyList::add);
 
 
-        //double score = surveyResult.getPopulationResult() * 1 / countyList[0].getPopulationRank + ;
 
         DynamicCountyComparator s1 = new DynamicCountyComparator(surveyResult);
 

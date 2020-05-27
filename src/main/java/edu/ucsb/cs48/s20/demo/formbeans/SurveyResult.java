@@ -78,10 +78,13 @@ public class SurveyResult {
 
     @Override
     public String toString() {
-        return "SurveyResult [populationResult=" + populationResult + ", incomeResult=" + incomeResult
-               + ", housePriceResult=" + housePriceResult + ", temperatureResult=" + temperatureResult
-               + ", crimeRateResult=" + crimeRateResult + ", unemploymentResult=" + unemploymentResult
-               + ", studentResult=" + studentResult + "]";
+        return "SurveyResult [populationResult=" + populationResult
+                + ", incomeResult=" + incomeResult
+                + ", housePriceResult=" + housePriceResult
+                + ", temperatureResult=" + temperatureResult
+                + ", crimeRateResult=" + crimeRateResult
+                + ", unemploymentResult=" + unemploymentResult
+                + ", studentResult=" + studentResult + "]";
     }
 
 

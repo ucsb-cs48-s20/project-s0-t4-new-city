@@ -185,12 +185,20 @@ public class County {
 
     @Override
     public String toString() {
-        return "County [id=" + id + ", population=" + population + ", name=" + name + ", averageIncome=" + averageIncome
-               + ", temperature=" + temperature + ", housePrice=" + housePrice + ", crimeRate=" + crimeRate
-               + ", unEmploymentRate=" + unEmploymentRate + ", studentEnrollment=" + studentEnrollment
-               + ", populationRank=" + populationRank + ", incomeRank=" + incomeRank + ", houseRank=" + houseRank
-               + ", temperatureRank=" + temperatureRank + ", crimeRank=" + crimeRank + ", unemploymentRank="
-               + unemploymentRank + ", studentRank=" + studentRank + "]";
+        return "County [id=" + id + ", population=" + population + ", name=" + name +
+               ", averageIncome=" + averageIncome
+               + ", temperature=" + temperature
+               + ", housePrice=" + housePrice
+               +", crimeRate=" + crimeRate
+               + ", unEmploymentRate=" + unEmploymentRate
+               + ", studentEnrollment=" + studentEnrollment
+               + ", populationRank=" + populationRank
+               + ", incomeRank=" + incomeRank
+               + ", houseRank=" + houseRank
+               + ", temperatureRank=" + temperatureRank
+               + ", crimeRank=" + crimeRank
+               + ", unemploymentRank=" + unemploymentRank
+               + ", studentRank=" + studentRank + "]";
     }
 
 
