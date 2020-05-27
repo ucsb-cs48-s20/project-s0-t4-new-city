@@ -66,7 +66,8 @@ public class SurveyResult {
         this.studentResult = studentResult;
     }
 
-    public SurveyResult() {}
+    public SurveyResult() {
+    }
 
     public int getPopulationResult() {
         return populationResult;

@@ -120,7 +120,8 @@ public class GoogleMembershipService implements MembershipService {
     public String lastName(OAuth2AuthenticationToken token) {
         if (token == null) {
             return "";
-        } try {
+        }
+        try {
             return token.getPrincipal().getAttributes().get("family_name").toString();
         } catch(NullPointerException e) {
             return "";

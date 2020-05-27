@@ -7,7 +7,8 @@ public class CountyFilter {
     private double minhousecost;
     private double maxhousecost;
 
-    public CountyFilter() {}
+    public CountyFilter() {
+    }
 
 // getters
     public double getMinincome() {
