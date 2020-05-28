@@ -15,7 +15,7 @@ public class CountyService {
     @Autowired
     private CountyRepository countyRepository;
 
-    
+
     public List<County> findAll() {
 
         var it = countyRepository.findAll();
@@ -25,7 +25,7 @@ public class CountyService {
 
         return counties;
     }
-    
-    
-    
+
+
+
 }

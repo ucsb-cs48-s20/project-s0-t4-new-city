@@ -24,33 +24,33 @@ import org.slf4j.Logger;
 
 @Component
 public class CommandLineRunner implements ApplicationRunner {
-	
-	private static final Logger logger = LoggerFactory.getLogger(CommandLineRunner.class);
-	
-	@Autowired
-	private CountyRepository countyRepository;
 
-	@Autowired
-	CSVToObjectService<County> csvToObjectService;
-	
-	
-	
+    private static final Logger logger = LoggerFactory.getLogger(CommandLineRunner.class);
 
-	@Override
-	public void run(ApplicationArguments args) throws Exception {
-		logger.info("hello world");
-		if (args.containsOption("filename")) {
-			loadDataFromFiles(args.getOptionValues("filename"));
-		}
-	}
-	
-	public void loadDataFromFiles(List<String> filenames) {
+    @Autowired
+    private CountyRepository countyRepository;
+
+    @Autowired
+    CSVToObjectService<County> csvToObjectService;
+
+
+
+
+    @Override
+    public void run(ApplicationArguments args) throws Exception {
+        logger.info("hello world");
+        if (args.containsOption("filename")) {
+            loadDataFromFiles(args.getOptionValues("filename"));
+        }
+    }
+
+    public void loadDataFromFiles(List<String> filenames) {
         for (var filename : filenames) {
             loadDataFromFile(filename);
         }
     }
-	
-	public void loadDataFromFile(String filename) {
+
+    public void loadDataFromFile(String filename) {
         logger.warn("Loading data from {}", filename);
 
         InputStream targetStream = null;
@@ -65,11 +65,11 @@ public class CommandLineRunner implements ApplicationRunner {
 
         try (Reader reader = new InputStreamReader(targetStream)) {
             List<County> counties = csvToObjectService.parse(reader, County.class);
-            
-            for(County c : counties) {
-            	logger.info("County : {}",c);
+
+            for (County c : counties) {
+                logger.info("County : {}", c);
             }
-            
+
             countyRepository.saveAll(counties);
         } catch (IOException ioe) {
             logger.error("Exception: ", ioe);

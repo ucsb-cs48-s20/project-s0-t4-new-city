@@ -25,21 +25,21 @@ import edu.ucsb.cs48.s20.demo.util.DynamicCountyComparator;
 
 @Controller
 public class SurveyController {
-	 
-	private final CountyRepository countyRepository;
-	
-	@Autowired
-	private CountyService countyService;
 
-	@Autowired
-	public SurveyController(CountyRepository countyRepository, CountyService countyService) {
-	       this.countyRepository = countyRepository;
-	       this.countyService = countyService;
-	}
-	
-	
-	
-	
+    private final CountyRepository countyRepository;
+
+    @Autowired
+    private CountyService countyService;
+
+    @Autowired
+    public SurveyController(CountyRepository countyRepository, CountyService countyService) {
+        this.countyRepository = countyRepository;
+        this.countyService = countyService;
+    }
+
+
+
+
 
     @GetMapping("/survey")
     public String getSurveyResult(SurveyResult surveryResult) {
@@ -48,29 +48,28 @@ public class SurveyController {
 
     @GetMapping("/survey/result")
     public String getSurveyResults(Model model, SurveyResult surveyResult) {
-    	model.addAttribute("surveyResult", surveyResult);
-    	Iterable<County> counties = countyRepository.findAll();
-    	
-    	ArrayList<County> countyList = new ArrayList<>();
-    	counties.forEach(countyList::add);
-    	
-    	
-    	//double score = surveyResult.getPopulationResult() * 1 / countyList[0].getPopulationRank + ;
-    	
-    	DynamicCountyComparator s1 = new DynamicCountyComparator(surveyResult); 
-    	
-    	countyList.sort(s1);
-    	
-    	ArrayList<County> result = new ArrayList<>();
-    	result.add(countyList.get(0));
-    	result.add(countyList.get(1));
-    	result.add(countyList.get(2));
-    	
-    	
-    	model.addAttribute("counties", result);
-   
-    	
-    	return "survey/result";
+        model.addAttribute("surveyResult", surveyResult);
+        Iterable<County> counties = countyRepository.findAll();
+
+        ArrayList<County> countyList = new ArrayList<>();
+        counties.forEach(countyList::add);
+
+
+
+        DynamicCountyComparator s1 = new DynamicCountyComparator(surveyResult);
+
+        countyList.sort(s1);
+
+        ArrayList<County> result = new ArrayList<>();
+        result.add(countyList.get(0));
+        result.add(countyList.get(1));
+        result.add(countyList.get(2));
+
+
+        model.addAttribute("counties", result);
+
+
+        return "survey/result";
 
     }
 }
