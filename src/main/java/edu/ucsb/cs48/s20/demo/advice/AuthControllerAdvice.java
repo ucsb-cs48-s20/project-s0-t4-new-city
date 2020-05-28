@@ -72,7 +72,7 @@ public class AuthControllerAdvice {
     }
 
     private void updateLoginTable(OAuth2AuthenticationToken token) {
-        if (token==null) {
+        if (token == null) {
             return;
         }
 
@@ -83,7 +83,7 @@ public class AuthControllerAdvice {
 
         List<AppUser> appUsers = appUserRepository.findByEmail(email);
 
-        if (appUsers.size()==0) {
+        if (appUsers.size() == 0) {
             // No user with this email is in the AppUsers table yet, so add one
             AppUser u = new AppUser();
             u.setEmail(email);

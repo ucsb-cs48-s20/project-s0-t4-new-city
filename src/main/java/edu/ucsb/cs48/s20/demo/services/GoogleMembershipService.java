@@ -123,7 +123,7 @@ public class GoogleMembershipService implements MembershipService {
         }
         try {
             return token.getPrincipal().getAttributes().get("family_name").toString();
-        } catch(NullPointerException e) {
+        } catch (NullPointerException e) {
             return "";
         }
     }

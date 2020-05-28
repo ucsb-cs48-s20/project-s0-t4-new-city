@@ -189,7 +189,7 @@ public class County {
                ", averageIncome=" + averageIncome
                + ", temperature=" + temperature
                + ", housePrice=" + housePrice
-               +", crimeRate=" + crimeRate
+               + ", crimeRate=" + crimeRate
                + ", unEmploymentRate=" + unEmploymentRate
                + ", studentEnrollment=" + studentEnrollment
                + ", populationRank=" + populationRank

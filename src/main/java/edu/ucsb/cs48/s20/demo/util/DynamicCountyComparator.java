@@ -25,7 +25,7 @@ public class DynamicCountyComparator implements Comparator<County> {
         double score1 = (double) surveyResult.getPopulationResult()
                         / (double) (o1.getPopulationRank())
                         + (double) surveyResult.getIncomeResult() / (double) (o1.getIncomeRank())
-                        + (double) urveyResult.getHousePriceResult() / (double) (o1.getHouseRank())
+                        + (double) surveyResult.getHousePriceResult() / (double) (o1.getHouseRank())
                         + (double) surveyResult.getTemperatureResult()
                           / (double) (o1.getTemperatureRank())
                         + (double) surveyResult.getCrimeRateResult() / (double) (o1.getCrimeRank())
