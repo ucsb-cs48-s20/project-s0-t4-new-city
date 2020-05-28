@@ -66,8 +66,8 @@ public class CommandLineRunner implements ApplicationRunner {
         try (Reader reader = new InputStreamReader(targetStream)) {
             List<County> counties = csvToObjectService.parse(reader, County.class);
 
-            for(County c : counties) {
-                logger.info("County : {}",c);
+            for (County c : counties) {
+                logger.info("County : {}", c);
             }
 
             countyRepository.saveAll(counties);
