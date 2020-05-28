@@ -11,4 +11,5 @@
 | Tue 05/12 | Ari Polakof       | Led Sprint Goal discussion                             | 
 | Thu 05/21 | Steven Seong      | Did the 2nd demo video                                 | 
 | Tue 05/26 | Xilin wang        | Led third retro                                        | 
-| Tue 05/26 | Brian Kang        | Led Sprint Goal Discussion                             | 
+| Tue 05/26 | Brian Kang        | Led Sprint Goal Discussion                             |
+| Tue 05/28 | Steven Seong      | Will lead the final presentation                       | 
