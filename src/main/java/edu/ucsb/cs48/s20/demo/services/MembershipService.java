@@ -30,12 +30,15 @@ public interface MembershipService {
     }
 
     default public String role(OAuth2AuthenticationToken token) {
-        if (token == null)
+        if (token == null) {
             return "Guest";
-        if (isAdmin(token))
+        }
+        if (isAdmin(token)) {
             return "Admin";
-        if (isMember(token))
+        }
+        if (isMember(token)) {
             return "Member";
+        }
         return "Guest";
     }
 

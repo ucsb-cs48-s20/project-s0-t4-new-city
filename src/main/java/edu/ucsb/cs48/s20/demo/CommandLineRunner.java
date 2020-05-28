@@ -24,7 +24,7 @@ import org.slf4j.Logger;
 
 @Component
 public class CommandLineRunner implements ApplicationRunner {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(CommandLineRunner.class);
 	
 	@Autowired
@@ -43,7 +43,7 @@ public class CommandLineRunner implements ApplicationRunner {
 			loadDataFromFiles(args.getOptionValues("filename"));
         }
         if (args.containsOption("resetdatabase")) {
-			resetDatabase();
+			     resetDatabase();
         }
 	}
     
@@ -53,13 +53,16 @@ public class CommandLineRunner implements ApplicationRunner {
     	logger.warn("Finished delete all");
     }
 
-	public void loadDataFromFiles(List<String> filenames) {
+	
+
+
+    public void loadDataFromFiles(List<String> filenames) {
         for (var filename : filenames) {
             loadDataFromFile(filename);
         }
     }
-	
-	public void loadDataFromFile(String filename) {
+
+    public void loadDataFromFile(String filename) {
         logger.warn("Loading data from {}", filename);
 
         InputStream targetStream = null;
@@ -74,11 +77,11 @@ public class CommandLineRunner implements ApplicationRunner {
 
         try (Reader reader = new InputStreamReader(targetStream)) {
             List<County> counties = csvToObjectService.parse(reader, County.class);
-            
-            for(County c : counties) {
-            	logger.info("County : {}",c);
+
+            for (County c : counties) {
+                logger.info("County : {}", c);
             }
-            
+
             countyRepository.saveAll(counties);
         } catch (IOException ioe) {
             logger.error("Exception: ", ioe);

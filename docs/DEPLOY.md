@@ -1,3 +1,8 @@
+# Deployment Insructions
+An example of how to deploy the app is here:
+https://youtu.be/ht6yVkLW1xY
+
+
 # Step 1: Create Heroku Account 
 
 You will need a Heroku Account to use our app. 
@@ -44,7 +49,7 @@ You should have the heroku app handy, then:
 * Under Deployment Method, select GitHub
 * To select your repo, type in your GitHub account for the owner, and then search for the repo you created in last step
 * Click to connect your repo to the app
-* Go down to “Automatic Deploys” and set up your repo to deploy the master branch automatically.
+* (Optional) Go down to “Automatic Deploys” and set up your repo to deploy the master branch automatically.
 
 If you deploy now, you should see an error since we still need to set things up 
  
@@ -57,92 +62,82 @@ Now let's have the code in your local end
 
 Follow this link for a more detailed explaination: https://ucsb-cs48.github.io/topics/oauth_google_setup/
 
-Step 8a: Setting up localhost
+### Step 8a: Setting up localhost
 At this point, let’s try to run the app on localhost first
 * Navigate to https://developers.google.com/identity/sign-in/web/sign-in to create a Google OAuth Application.
 * If you are asked “Where are you calling from”, select “Web Server”
 * Set the Authorized Redirect URI to: http://localhost:8080/login/oauth2/code/google
 
-Step 8b: Get Google Map Key
+### Step 8b: Get Google Map Key
+(You will need to input a credit card for this, but google gives you $300 for free) 
 
 We also include google map feature in our app, so you will need to get a key for that
 
 To get an API key:
 * Go to the Google Cloud Platform Console: cloud.google.com
+* Click on "console"
 * Click the project drop-down and select or create the project for which you want to add an API key.
 * Click the menu button  and select APIs & Services > Credentials.
-* On the Credentials page, click Create credentials > API key.
+* On the Credentials page, click +CREATE CREDENTIALS > API key.
 * The API key created dialog displays your newly created API key.
 * Click Close.
 * The new API key is listed on the Credentials page under API keys.
 * Copy that key somewhere handy
 
+If you don't want to give your credit card away, skip following two steps, and don't include map feature in the app.
+
+* Now go to the drop down menu, find the billing option and input your credit info
+* Link your project with this billing acount and you are ready to go
+
 Now let's go to your directory
 
 Create a file called secrets-localhost.properties, and add these three items to it, filling out the client-id, client-secret, google-map-key with the values from your Google OAuth application
 
-spring.security.oauth2.client.registration.google.client-id=PUT-CLIENT-ID-HERE
-
-spring.security.oauth2.client.registration.google.client-secret=PUT-CLIENT-SECRET-HERE
-
+spring.security.oauth2.client.registration.google.client-id=PUT-CLIENT-ID-HERE<br/>
+spring.security.oauth2.client.registration.google.client-secret=PUT-CLIENT-SECRET-HERE<br/>
 newCity.googleMapKey=PUT-YOUR-KEY-HERE
 
-* Run mvn spring-boot:run -Dspring-boot.run.arguments="--filename=sheet.csv"
+* Run in your command line:<br/>
+mvn spring-boot:run -Dspring-boot.run.arguments="--filename=sheet.csv"
 
-And now you should see the app functioning on your localhost
+And now you should see the app functioning on your localhost, and if you don't see it working, its ok to ignore it for now
 
 Let’s proceed to next step
  
 
-Step 8c: How to set up Google OAuth for Heroku
-Basically repeat 9a and 9b with minor changes
+### Step 8c: How to set up Google OAuth for Heroku
+Basically repeat 8a and 8b with minor changes
 * Navigate to https://developers.google.com/identity/sign-in/web/sign-in to create a Google OAuth Application.
 * If you are asked “Where are you calling from”, select “Web Server”
 * Set the Authorized Redirect URI to: https://your-app-name.herokuapp.com/login/oauth2/code/google
-* Get map key as above instruction
-
+* NOTE: replace the "your-app-name" part of the Redirect URI with the app name you created in part 4
+* You can use the same map key obtained in above instruction
 
 Add the following items to your secrets-heroku.properties file, filling out them the values from your Google OAuth application and key
 
-spring.security.oauth2.client.registration.google.client-id=PUT-CLIENT-ID-HERE
-
-spring.security.oauth2.client.registration.google.client-secret=PUT-CLIENT-SECRET-HERE
-
+spring.security.oauth2.client.registration.google.client-id=PUT-CLIENT-ID-HERE<br/>
+spring.security.oauth2.client.registration.google.client-secret=PUT-CLIENT-SECRET-HERE<br/>
 newCity.googleMapKey=PUT-YOUR-KEY-HERE
  
-* Run the script ./setHerokuEnv.sh --app appname
+* Run the script:<br/> 
+./setHerokuEnv.sh --app appname
 
-If you don’t have a setHerokuEnv.sh script for your app, create one that looks like this:
-#!/usr/bin/env bash
+If you don’t have a setHerokuEnv.sh script for your app, create one that looks like this:<br/>
+#!/usr/bin/env bash<br/>
 heroku config:set PRODUCTION_PROPERTIES="$(cat secrets-heroku.properties)" "$@"
 
-If you deploy now, you will see the error still there. But don’t worry, we still need to connect our app to heroku psql database
+If you deploy now, you will probably see our app without any data! That's fine and let's put data into it
 
 # Step 9: Connection to database
-* Go to the Heroku Dashboard of your app, under `Settings`, and then `Reveal Config Vars`. Copy the current value of `PRODUCTION_PROPERTIES` and paste it somewhere handy.  You'll need to copy and paste that value in a moment.
+* Run: <br/>
+source loaddata.sh YOUR_HEROKU_APP_NAME
 
-* Get the jdbc database url for your Heroku app by running the following command at a terminal prompt where you have the Heroku CLI installed, and are logged in to your Heroku account with `heroku login -i`
+* When it is done, run:<br/>
+echo $PRODUCTION_PROPERTIES<br/>
+To check if everything is there. You should see your client-id, client-secret, etc.
 
-  heroku run -a YOUR_PROJECT_NAME echo \$JDBC_DATABASE_URL
-
-* Have the output of this command (the full output, not just the URL) ready to copy and paste as well.
-
-* Now, type the following `export` command at the shell prompt, in the same shell (terminal window) where you are going to run your app in a moment (with `mvn spring-boot:run...`)
-Copy/paste the values from steps 1 and 2 above before you press enter.
-
-
-export PRODUCTION_PROPERTIES="
-
-(paste the PRODUCTION_PROPERTIES from Step 1 here)
-
-spring.datasource.url=PASTE_URL_FROM_STEP2_HERE
-
-"
-
-* Basically, you want the `PRODUCTION_PROPERTIES` environment variable to be all of the `PRODUCTION_PROPERTIES` from your existing Heroku app, plus in addition, you want `spring.datasource.url` set equal to the value of `JDBC_DATABASE_URL` for your Heroku app. You can check whether it worked by typing
-echo $PRODUCTION_PROPERTIES
-
-* Go to heroku.com and redeploy the master branch again. You should see our app, excpt there’s no data in it! And we have one last step to do.
 
 # Step 10: Fully functioning website
-* Run mvn spring-boot:run -Dspring-boot.run.arguments="--filename=sheet.csv" on your terminal. By doing so, we are injecting data into the database. If you go to your app’s website now, you should see a fully functioning New-County-Searcher app.
+* On your terminal run: <br/>
+mvn spring-boot:run -Dspring-boot.run.arguments="--filename=sheet.csv"<br/>
+* By doing so, we are injecting data into the database. If you go to your app’s website now, you should see a fully functioning New-County-Searcher app.
