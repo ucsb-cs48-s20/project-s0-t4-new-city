@@ -69,8 +69,11 @@ public class CommandLineRunner implements ApplicationRunner {
             for (County c : counties) {
                 logger.info("County : {}", c);
             }
-
-            countyRepository.saveAll(counties);
+            if (countyRepository.count() != 0) {
+                logger.warn("Already loaded data. Not loading");
+            } else {
+                countyRepository.saveAll(counties);
+            }
         } catch (IOException ioe) {
             logger.error("Exception: ", ioe);
         }
