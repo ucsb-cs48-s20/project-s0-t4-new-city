@@ -79,7 +79,7 @@ To get an API key:
 * Go to the Google Cloud Platform Console: cloud.google.com
 * Click on "console"
 * Click the project drop-down and select or create the project for which you want to add an API key.
-* Click the menu button  and select APIs & Services > Credentials.
+* Click the menu button on top left that looks like three dashes and select APIs & Services > Credentials.
 * On the Credentials page, click +CREATE CREDENTIALS > API key.
 * The API key created dialog displays your newly created API key.
 * Click Close.
