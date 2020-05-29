@@ -73,6 +73,8 @@ At this point, let’s try to run the app on localhost first
 
 We also include google map feature in our app, so you will need to get a key for that
 
+Please get an API key no matter whether you choose to use the map feature or not, getting the key is free and without inputing credit information. And our app requires a key to run successfully
+
 To get an API key:
 * Go to the Google Cloud Platform Console: cloud.google.com
 * Click on "console"
