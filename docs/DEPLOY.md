@@ -115,14 +115,14 @@ Basically repeat 8a and 8b with minor changes
 * NOTE: replace the "your-app-name" part of the Redirect URI with the app name you created in part 4
 * You can use the same map key obtained in above instruction
 
-Add the following items to your secrets-heroku.properties file, filling out them the values from your Google OAuth application and key
+Create a file called secrets-heroku.properties, add the following items to it, filling out them the values from your Google OAuth application and key
 
 spring.security.oauth2.client.registration.google.client-id=PUT-CLIENT-ID-HERE<br/>
 spring.security.oauth2.client.registration.google.client-secret=PUT-CLIENT-SECRET-HERE<br/>
 newCity.googleMapKey=PUT-YOUR-KEY-HERE
  
 * Run the script:<br/> 
-./setHerokuEnv.sh --app appname
+./setHerokuEnv.sh --app YOUR-HEROKU-APP-NAME
 
 If you don’t have a setHerokuEnv.sh script for your app, create one that looks like this:<br/>
 #!/usr/bin/env bash<br/>
