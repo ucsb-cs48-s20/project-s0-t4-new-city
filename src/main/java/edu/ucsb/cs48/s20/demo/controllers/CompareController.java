@@ -30,7 +30,8 @@ public class CompareController {
     @GetMapping("/county/compare-results")
 
     public String getComparisonResults(Model model, CompareCounty compareCounty) {
-        model.addAttribute("compareCounty", compareCounty);
+         model.addAttribute("counties",countyRepository.findAll());
+	 model.addAttribute("compareCounty", compareCounty);
 
         return "counties/compare-results";
     }
