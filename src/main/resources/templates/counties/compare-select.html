@@ -14,7 +14,10 @@
         <h5>Select</h5>
         <form action="#" th:action="@{/county/compare-results}" th:object="${compareCounty}" method="get">
 
-            <!-- TODO: add dropdown -->
+            <select id="counties" name="counties">
+                <option th:each="county : ${counties}" th:value="${county.name}" th:text="${county.name}">
+                </option>
+            </select>
             
             <input type="submit" class="btn btn-primary" value="Compare">
 
