@@ -22,8 +22,9 @@ public class CompareController {
 
     @GetMapping("/county/compare-select")
 
-    public String getCountiesComparison(CompareCounty compareCounty) {
-        return "counties/compare-select";
+    public String getCountiesComparison(CompareCounty compareCounty) {  
+	model.addAttribute("counties",countyRepository.findAll());
+	return "counties/compare-select";
     }
 
     @GetMapping("/county/compare-results")
