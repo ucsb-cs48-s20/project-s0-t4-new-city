@@ -14,7 +14,8 @@
         <h5>Select</h5>
         <form action="#" th:action="@{/county/compare-results}" th:object="${compareCounty}" method="get">
 
-            <select id="counties" name="counties">
+            <select class="form-control" th:field="${county.cname}" id="dropCounty">
+	        <option value="0">select county 1</option>
                 <option th:each="county : ${counties}" th:value="${county.name}" th:text="${county.name}">
                 </option>
             </select>
