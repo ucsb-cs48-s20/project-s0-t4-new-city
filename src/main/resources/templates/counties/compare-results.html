@@ -14,7 +14,16 @@
         <h5>Results</h5>
         <form action="#" th:action="@{/county/compare-results}" th:object="${compareCounty}" method="get">
 
-            <!-- TODO: add dropdown and add table -->
+            <select id="county1" name="county2">
+	        <option value="0">Select County 1</option>
+                <option th:each="county : ${counties}" th:value="${county.name}" th:text="${county.name}">
+                </option>
+            </select>
+	    <select id="county2" name="county2">
+	        <option value="0">Select County 2</option>
+		<option th:each="county : ${counties}" th:value="${county.name}" th:text="${county.name}">
+		</option>
+            </select>
             
             <input type="submit" class="btn btn-primary" value="Compare">
 
