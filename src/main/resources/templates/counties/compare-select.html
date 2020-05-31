@@ -13,13 +13,11 @@
         <h1>Compare Counties</h1>
         <h5>Select</h5>
         <form action="#" th:action="@{/county/compare-results}" th:object="${compareCounty}" method="get">
-	    <div class="form-group blu-margin">
-                <select class="form-control" th:field="${county.cname}" id="dropCounty">
+                <select id="county1" name="county2">
 	            <option value="0">select county 1</option>
                     <option th:each="county : ${counties}" th:value="${county.name}" th:text="${county.name}">
                     </option>
                 </select>
-	    </div>
             <input type="submit" class="btn btn-primary" value="Compare">
 
         </form>
