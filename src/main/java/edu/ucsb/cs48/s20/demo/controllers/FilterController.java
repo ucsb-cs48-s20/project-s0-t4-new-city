@@ -40,4 +40,18 @@ public class FilterController {
         return "counties/results";
     }
 
+    @GetMapping("/county/advance-search")
+    public String getAdvanceFilter(CountyFilter countyFilter) {
+        return "counties/advance-filter";
+    }
+
+    @GetMapping("/county/advance-results")
+    public String getAdvanceResults(Model model, CountyFilter countyFilter) {
+        model.addAttribute("countyFilter", countyFilter);
+
+        model.addAttribute("counties", countyRepository.findAll());
+
+        return "counties/advance-results";
+    }
+
 }
