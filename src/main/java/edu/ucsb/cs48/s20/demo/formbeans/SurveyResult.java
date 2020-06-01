@@ -17,6 +17,18 @@ public class SurveyResult {
     int studentResult;
 
 
+    public SurveyResult(int populationResult, int incomeResult, int housePriceResult,
+                        int temperatureResult, int crimeRateResult, int unemploymentResult,
+                        int studentResult) {
+
+        this.populationResult = populationResult;
+        this.incomeResult = incomeResult;
+        this.housePriceResult = housePriceResult;
+        this.temperatureResult = temperatureResult;
+        this.crimeRateResult = crimeRateResult;
+        this.unemploymentResult = unemploymentResult;
+        this.studentResult = studentResult;
+    }
 
     public int getIncomeResult() {
         return incomeResult;

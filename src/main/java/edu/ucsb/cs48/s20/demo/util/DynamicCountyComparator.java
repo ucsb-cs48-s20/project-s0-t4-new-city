@@ -14,13 +14,7 @@ public class DynamicCountyComparator implements Comparator<County> {
 
     }
 
-    //double score = surveyResult.getPopulationResult() * 1 / countyList[0].getPopulationRank + ;
-
-
-    public int compare(County o1, County o2) {
-
-
-
+   public int compare(County o1, County o2) {
 
         double score1 = (double) surveyResult.getPopulationResult()
                         / (double) (o1.getPopulationRank())

@@ -86,6 +86,31 @@ public class County {
     private int studentRank;
 
 
+    public County () {
+
+    }
+
+    public County(String name, double income, double houseprice) {
+        this.name = name;
+        this.averageIncome = income;
+        this.housePrice = houseprice;
+    }
+    
+    public County (String name, int populationRank, int incomeRank,
+                   int houseRank, int temperatureRank, int crimeRank,
+                   int unemploymentRank, int studentRank) {
+       
+        this.name = name;
+        this.populationRank = populationRank;
+        this.incomeRank = incomeRank;
+        this.houseRank = houseRank;
+        this.temperatureRank = temperatureRank;
+        this.crimeRank = crimeRank;
+        this.unemploymentRank = unemploymentRank;
+        this.studentRank = studentRank;
+
+    } 
+    
     public String getName() {
         return name;
     }
