@@ -11,68 +11,122 @@
         <div th:replace="bootstrap/bootstrap_nav_header.html"></div>
 
         <h1>Advance County Filter</h1>
-        <h5>Filter</h5>
         <form action="#" th:action="@{/county/advance-results}" th:object="${countyFilter}" method="get">
-            <table>
-                <tr class="form-group">
-                    <th><label for="minpopulation" class="col-form-label">Minimum Population</label></th>
-                    <td><input type="number" th:field="*{minpopulation}" class="form-control" id="minpopulation"></td>
-                </tr>
-                <tr class="form-group">
-                    <th><label for="maxpopulation" class="col-form-label">Maximum Population</label></th>
-                    <td><input type="number" th:field="*{maxpopulation}" class="form-control" id="maxpopulation"></td>
-                </tr>
 
-                <tr class="form-group">
-                    <th><label for="minincome" class="col-form-label">Minimum Income</label></th>
-                    <td><input type="number" th:field="*{minincome}" class="form-control" id="minincome"></td>
-                </tr>
-                <tr class="form-group">
-                    <th><label for="maxincome" class="col-form-label">Maximum Income</label></th>
-                    <td><input type="number" th:field="*{maxincome}" class="form-control" id="maxincome"></td>
-                </tr>
-                <tr class="form-group">
-                    <th><label for="minhousecost" class="col-form-label">Minimum House Cost</label></th>
-                    <td><input type="number" th:field="*{minhousecost}" class="form-control" id="minhousecost"></td>
-                </tr>
-                <tr class="form-group">
-                    <th><label for="maxhousecost" class="col-form-label">Maximum House Cost</label></th>
-                    <td><input type="number" th:field="*{maxhousecost}" class="form-control" id="maxhousecost"></td>
-                </tr>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2">
+                    <h5>Category</h5>
+                </div>
+                <div class="col-sm-2">
+                    <h5>Minimum</h5>
+                </div>
+                <div class="col-sm-2">
+                    <h5>Maximum</h5>
+                </div>
+            </div>
 
-                <tr class="form-group">
-                    <th><label for="mintemperature" class="col-form-label">Minimum Temperature (F)</label></th>
-                    <td><input type="number" th:field="*{mintemperature}" class="form-control" id="mintemperature"></td>
-                </tr>
-                <tr class="form-group">
-                    <th><label for="maxtemperature" class="col-form-label">Maximum Temperature (F)</label></th>
-                    <td><input type="number" th:field="*{maxtemperature}" class="form-control" id="maxtemperature"></td>
-                </tr>
+            <div class="row">
+                <div class="col-sm-2">
+                    County Population
+                </div>
+                <div class="col-sm-2">
+                    <tr class="form-group">
+                        <td><input type="number" th:field="*{minpopulation}" class="form-control" id="minpopulation">
+                        </td>
+                    </tr>
+                </div>
+                <div class="col-sm-2">
+                    <tr class="form-group">
+                        <td><input type="number" th:field="*{maxpopulation}" class="form-control" id="maxpopulation">
+                        </td>
+                    </tr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    Household Income
+                </div>
+                <div class="col-sm-2">
+                    <tr class="form-group">
+                        <td><input type="number" th:field="*{minincome}" class="form-control" id="minincome"></td>
+                    </tr>
+                </div>
+                <div class="col-sm-2">
+                    <tr class="form-group">
+                        <td><input type="number" th:field="*{maxincome}" class="form-control" id="maxincome"></td>
+                    </tr>
+                </div>
+            </div>
 
-                <tr class="form-group">
-                    <th><label for="mincrimerate" class="col-form-label">Minimum Crime Rate</label></th>
-                    <td><input type="number" th:field="*{mincrimerate}" class="form-control" id="mincrimerate"></td>
-                </tr>
-                <tr class="form-group">
-                    <th><label for="maxcrimerate" class="col-form-label">Maximum Crime Rate</label></th>
+            <div class="row">
+                <div class="col-sm-2">
+                    House Price
+                </div>
+                <div class="col-sm-2">
+                    <tr class="form-group">
+                        <td><input type="number" th:field="*{minhousecost}" class="form-control" id="minhousecost"></td>
+                    </tr>
+                </div>
+                <div class="col-sm-2">
+                    <tr class="form-group">
+                        <td><input type="number" th:field="*{maxhousecost}" class="form-control" id="maxhousecost"></td>
+                    </tr>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-2">
+                    Temperature (F)
+                </div>
+                <div class="col-sm-2">
+                    <tr class="form-group">
+                        <td><input type="number" th:field="*{mintemperature}" class="form-control" id="mintemperature"></td>
+                    </tr>
+                </div>
+                <div class="col-sm-2">
+                    <tr class="form-group">
+                        <td><input type="number" th:field="*{maxtemperature}" class="form-control" id="maxtemperature"></td>
+                    </tr>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-2">
+                    Crime Rate
+                </div>
+                <div class="col-sm-2">
+                    <tr class="form-group">
+                        <td><input type="number" th:field="*{mincrimerate}" class="form-control" id="mincrimerate"></td>
+                    </tr>
+                </div>
+                <div class="col-sm-2">
                     <td><input type="number" th:field="*{maxcrimerate}" class="form-control" id="maxcrimerate"></td>
                 </tr>
+                </div>
+            </div>
 
-                <tr class="form-group">
-                    <th><label for="minunemploymentrate" class="col-form-label">Minimum Unemployment Rate</label></th>
-                    <td><input type="number" th:field="*{minunemploymentrate}" class="form-control"
-                            id="minunemploymentrate"></td>
-                </tr>
-                <tr class="form-group">
-                    <th><label for="maxunemploymentrate" class="col-form-label">Maximum Unemployment Rate</label></th>
-                    <td><input type="number" th:field="*{maxunemploymentrate}" class="form-control"
-                            id="maxunemploymentrate"></td>
-                </tr>
+            <div class="row">
+                <div class="col-sm-2">
+                    Unemployment Rate
+                </div>
+                <div class="col-sm-2">
+                    <tr class="form-group">
+                        <td><input type="number" th:field="*{minunemploymentrate}" class="form-control"
+                                id="minunemploymentrate"></td>
+                    </tr>
+                </div>
+                <div class="col-sm-2">
+                    <tr class="form-group">
+                        <td><input type="number" th:field="*{maxunemploymentrate}" class="form-control"
+                                id="maxunemploymentrate"></td>
+                    </tr>
+                </div>
+            </div>
 
 
 
-            </table>
-
+        </div>
 
     <input type="submit" class="btn btn-primary" value="Filter">
     </form>
