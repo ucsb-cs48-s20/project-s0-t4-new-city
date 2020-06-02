@@ -9,10 +9,8 @@
 <body>
     <div class="container">
         <div th:replace="bootstrap/bootstrap_nav_header.html"></div>
-
         <h1>County Filter</h1>
         <form action="#" th:action="@{/county/results}" th:object="${countyFilter}" method="get">
-
         <div class="container">
             <div class="row">
                 <div class="col-sm-2">
@@ -25,7 +23,6 @@
                     <h5>Maximum</h5>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-sm-2">
                     County Population
@@ -58,7 +55,6 @@
                     </tr>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-sm-2">
                     House Price
@@ -74,7 +70,6 @@
                     </tr>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-sm-2">
                     Temperature (F)
@@ -90,7 +85,6 @@
                     </tr>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-sm-2">
                     Crime Rate
@@ -105,7 +99,6 @@
                 </tr>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-sm-2">
                     Unemployment Rate
@@ -123,7 +116,6 @@
                     </tr>
                 </div>
             </div>
-            
             <div class="row">
                 <div class="col-sm-2">
                     Student Enrollment
@@ -146,12 +138,9 @@
 
     <input type="submit" id="submitid" class="btn btn-primary" value="Filter">
     </form>
-
     <div th:replace="bootstrap/bootstrap_footer.html"></div>
     </div>
     <div th:replace="bootstrap/bootstrap_scripts.html"></div>
-
-
 </body>
 
 </html>

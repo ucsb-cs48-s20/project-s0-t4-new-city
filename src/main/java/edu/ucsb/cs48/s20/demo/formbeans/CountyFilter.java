@@ -92,7 +92,6 @@ public class CountyFilter {
 
 
 // setters
-
     public void setMinpopulation(double minPop) {
         minpopulation = minPop;
     }

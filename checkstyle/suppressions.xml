@@ -7,8 +7,8 @@
 <suppressions>
      <suppress checks="LineLength"
                files="FilterController.java"
-               lines="42"/>
+               lines="35"/>
      <suppress checks="LineLength"
                files="CountyRepository.java"
-               lines="18"/>
+               lines="13"/>
 </suppressions>

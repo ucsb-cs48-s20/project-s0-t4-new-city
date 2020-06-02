@@ -9,11 +9,8 @@
 <body>
     <div class="container">
         <div th:replace="bootstrap/bootstrap_nav_header.html"></div>
-
         <h1>County Filter</h1>
-
         <form action="#" th:action="@{/county/results}" th:object="${countyFilter}" method="get">
-
         <div class="container">
             <div class="row">
                 <div class="col-sm-2">
@@ -26,7 +23,6 @@
                     <h5>Maximum</h5>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-sm-2">
                     County Population
@@ -59,7 +55,6 @@
                     </tr>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-sm-2">
                     House Price
@@ -75,7 +70,6 @@
                     </tr>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-sm-2">
                     Temperature (F)
@@ -91,7 +85,6 @@
                     </tr>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-sm-2">
                     Crime Rate
@@ -106,7 +99,6 @@
                 </tr>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-sm-2">
                     Unemployment Rate
@@ -124,7 +116,6 @@
                     </tr>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-sm-2">
                     Student Enrollment
@@ -143,16 +134,11 @@
                 </div>
             </div>
 
-
-
         </div>
-            <input type="submit" class="btn btn-primary" value="Filter">
+        <input type="submit" class="btn btn-primary" value="Filter">
         </form>
-
         </br>
-
         <div class="container">
-
             <h5>All counties in California that fit within the specified criteria.</h5>
             <table class="bootstrap-table" data-toggle="table" data-search="true" data-show-export="true"
                 data-show-columns="true" data-show-columns-toggle-all="true">
@@ -184,7 +170,6 @@
             <div th:replace="bootstrap/bootstrap_footer.html"></div>
         </div>
         <div th:replace="bootstrap/bootstrap_scripts.html"></div>
-
 </body>
 
 </html>
