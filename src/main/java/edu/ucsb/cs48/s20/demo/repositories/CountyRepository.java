@@ -15,5 +15,13 @@ public interface CountyRepository extends CrudRepository<County, Long> {
             double priceLower, double priceUpper);
 
 
-
+    public List<County> findByPopulationBetweenAndAverageIncomeBetweenAndHousePriceBetweenAndTemperatureBetweenAndCrimeRateBetweenAndUnEmploymentRateBetweenAndStudentEnrollmentBetween(
+        double popLower, double popUpper,
+        double incomeLower, double incomeUpper,
+        double priceLower, double priceUpper,
+        double tempLower, double tempUpper,
+        double crimeLower, double crimeUpper,
+        double unEmployLower, double unEmployUpper,
+        double studentLower, double studentUpper
+    );
 }

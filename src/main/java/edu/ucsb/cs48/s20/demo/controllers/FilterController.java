@@ -31,11 +31,23 @@ public class FilterController {
     public String getCountiesResults(Model model, CountyFilter countyFilter) {
         model.addAttribute("countyFilter", countyFilter);
 
-        model.addAttribute("counties",
+        /*model.addAttribute("counties",
                            countyRepository.findByAverageIncomeBetweenAndHousePriceBetween(
                                countyFilter.getMinincome(),
                                countyFilter.getMaxincome(), countyFilter.getMinhousecost(),
                                countyFilter.getMaxhousecost() ));
+*/
+
+        model.addAttribute("counties",
+                countyRepository.findByPopulationBetweenAndAverageIncomeBetweenAndHousePriceBetweenAndTemperatureBetweenAndCrimeRateBetweenAndUnEmploymentRateBetweenAndStudentEnrollmentBetween(
+                    countyFilter.getMinpopulation(), countyFilter.getMaxpopulation(),
+                    countyFilter.getMinincome(), countyFilter.getMaxincome(),
+                    countyFilter.getMinhousecost(), countyFilter.getMaxhousecost(),
+                    countyFilter.getMintemperature(), countyFilter.getMaxtemperature(),
+                    countyFilter.getMincrimerate(), countyFilter.getMaxcrimerate(),
+                    countyFilter.getMinunemploymentrate(), countyFilter.getMaxunemploymentrate(),
+                    countyFilter.getMinstudentenrollment(), countyFilter.getMaxstudentenrollment() )
+                );
 
         return "counties/results";
     }
