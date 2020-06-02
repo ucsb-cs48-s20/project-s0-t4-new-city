@@ -26,6 +26,9 @@ public class CountyFilter {
     private double minunemploymentrate;
     private double maxunemploymentrate;
 
+    // 7
+    private double minstudentenrollment;
+    private double maxstudentenrollment;
 
     public CountyFilter() {
     }
@@ -78,6 +81,16 @@ public class CountyFilter {
     public double getMaxunemploymentrate() {
         return maxunemploymentrate;
     }
+
+    public double getMinstudentenrollment() {
+        return minstudentenrollment;
+    }
+
+    public double getMaxstudentenrollment() {
+        return maxstudentenrollment;
+    }
+
+
 // setters
 
     public void setMinpopulation(double minPop) {
@@ -126,6 +139,14 @@ public class CountyFilter {
 
     public void setMaxunemploymentrate(double maxUnemploy) {
         maxunemploymentrate = maxUnemploy;
+    }
+
+    public void setMinstudentenrollment(double minStudent) {
+        minstudentenrollment = minStudent;
+    }
+
+    public void setMaxstudentenrollment(double maxStudent) {
+        maxstudentenrollment = maxStudent;
     }
 
 }
