@@ -20,7 +20,7 @@ public class FilterController {
         this.countyRepository = countyRepository;
     }
 
-    @GetMapping("/county/search")
+    @GetMapping("/county/filter")
 
     public String getCountiesFilter(CountyFilter countyFilter) {
         return "counties/filter";
@@ -30,13 +30,6 @@ public class FilterController {
 
     public String getCountiesResults(Model model, CountyFilter countyFilter) {
         model.addAttribute("countyFilter", countyFilter);
-
-        /*model.addAttribute("counties",
-                           countyRepository.findByAverageIncomeBetweenAndHousePriceBetween(
-                               countyFilter.getMinincome(),
-                               countyFilter.getMaxincome(), countyFilter.getMinhousecost(),
-                               countyFilter.getMaxhousecost() ));
-*/
 
         model.addAttribute("counties",
                 countyRepository.findByPopulationBetweenAndAverageIncomeBetweenAndHousePriceBetweenAndTemperatureBetweenAndCrimeRateBetweenAndUnEmploymentRateBetweenAndStudentEnrollmentBetween(
@@ -50,20 +43,6 @@ public class FilterController {
                 );
 
         return "counties/results";
-    }
-
-    @GetMapping("/county/advance-search")
-    public String getAdvanceFilter(CountyFilter countyFilter) {
-        return "counties/advance-filter";
-    }
-
-    @GetMapping("/county/advance-results")
-    public String getAdvanceResults(Model model, CountyFilter countyFilter) {
-        model.addAttribute("countyFilter", countyFilter);
-
-        model.addAttribute("counties", countyRepository.findAll());
-
-        return "counties/advance-results";
     }
 
 }
