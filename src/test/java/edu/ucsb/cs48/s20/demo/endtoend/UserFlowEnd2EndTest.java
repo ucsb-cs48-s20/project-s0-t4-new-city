@@ -1,10 +1,17 @@
 package edu.ucsb.cs48.s20.demo.endtoend;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+
+import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.List;
+
 import org.junit.*;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,16 +77,6 @@ public class UserFlowEnd2EndTest {
         }
     }
 
-    @Test
-    public void testMapExists() {
-        // Navigate to home page
-        webDriver.get("http://localhost:8080/map");
-        // Make sure we are not redirected
-        assert(webDriver.getCurrentUrl().equalsIgnoreCase("http://localhost:8080/map"));
-
-        // Click map button
-        // webDriver.findElement(By.linkText("Map")).click();
-    }
 
     @Test
     public void testFiltering() {
@@ -89,11 +86,45 @@ public class UserFlowEnd2EndTest {
         assert(webDriver.getCurrentUrl().equalsIgnoreCase("http://localhost:8080/county/search"));
 
         // Fill out filters (using .sendKeys)
+        webDriver.findElement(By.id("minincome")).sendKeys("1000");
+        webDriver.findElement(By.id("maxincome")).sendKeys("10000");
+        webDriver.findElement(By.id("minhousecost")).sendKeys("100000");
+        webDriver.findElement(By.id("maxhousecost")).sendKeys("1000000");
 
-        
         // Submit the form
+        webDriver.findElement(By.id("submitid")).click();
 
         // Check the values in the resulting table...
+        List<WebElement> rows = webDriver.findElements(By.cssSelector("[class='bootstrap-table table table-bordered table-hover'] tr"));
+        
+        assertEquals(5,rows.size());
+
+        assertTrue(rows.get(1).getText().contains("Marin"));
     }
+/*
+    @Test
+    public void testSurvey() {
+        // Navigate to home page
+        webDriver.get("http://localhost:8080/survey");
+        // Make sure we are not redirected
+        assert(webDriver.getCurrentUrl().equalsIgnoreCase("http://localhost:8080/survey"));
+
+        // Fill out survey
+        webDriver.findElement(By.id("option1")).click();
+        webDriver.findElement(By.id("option11")).click();
+        webDriver.findElement(By.id("option21")).click();
+        webDriver.findElement(By.id("option33")).click();
+        webDriver.findElement(By.id("option43")).click();
+        webDriver.findElement(By.id("option53")).click();
+        webDriver.findElement(By.id("option63")).click();
+
+        // Submit the form
+        webDriver.findElement(By.id("submitid")).click();
+
+        // Check the values in the resulting table...
+        List<WebElement> rows = webDriver.findElements(By.cssSelector("[class='bootstrap-table table table-bordered table-hover'] tr"));
+
+    }
+    */
 
 }
