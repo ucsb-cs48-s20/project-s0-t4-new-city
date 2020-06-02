@@ -54,21 +54,19 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 public class SurveyControllerTest {
 
-    @MockBean
-    private AuthControllerAdvice aca;
+    
 
-
+    static {
+        System.setProperty("newCity.googleMapKey","1");
+    }
     @MockBean
     private AppUserRepository aur;
-
     @MockBean
     private ClientRegistrationRepository crr;
-
     @MockBean
     private MembershipService ms;
-
     @MockBean
-    private GoogleMembershipService gms;
+    private AuthControllerAdvice aca;
 
     @Autowired
     private SurveyController sc;

@@ -50,24 +50,18 @@ import edu.ucsb.cs48.s20.demo.advice.AuthControllerAdvice;
 public class CountyControllerTest {
 
 
-    
-
+    static {
+        System.setProperty("newCity.googleMapKey","1");
+    }
     @MockBean
     private AppUserRepository aur;
-
     @MockBean
     private ClientRegistrationRepository crr;
-
-
-
+    @MockBean
+    private MembershipService ms;
     @MockBean
     private AuthControllerAdvice aca;
 
-    @MockBean
-    private MembershipService ms;
-
-    @MockBean
-    private GoogleMembershipService gms;
     
     @Autowired
     private CountyController cc;

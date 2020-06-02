@@ -73,28 +73,19 @@ public class UserFlowEnd2EndTest {
     @Test
     public void testMapExists() {
         // Navigate to home page
-        webDriver.get("http://localhost:8080/");
+        webDriver.get("http://localhost:8080/map");
         // Make sure we are not redirected
-        assert(webDriver.getCurrentUrl().equalsIgnoreCase("http://localhost:8080/"));
+        assert(webDriver.getCurrentUrl().equalsIgnoreCase("http://localhost:8080/map"));
 
         // Click map button
-        webDriver.findElement(By.linkText("Map")).click();
-
-        // Make sure we are on map page
-        assert(webDriver.getCurrentUrl().equalsIgnoreCase("http://localhost:8080/map"));
+        // webDriver.findElement(By.linkText("Map")).click();
     }
 
     @Test
     public void testFiltering() {
         // Navigate to home page
-        webDriver.get("http://localhost:8080/");
+        webDriver.get("http://localhost:8080/county/search");
         // Make sure we are not redirected
-        assert(webDriver.getCurrentUrl().equalsIgnoreCase("http://localhost:8080/"));
-
-        // Click filter button
-        webDriver.findElement(By.linkText("Filter")).click();
-
-        // Make sure we are on filter page
         assert(webDriver.getCurrentUrl().equalsIgnoreCase("http://localhost:8080/county/search"));
 
         // Fill out filters (using .sendKeys)

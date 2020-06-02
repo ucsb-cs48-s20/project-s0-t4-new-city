@@ -52,27 +52,21 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class FilterControllerTest {
 
 
-   
-
-    @MockBean
-    private AppUserRepository aur;
-
-    @MockBean
-    private ClientRegistrationRepository crr;
-
-
     @Autowired
     private FilterController fc;
 
     @MockBean
     private CountyRepository cr;
 
+    static {
+        System.setProperty("newCity.googleMapKey","1");
+    }
+    @MockBean
+    private AppUserRepository aur;
+    @MockBean
+    private ClientRegistrationRepository crr;
     @MockBean
     private MembershipService ms;
-
-    @MockBean
-    private GoogleMembershipService gms;
-
     @MockBean
     private AuthControllerAdvice aca;
 
