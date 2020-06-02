@@ -1,5 +1,8 @@
 package edu.ucsb.cs48.s20.demo.controllers;
 
+import edu.ucsb.cs48.s20.demo.Application;
+import edu.ucsb.cs48.s20.demo.controllers.FilterController;
+import edu.ucsb.cs48.s20.demo.formbeans.CountyFilter;
 import edu.ucsb.cs48.s20.demo.entities.County;
 import edu.ucsb.cs48.s20.demo.repositories.CountyRepository;
 import org.junit.Before;
@@ -38,49 +41,44 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 
 
-@SpringBootTest
+@SpringBootTest(classes={Application.class})
 @AutoConfigureMockMvc
 @WebAppConfiguration
 @RunWith(SpringRunner.class)
-public class CountyControllerTest {
+public class FilterControllerTest {
 
-    
     @Autowired
-    private CountyController cc;
+    private FilterController fc;
 
     @MockBean
     private CountyRepository cr;
 
     @Test
-    public void testCountyModel() throws Exception {
+    public void testFilter() {
+
         // Begin by creating a new Model that we can pass to the controller to populate
         Model model = new ExtendedModelMap();
 
+        CountyFilter cf = new CountyFilter();
+
+        cf.setMinincome(10);
+        cf.setMaxincome(100);
+        cf.setMaxhousecost(100);
+        cf.setMinhousecost(10);
+
+        County c1 = new County("one", 50, 50);
+        County c2 = new County("two", 90, 90);
+       
         // Mock the database response
-        List<County> someCounties = Arrays.asList(new County(), new County(), new County());
-        when(cr.findAll()).thenReturn(someCounties);
+        List<County> someCounties = Arrays.asList(c1,c2);
+        when(cr.findByAverageIncomeBetweenAndHousePriceBetween(10,100,10,100)).thenReturn(someCounties);
 
         // Call the controller
-        cc.showUpdateForm(model);
+        fc.getCountiesResults(model, cf);
 
+      
         // Make sure model has correct attribute
         assert(model.getAttribute("counties").equals(someCounties));
+    
     }
-
-    @Test
-    public void testEmptyCountyModel() throws Exception {
-        // Begin by creating a new Model that we can pass to the controller to populate
-        Model model = new ExtendedModelMap();
-
-        // Mock the database response
-        List<County> someCounties = Arrays.asList();
-        when(cr.findAll()).thenReturn(someCounties);
-
-        // Call the controller
-        cc.showUpdateForm(model);
-
-        // Make sure model has correct attribute
-        assert(model.getAttribute("counties").equals(someCounties));
-    }
-
 }

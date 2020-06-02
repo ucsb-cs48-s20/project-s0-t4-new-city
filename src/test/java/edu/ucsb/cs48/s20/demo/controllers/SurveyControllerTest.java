@@ -1,11 +1,20 @@
 package edu.ucsb.cs48.s20.demo.controllers;
 
-import edu.ucsb.cs48.s20.demo.controllers.FilterController;
-import edu.ucsb.cs48.s20.demo.formbeans.CountyFilter;
+import static org.junit.Assert.assertEquals;
+
+import edu.ucsb.cs48.s20.demo.controllers.SurveyController;
+import org.junit.Test;
+import org.junit.Before;
+import edu.ucsb.cs48.s20.demo.entities.County;
+import edu.ucsb.cs48.s20.demo.util.DynamicCountyComparator;
+import edu.ucsb.cs48.s20.demo.formbeans.SurveyResult;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Optional;
+
 import edu.ucsb.cs48.s20.demo.entities.County;
 import edu.ucsb.cs48.s20.demo.repositories.CountyRepository;
-import org.junit.Before;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,53 +46,56 @@ import static org.springframework.security.test.web.servlet.request.SecurityMock
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
-
-
-
 @SpringBootTest
 @AutoConfigureMockMvc
 @WebAppConfiguration
 @RunWith(SpringRunner.class)
-public class FilterControllerTest {
+public class SurveyControllerTest {
+
 
     @Autowired
-    private FilterController fc;
+    private SurveyController sc;
 
     @MockBean
     private CountyRepository cr;
 
     @Test
-    public void testFilter() {
+    public void test_correct_sorting() {
+        
+        ArrayList<County> countyList = new ArrayList<>();
+        County one = new County("One", 1, 1, 1, 1, 1, 3, 3);
+        County two = new County("Two", 2, 2, 2, 2, 2, 2, 2);
+        County three = new County("Three", 3, 3, 3, 3, 3, 1, 1);
 
+        countyList.add(one);
+        countyList.add(two);
+        countyList.add(three);
+
+        SurveyResult survey = new SurveyResult(2,2,2,2,2,-2,-2);
+
+        DynamicCountyComparator s1 = new DynamicCountyComparator(survey);
+        countyList.sort(s1);
+
+        assertEquals(countyList.get(0), one);
+        
+    }
+
+    @Test
+    public void testSurveyModel() throws Exception {
         // Begin by creating a new Model that we can pass to the controller to populate
         Model model = new ExtendedModelMap();
 
-        CountyFilter cf = new CountyFilter();
-
-        cf.setMinincome(10);
-        cf.setMaxincome(100);
-        cf.setMaxhousecost(100);
-        cf.setMinhousecost(10);
-
-        County c1 = new County("one", 50, 50);
-        County c2 = new County("two", 90, 90);
-       
         // Mock the database response
-        List<County> someCounties = Arrays.asList(c1,c2);
-        when(cr.findByAverageIncomeBetweenAndHousePriceBetween(10,100,10,100)).thenReturn(someCounties);
+        List<County> someCounties = Arrays.asList(new County(), new County(), new County());
+        when(cr.findAll()).thenReturn(someCounties);
 
+
+        SurveyResult survey = new SurveyResult(2,2,2,2,2,-2,-2);
         // Call the controller
-        fc.getCountiesResults(model, cf);
+        sc.getSurveyResults(model, survey);
 
-      
         // Make sure model has correct attribute
         assert(model.getAttribute("counties").equals(someCounties));
-    
     }
-    
-
-
-
-
 
 }
