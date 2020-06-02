@@ -40,6 +40,7 @@ public class UserFlowEnd2EndTest {
         System.setProperty("spring.security.oauth2.client.registration.wiremock.redirect-uri", "http://localhost:8080/login/oauth2/code/{registrationId}");
         System.setProperty("spring.security.oauth2.client.registration.wiremock.clientId", "wm");
         System.setProperty("spring.security.oauth2.client.registration.wiremock.clientSecret", "whatever");
+        System.setProperty("newCity.googleMapKey","1");
     }
 
     private WebDriver webDriver;
