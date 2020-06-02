@@ -53,7 +53,7 @@ public class UserFlowEnd2EndTest {
         // Setup ChromeDriver (aided by the WebDriverManager)
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-        //options.addArguments("--headless");
+        options.addArguments("--headless");
         webDriver = new ChromeDriver(options);
 
         // Setup the database
@@ -66,7 +66,7 @@ public class UserFlowEnd2EndTest {
     @After
     public void reset() {
         if (webDriver != null) {
-            //webDriver.close();
+            webDriver.close();
         }
     }
 
@@ -98,6 +98,7 @@ public class UserFlowEnd2EndTest {
         assert(webDriver.getCurrentUrl().equalsIgnoreCase("http://localhost:8080/county/search"));
 
         // Fill out filters (using .sendKeys)
+
         
         // Submit the form
 
