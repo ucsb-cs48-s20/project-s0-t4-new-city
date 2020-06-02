@@ -1,7 +1,11 @@
 package edu.ucsb.cs48.s20.demo.controllers;
 
+import edu.ucsb.cs48.s20.demo.services.GoogleMembershipService;
+import edu.ucsb.cs48.s20.demo.services.MembershipService;
+
 import edu.ucsb.cs48.s20.demo.controllers.CountyController;
 import edu.ucsb.cs48.s20.demo.entities.County;
+import edu.ucsb.cs48.s20.demo.repositories.AppUserRepository;
 import edu.ucsb.cs48.s20.demo.repositories.CountyRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -34,7 +38,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.authentication;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
+import edu.ucsb.cs48.s20.demo.advice.AuthControllerAdvice;
 
 
 
@@ -45,6 +49,25 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 public class CountyControllerTest {
 
+
+    
+
+    @MockBean
+    private AppUserRepository aur;
+
+    @MockBean
+    private ClientRegistrationRepository crr;
+
+
+
+    @MockBean
+    private AuthControllerAdvice aca;
+
+    @MockBean
+    private MembershipService ms;
+
+    @MockBean
+    private GoogleMembershipService gms;
     
     @Autowired
     private CountyController cc;

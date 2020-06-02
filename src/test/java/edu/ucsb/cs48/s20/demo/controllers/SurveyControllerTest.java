@@ -1,7 +1,8 @@
 package edu.ucsb.cs48.s20.demo.controllers;
 
 import static org.junit.Assert.assertEquals;
-
+import edu.ucsb.cs48.s20.demo.services.GoogleMembershipService;
+import edu.ucsb.cs48.s20.demo.services.MembershipService;
 import edu.ucsb.cs48.s20.demo.controllers.SurveyController;
 import org.junit.Test;
 import org.junit.Before;
@@ -14,6 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 import edu.ucsb.cs48.s20.demo.entities.County;
+import edu.ucsb.cs48.s20.demo.repositories.AppUserRepository;
 import edu.ucsb.cs48.s20.demo.repositories.CountyRepository;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
@@ -35,7 +37,7 @@ import org.springframework.ui.ExtendedModelMap;
 import org.springframework.ui.Model;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributesModelMap;
-
+import edu.ucsb.cs48.s20.demo.advice.AuthControllerAdvice;
 
 import java.util.Arrays;
 import java.util.List;
@@ -52,6 +54,21 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 public class SurveyControllerTest {
 
+    @MockBean
+    private AuthControllerAdvice aca;
+
+
+    @MockBean
+    private AppUserRepository aur;
+
+    @MockBean
+    private ClientRegistrationRepository crr;
+
+    @MockBean
+    private MembershipService ms;
+
+    @MockBean
+    private GoogleMembershipService gms;
 
     @Autowired
     private SurveyController sc;

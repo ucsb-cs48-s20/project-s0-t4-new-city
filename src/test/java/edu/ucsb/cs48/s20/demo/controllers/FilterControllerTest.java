@@ -1,9 +1,13 @@
 package edu.ucsb.cs48.s20.demo.controllers;
 
+import edu.ucsb.cs48.s20.demo.advice.AuthControllerAdvice;
+import edu.ucsb.cs48.s20.demo.services.GoogleMembershipService;
+import edu.ucsb.cs48.s20.demo.services.MembershipService;
 import edu.ucsb.cs48.s20.demo.Application;
 import edu.ucsb.cs48.s20.demo.controllers.FilterController;
 import edu.ucsb.cs48.s20.demo.formbeans.CountyFilter;
 import edu.ucsb.cs48.s20.demo.entities.County;
+import edu.ucsb.cs48.s20.demo.repositories.AppUserRepository;
 import edu.ucsb.cs48.s20.demo.repositories.CountyRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -47,11 +51,30 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 public class FilterControllerTest {
 
+
+   
+
+    @MockBean
+    private AppUserRepository aur;
+
+    @MockBean
+    private ClientRegistrationRepository crr;
+
+
     @Autowired
     private FilterController fc;
 
     @MockBean
     private CountyRepository cr;
+
+    @MockBean
+    private MembershipService ms;
+
+    @MockBean
+    private GoogleMembershipService gms;
+
+    @MockBean
+    private AuthControllerAdvice aca;
 
     @Test
     public void testFilter() {
