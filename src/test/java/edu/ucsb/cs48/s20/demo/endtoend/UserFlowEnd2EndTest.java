@@ -100,8 +100,11 @@ public class UserFlowEnd2EndTest {
         assertEquals(5,rows.size());
 
         assertTrue(rows.get(1).getText().contains("Marin"));
+        assertTrue(rows.get(2).getText().contains("San Francisco"));
+        assertTrue(rows.get(3).getText().contains("San Mateo"));
+        assertTrue(rows.get(4).getText().contains("Santa Clara"));
     }
-/*
+
     @Test
     public void testSurvey() {
         // Navigate to home page
@@ -110,21 +113,27 @@ public class UserFlowEnd2EndTest {
         assert(webDriver.getCurrentUrl().equalsIgnoreCase("http://localhost:8080/survey"));
 
         // Fill out survey
-        webDriver.findElement(By.id("option1")).click();
-        webDriver.findElement(By.id("option11")).click();
-        webDriver.findElement(By.id("option21")).click();
-        webDriver.findElement(By.id("option33")).click();
-        webDriver.findElement(By.id("option43")).click();
-        webDriver.findElement(By.id("option53")).click();
-        webDriver.findElement(By.id("option63")).click();
+        webDriver.findElement(By.id("slabel1")).click();
+        webDriver.findElement(By.id("slabel11")).click();
+        webDriver.findElement(By.id("slabel21")).click();
+        webDriver.findElement(By.id("slabel33")).click();
+        webDriver.findElement(By.id("slabel43")).click();
+        webDriver.findElement(By.id("slabel53")).click();
+        webDriver.findElement(By.id("slabel63")).click();
 
         // Submit the form
-        webDriver.findElement(By.id("submitid")).click();
+        webDriver.findElement(By.id("submitid2")).click();
 
         // Check the values in the resulting table...
-        List<WebElement> rows = webDriver.findElements(By.cssSelector("[class='bootstrap-table table table-bordered table-hover'] tr"));
+        List<WebElement> rows2 = webDriver.findElements(By.cssSelector("[class='bootstrap-table table table-bordered table-hover'] tr"));
 
+        assertEquals(4,rows2.size());
+        
+        assertTrue(rows2.get(1).getText().contains("Santa Clara"));
+        assertTrue(rows2.get(2).getText().contains("Los Angeles"));
+        assertTrue(rows2.get(3).getText().contains("Modoc"));
+        
     }
-    */
+    
 
 }
