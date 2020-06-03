@@ -34,16 +34,20 @@
     </div>
     <div th:replace="bootstrap/bootstrap_scripts.html"></div>
     <script>
+        var e1 = document.getElementById("county1");
+        var e2 = document.getElementById("county2");
+        var strCounty1 = e1.options[e1.selectedIndex].text;
+        var strCounty2 = e2.options[e2.selectedIndex].text;
         var ctx = document.getElementById("myChart").getContext("2d");
 
         var data = {
             labels: ["Chocolate", "Vanilla", "Strawberry"],
             datasets: [{
-                label: "${compareCounty.county1}",
+                label: strCounty1,
                 backgroundColor: "blue",
                 data: [3, 7, 4]
             }, {
-                label: "Red",
+                label: strCounty2,
                 backgroundColor: "red",
                 data: [4, 3, 5]
             }]
