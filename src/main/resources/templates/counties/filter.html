@@ -7,136 +7,275 @@
 </head>
 
 <body>
+    <!---->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.7.2/css/bootstrap-slider.min.css">
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.7.2/bootstrap-slider.min.js"></script>
+
+    <!---->
     <div class="container">
         <div th:replace="bootstrap/bootstrap_nav_header.html"></div>
         <h1>County Filter</h1>
         <form action="#" th:action="@{/county/results}" th:object="${countyFilter}" method="get">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-2">
-                    <h5>Category</h5>
+
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <h5>Category</h5>
+                    </div>
+                    <div class="col-sm-2">
+                        <h5>Range</h5>
+                    </div>
                 </div>
-                <div class="col-sm-2">
-                    <h5>Minimum</h5>
+                </br>
+                <div class="row">
+                    <div class="col-sm-2">
+                        County Population
+                    </div>
+                    <div class="col-sm-8">
+                        <b>0 &#8194</b> <input id="pop" type="text" class="span2" value="" data-slider-min="0"
+                            data-slider-max="10000000" data-slider-step="1000" data-slider-value="[0,10000000]" />
+                        <b>&#8194
+                            10000000</b>
+                        <script>
+                            $("#pop").slider({});
+                        </script>
+                    </div>
                 </div>
-                <div class="col-sm-2">
-                    <h5>Maximum</h5>
+                </br>
+                <div class="row">
+                    <div class="col-sm-2">
+                        Household Income
+                    </div>
+                    <div class="col-sm-4">
+                        <b>0 &#8194</b> <input id="income" type="text" class="span2" value="" data-slider-min="0"
+                            data-slider-max="100000" data-slider-step="1000" data-slider-value="[0,100000]" /> <b>&#8194
+                            100000</b>
+                        <script>
+                            $("#income").slider({});
+                        </script>
+                    </div>
+                </div>
+                </br>
+                <div class="row">
+                    <div class="col-sm-2">
+                        House Price
+                    </div>
+                    <div class="col-sm-4">
+                        <b>0 &#8194</b> <input id="price" type="text" class="span2" value="" data-slider-min="0"
+                            data-slider-max="1200000" data-slider-step="1000" data-slider-value="[0,1200000]" />
+                        <b>&#8194
+                            1200000</b>
+                        <script>
+                            $("#price").slider({});
+                        </script>
+                    </div>
+                </div>
+                </br>
+                <div class="row">
+                    <div class="col-sm-2">
+                        Temperature (F)
+                    </div>
+                    <div class="col-sm-4">
+                        <b>0 &#8194</b> <input id="temp" type="text" class="span2" value="" data-slider-min="0"
+                            data-slider-max="100" data-slider-step="5" data-slider-value="[0,100]" /> <b>&#8194
+                            100</b>
+                        <script>
+                            $("#temp").slider({});
+                        </script>
+                    </div>
+                </div>
+                </br>
+                <div class="row">
+                    <div class="col-sm-2">
+                        Crime Rate
+                    </div>
+                    <div class="col-sm-4">
+                        <b>0 &#8194</b> <input id=crime type="text" class="span2" value="" data-slider-min="0"
+                            data-slider-max="100" data-slider-step="5" data-slider-value="[0,100]" /> <b>&#8194
+                            100</b>
+                        <script>
+                            $("#crime").slider({});
+                        </script>
+                    </div>
+                </div>
+                </br>
+                <div class="row">
+                    <div class="col-sm-2">
+                        Unemployment Rate
+                    </div>
+                    <div class="col-sm-4">
+                        <b>0 &#8194</b> <input id="unemploy" type="text" class="span2" value="" data-slider-min="0"
+                            data-slider-max="100" data-slider-step="5" data-slider-value="[0,100]" /> <b>&#8194
+                            100</b>
+                        <script>
+                            $("#unemploy").slider({});
+                        </script>
+                    </div>
+                </div>
+                </br>
+                <div class="row">
+                    <div class="col-sm-2">
+                        Student Enrollment
+                    </div>
+                    <div class="col-sm-4">
+                        <b>0 &#8194</b> <input id="enroll" type="text" class="span2" value="" data-slider-min="0"
+                            data-slider-max="1500000" data-slider-step="1000" data-slider-value="[0,1500000]" />
+                        <b>&#8194
+                            1500000</b>
+                        <script>
+                            $("#enroll").slider({});
+                        </script>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-2">
-                    County Population
+
+
+
+
+
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <h5>Category</h5>
+                    </div>
+                    <div class="col-sm-2">
+                        <h5>Minimum</h5>
+                    </div>
+                    <div class="col-sm-2">
+                        <h5>Maximum</h5>
+                    </div>
                 </div>
-                <div class="col-sm-2">
-                    <tr class="form-group">
-                        <td><input type="number" th:field="*{minpopulation}" class="form-control" id="minpopulation">
+                <div class="row">
+                    <div class="col-sm-2">
+                        County Populations
+                    </div>
+                    <div class="col-sm-2">
+                        <tr class="form-group">
+                            <td><input type="number" th:field="*{minpopulation}" class="form-control"
+                                    id="minpopulation">
+                            </td>
+                        </tr>-
+                    </div>
+                    <div class="col-sm-2">
+                        <tr class="form-group">
+                            <td><input type="number" th:field="*{maxpopulation}" class="form-control"
+                                    id="maxpopulation">
+                            </td>
+                        </tr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        Household Income
+                    </div>
+                    <div class="col-sm-2">
+                        <tr class="form-group">
+                            <td><input type="number" th:field="*{minincome}" class="form-control" id="minincome">
+                            </td>
+                        </tr>
+                    </div>
+                    <div class="col-sm-2">
+                        <tr class="form-group">
+                            <td><input type="number" th:field="*{maxincome}" class="form-control" id="maxincome">
+                            </td>
+                        </tr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        House Price
+                    </div>
+                    <div class="col-sm-2">
+                        <tr class="form-group">
+                            <td><input type="number" th:field="*{minhousecost}" class="form-control" id="minhousecost">
+                            </td>
+                        </tr>
+                    </div>
+                    <div class="col-sm-2">
+                        <tr class="form-group">
+                            <td><input type="number" th:field="*{maxhousecost}" class="form-control" id="maxhousecost">
+                            </td>
+                        </tr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        Temperature (F)
+                    </div>
+                    <div class="col-sm-2">
+                        <tr class="form-group">
+                            <td><input type="number" th:field="*{mintemperature}" class="form-control"
+                                    id="mintemperature"></td>
+                        </tr>
+                    </div>
+                    <div class="col-sm-2">
+                        <tr class="form-group">
+                            <td><input type="number" th:field="*{maxtemperature}" class="form-control"
+                                    id="maxtemperature"></td>
+                        </tr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        Crime Rate
+                    </div>
+                    <div class="col-sm-2">
+                        <tr class="form-group">
+                            <td><input type="number" th:field="*{mincrimerate}" class="form-control" id="mincrimerate">
+                            </td>
+                        </tr>
+                    </div>
+                    <div class="col-sm-2">
+                        <td><input type="number" th:field="*{maxcrimerate}" class="form-control" id="maxcrimerate">
                         </td>
-                    </tr>
+                        </tr>
+                    </div>
                 </div>
-                <div class="col-sm-2">
-                    <tr class="form-group">
-                        <td><input type="number" th:field="*{maxpopulation}" class="form-control" id="maxpopulation">
-                        </td>
-                    </tr>
+                <div class="row">
+                    <div class="col-sm-2">
+                        Unemployment Rate
+                    </div>
+                    <div class="col-sm-2">
+                        <tr class="form-group">
+                            <td><input type="number" th:field="*{minunemploymentrate}" class="form-control"
+                                    id="minunemploymentrate"></td>
+                        </tr>
+                    </div>
+                    <div class="col-sm-2">
+                        <tr class="form-group">
+                            <td><input type="number" th:field="*{maxunemploymentrate}" class="form-control"
+                                    id="maxunemploymentrate"></td>
+                        </tr>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-2">
-                    Household Income
-                </div>
-                <div class="col-sm-2">
-                    <tr class="form-group">
-                        <td><input type="number" th:field="*{minincome}" class="form-control" id="minincome"></td>
-                    </tr>
-                </div>
-                <div class="col-sm-2">
-                    <tr class="form-group">
-                        <td><input type="number" th:field="*{maxincome}" class="form-control" id="maxincome"></td>
-                    </tr>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-2">
-                    House Price
-                </div>
-                <div class="col-sm-2">
-                    <tr class="form-group">
-                        <td><input type="number" th:field="*{minhousecost}" class="form-control" id="minhousecost"></td>
-                    </tr>
-                </div>
-                <div class="col-sm-2">
-                    <tr class="form-group">
-                        <td><input type="number" th:field="*{maxhousecost}" class="form-control" id="maxhousecost"></td>
-                    </tr>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-2">
-                    Temperature (F)
-                </div>
-                <div class="col-sm-2">
-                    <tr class="form-group">
-                        <td><input type="number" th:field="*{mintemperature}" class="form-control" id="mintemperature"></td>
-                    </tr>
-                </div>
-                <div class="col-sm-2">
-                    <tr class="form-group">
-                        <td><input type="number" th:field="*{maxtemperature}" class="form-control" id="maxtemperature"></td>
-                    </tr>
+                <div class="row">
+                    <div class="col-sm-2">
+                        Student Enrollment
+                    </div>
+                    <div class="col-sm-2">
+                        <tr class="form-group">
+                            <td><input type="number" th:field="*{minstudentenrollment}" class="form-control"
+                                    id="minstudentenrollment"></td>
+                        </tr>
+                    </div>
+                    <div class="col-sm-2">
+                        <tr class="form-group">
+                            <td><input type="number" th:field="*{maxstudentenrollment}" class="form-control"
+                                    id="maxstudentenrollment"></td>
+                        </tr>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-2">
-                    Crime Rate
-                </div>
-                <div class="col-sm-2">
-                    <tr class="form-group">
-                        <td><input type="number" th:field="*{mincrimerate}" class="form-control" id="mincrimerate"></td>
-                    </tr>
-                </div>
-                <div class="col-sm-2">
-                    <td><input type="number" th:field="*{maxcrimerate}" class="form-control" id="maxcrimerate"></td>
-                </tr>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-2">
-                    Unemployment Rate
-                </div>
-                <div class="col-sm-2">
-                    <tr class="form-group">
-                        <td><input type="number" th:field="*{minunemploymentrate}" class="form-control"
-                                id="minunemploymentrate"></td>
-                    </tr>
-                </div>
-                <div class="col-sm-2">
-                    <tr class="form-group">
-                        <td><input type="number" th:field="*{maxunemploymentrate}" class="form-control"
-                                id="maxunemploymentrate"></td>
-                    </tr>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-2">
-                    Student Enrollment
-                </div>
-                <div class="col-sm-2">
-                    <tr class="form-group">
-                        <td><input type="number" th:field="*{minstudentenrollment}" class="form-control"
-                                id="minstudentenrollment"></td>
-                    </tr>
-                </div>
-                <div class="col-sm-2">
-                    <tr class="form-group">
-                        <td><input type="number" th:field="*{maxstudentenrollment}" class="form-control"
-                                id="maxstudentenrollment"></td>
-                    </tr>
-                </div>
-            </div>
-        </div>
-    <input type="submit" class="btn btn-primary" value="Filter">
-    </form>
-    <div th:replace="bootstrap/bootstrap_footer.html"></div>
+            <input type="submit" class="btn btn-primary" value="Filter">
+        </form>
+        <div th:replace="bootstrap/bootstrap_footer.html"></div>
     </div>
     <div th:replace="bootstrap/bootstrap_scripts.html"></div>
 </body>
