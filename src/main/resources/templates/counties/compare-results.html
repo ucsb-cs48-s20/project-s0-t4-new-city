@@ -16,14 +16,20 @@
 
             <select id="county1" name="county1" form="compareCounty" class="form-control">
 	        <option value="0">Select County 1</option>
-                <option th:each="county : ${counties}" th:value="${county.name}" th:text="${county.name}" th:selected="${county.name == compareCounty.county1.name}">
+                <option th:each="county : ${counties}" th:value="${county.name}" th:text="${county.name}">
                 </option>
             </select>
+            <script>
+                document.getElementById('county1').value = "<?php echo $_GET['county1'];?>";
+            </script>
 	    <select id="county2" name="county2" form="compareCounty" class="form-control">
 	        <option value="0">Select County 2</option>
-		<option th:each="county : ${counties}" th:value="${county.name}" th:text="${county.name}" th:selected="${county.name == compareCounty.county2.name}">
+		<option th:each="county : ${counties}" th:value="${county.name}" th:text="${county.name}">
 		</option>
             </select>
+            <script>
+                document.getElementById('county2').value = "<?php echo $_GET['county2'];?>";
+            </script>
             
             <input type="submit" class="btn btn-primary" value="Compare">
 
