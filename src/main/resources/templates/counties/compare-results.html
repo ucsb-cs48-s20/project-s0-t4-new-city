@@ -16,12 +16,12 @@
 
             <select id="county1" name="county1" form="compareCounty">
 	        <option value="0">Select County 1</option>
-                <option th:each="county : ${counties}" th:value="${county.name}" th:text="${county.name}">
+                <option th:each="county : ${counties}" th:value="${county.name}" th:text="${county.name}" th:selected="${county.name == compareCounty.county1.name}">
                 </option>
             </select>
 	    <select id="county2" name="county2" form="compareCounty">
 	        <option value="0">Select County 2</option>
-		<option th:each="county : ${counties}" th:value="${county.name}" th:text="${county.name}">
+		<option th:each="county : ${counties}" th:value="${county.name}" th:text="${county.name}" th:selected="${county.name == compareCounty.county2.name}">
 		</option>
             </select>
             
