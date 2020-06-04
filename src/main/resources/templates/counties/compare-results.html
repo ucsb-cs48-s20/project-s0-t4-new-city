@@ -19,16 +19,30 @@
                 <option th:each="county : ${counties}" th:value="${county.name}" th:text="${county.name}">
                 </option>
             </select>
-            <script type="text/javascript">
-                document.getElementById('county1').value = "<?php echo $_GET['county1'];?>";
+            <script>
+                window.onload = function() {
+                    var selItem = sessionStorage.getItem("SelItem");  
+                    $('#county1').val(selItem);
+                }
+                $('#county1').change(function() { 
+                    var selVal = $(this).val();
+                    sessionStorage.setItem("SelItem", selVal);
+                });             }
             </script>
-	    <select id="county2" name="county2" form="compareCounty" class="form-control">
-	        <option value="0">Select County 2</option>
-		<option th:each="county : ${counties}" th:value="${county.name}" th:text="${county.name}">
-		</option>
+	        <select id="county2" name="county2" form="compareCounty" class="form-control">
+	            <option value="0">Select County 2</option>
+		        <option th:each="county : ${counties}" th:value="${county.name}" th:text="${county.name}">
+		        </option>
             </select>
-            <script type="text/javascript">
-                document.getElementById('county2').value = "<?php echo $_GET['county2'];?>";
+            <script>
+                window.onload = function() {
+                    var selItem = sessionStorage.getItem("SelItem");  
+                    $('#county2').val(selItem);
+                }
+                $('#county2').change(function() { 
+                    var selVal = $(this).val();
+                    sessionStorage.setItem("SelItem", selVal);
+                });             }
             </script>
             
             <input type="submit" class="btn btn-primary" value="Compare">
