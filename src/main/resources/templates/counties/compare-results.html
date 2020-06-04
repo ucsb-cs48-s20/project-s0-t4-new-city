@@ -19,7 +19,7 @@
                 <option th:each="county : ${counties}" th:value="${county.name}" th:text="${county.name}">
                 </option>
             </select>
-            <script>
+            <script type="text/javascript">
                 document.getElementById('county1').value = "<?php echo $_GET['county1'];?>";
             </script>
 	    <select id="county2" name="county2" form="compareCounty" class="form-control">
@@ -27,7 +27,7 @@
 		<option th:each="county : ${counties}" th:value="${county.name}" th:text="${county.name}">
 		</option>
             </select>
-            <script>
+            <script type="text/javascript">
                 document.getElementById('county2').value = "<?php echo $_GET['county2'];?>";
             </script>
             
