@@ -45,6 +45,8 @@
                         <script>
                             $("#pop").slider({});
                         </script>
+                        <input type="hidden" id="popRangeMin" th:field="*{minpopulation}" />
+                        <input type="hidden" id="popRangeMax" th:field="*{maxpopulation}" />
                     </div>
                 </div>
                 </br>
@@ -59,6 +61,8 @@
                         <script>
                             $("#income").slider({});
                         </script>
+                        <input type="hidden" id="costRangeMin" th:field="*{minhousecost}" />
+                        <input type="hidden" id="costRangeMax" th:field="*{maxhousecost}" />
                     </div>
                 </div>
                 </br>
@@ -88,6 +92,8 @@
                         <script>
                             $("#temp").slider({});
                         </script>
+                        <input type="hidden" id="tempRangeMin" th:field="*{mintemperature}" />
+                        <input type="hidden" id="tempRangeMax" th:field="*{maxtemperature}" />
                     </div>
                 </div>
                 </br>
@@ -102,6 +108,8 @@
                         <script>
                             $("#crime").slider({});
                         </script>
+                        <input type="hidden" id="crimeRangeMin" th:field="*{mincrimerate}" />
+                        <input type="hidden" id="crimeRangeMax" th:field="*{maxcrimerate}" />
                     </div>
                 </div>
                 </br>
@@ -116,6 +124,8 @@
                         <script>
                             $("#unemploy").slider({});
                         </script>
+                        <input type="hidden" id="unemployRangeMin" th:field="*{minunemploymentrate}" />
+                        <input type="hidden" id="unemployRangeMax" th:field="*{maxunemploymentrate}" />
                     </div>
                 </div>
                 </br>
@@ -131,6 +141,8 @@
                         <script>
                             $("#enroll").slider({});
                         </script>
+                        <input type="hidden" id="enrollRangeMin" th:field="*{minstudentenrollment}" />
+                        <input type="hidden" id="enrollRangeMax" th:field="*{maxstudentenrollment}" />
                     </div>
                 </div>
             </div>
