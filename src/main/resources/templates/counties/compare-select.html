@@ -15,12 +15,12 @@
         <form action="#" th:action="@{/county/compare-results}" th:object="${compareCounty}" method="get" id="compareCounty">
             <select id="county1" name="county1" form="compareCounty" class="form-control">
 	            <option value="0">Select County 1</option>
-                <option th:each="county : ${counties}" <?php if ($_GET['county1'] == '${county.name}') { ?>selected="true" <?php }; ?>th:value="${county.name}" th:text="${county.name}">
+                <option th:each="county : ${counties}" th:value="${county.name}" th:text="${county.name}">
                 </option>
             </select>
 		    <select id="county2" name="county2" form="compareCounty" class="form-control">
 		        <option value="0">Select County 2</option>
-		        <option th:each="county : ${counties}" <?php if ($_GET['county2'] == '${county.name}') { ?>selected="true" <?php }; ?>th:value="${county.name}" th:text="${county.name}">
+		        <option th:each="county : ${counties}" th:value="${county.name}" th:text="${county.name}">
 		        </option>
             </select>
             <input type="submit" class="btn btn-primary" value="Compare">
