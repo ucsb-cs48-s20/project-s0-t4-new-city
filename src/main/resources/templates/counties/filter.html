@@ -13,8 +13,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.7.2/css/bootstrap-slider.min.css">
-    <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.7.2/bootstrap-slider.min.js"></script>
+    
 
     <!---->
     <div class="container">
@@ -39,7 +38,8 @@
                     </div>
                     <div class="col-sm-2">
                         <td>
-                            <input type="number" th:field="*{minpopulation}" class="form-control" id="minpopulation">
+                            <input type="number" th:field="*{minpopulation}" class="form-control" id="popRangeMin"
+                                onchange="myFunction(this.valueAsNumber)">
                         </td>
                     </div>
                     <div class="col-sm-3">
@@ -47,22 +47,13 @@
                         <input id="pop" type="text" class="span2" value="" data-slider-min="0"
                             data-slider-max="10000000" data-slider-step="1000" data-slider-value="[0,10000000]" />
 
-                        <script>
-                            $("#pop").slider({});
-                            $("#pop").on("slideStop", function (event) {
-                                console.log(event);
-                                $("#popRangeMin").val(event.value[0]);
-                                $("#popRangeMax").val(event.value[1]);
-                                $("#minpopulation").val(event.value[0]);
-                                $("#maxpopulation").val(event.value[1]);
-                            });
-                        </script>
-                        <input type="hidden" id="popRangeMin" th:field="*{minpopulation}" />
-                        <input type="hidden" id="popRangeMax" th:field="*{maxpopulation}" />
+                        
+                        <!-- <input type="hidden" id="popRangeMin" th:field="*{minpopulation}" />
+                        <input type="hidden" id="popRangeMax" th:field="*{maxpopulation}" /> -->
                     </div>
                     <div class="col-sm-2">
                         <td>
-                            <input type="number" th:field="*{maxpopulation}" class="form-control" id="maxpopulation">
+                            <input type="number" th:field="*{maxpopulation}" class="form-control" id="popRangeMax">
                         </td>
                     </div>
                 </div>
@@ -72,7 +63,7 @@
                         Household Income
                     </div>
                     <div class="col-sm-2">
-                        <td><input type="number" th:field="*{minincome}" class="form-control" id="minincome">
+                        <td><input type="number" th:field="*{minincome}" class="form-control" id="incomeRangeMin">
                         </td>
                     </div>
                     <div class="col-sm-3">
@@ -82,7 +73,7 @@
                             data-slider-max="100000" data-slider-step="1000" data-slider-value="[0,100000]" />
                         <script>
                             $("#income").slider({});
-                            $("#pop").on("slideStop", function (event) {
+                            $("#income").on("slideStop", function (event) {
                                 console.log(event);
                                 $("#incomeRangeMin").val(event.value[0]);
                                 $("#incomeRangeMax").val(event.value[1]);
@@ -90,12 +81,13 @@
                                 $("#maxincome").val(event.value[1]);
                             });
                         </script>
-                        <input type="hidden" id="incomeRangeMin" th:field="*{minincome}" />
-                        <input type="hidden" id="incomeRangeMax" th:field="*{maxincome}" />
+                        <!-- <input type="hidden" id="incomeRangeMin" th:field="*{minincome}" />
+                        <input type="hidden" id="incomeRangeMax" th:field="*{maxincome}" /> -->
                     </div>
                     <div class="col-sm-2">
                         <tr class="form-group">
-                            <td><input type="number" th:field="*{maxincome}" class="form-control" id="maxincome"></td>
+                            <td><input type="number" th:field="*{maxincome}" class="form-control" id="incomeRangeMax">
+                            </td>
                         </tr>
                     </div>
                 </div>
@@ -118,7 +110,7 @@
 
                         <script>
                             $("#price").slider({});
-                            $("#pop").on("slideStop", function (event) {
+                            $("#price").on("slideStop", function (event) {
                                 console.log(event);
                                 $("#costRangeMin").val(event.value[0]);
                                 $("#costRangeMax").val(event.value[1]);
@@ -149,7 +141,7 @@
                             data-slider-step="5" data-slider-value="[0,100]" />
                         <script>
                             $("#temp").slider({});
-                            $("#pop").on("slideStop", function (event) {
+                            $("#temp").on("slideStop", function (event) {
                                 console.log(event);
                                 $("#tempRangeMin").val(event.value[0]);
                                 $("#tempRangeMax").val(event.value[1]);
@@ -181,7 +173,7 @@
                             data-slider-step="5" data-slider-value="[0,100]" />
                         <script>
                             $("#crime").slider({});
-                            $("#pop").on("slideStop", function (event) {
+                            $("#crime").on("slideStop", function (event) {
                                 console.log(event);
                                 $("#crimeRangeMin").val(event.value[0]);
                                 $("#crimeRangeMax").val(event.value[1]);
@@ -213,7 +205,7 @@
                             data-slider-max="100" data-slider-step="5" data-slider-value="[0,100]" />
                         <script>
                             $("#unemploy").slider({});
-                            $("#pop").on("slideStop", function (event) {
+                            $("#unemploy").on("slideStop", function (event) {
                                 console.log(event);
                                 $("#unemployRangeMin").val(event.value[0]);
                                 $("#unemployRangeMax").val(event.value[1]);
@@ -245,7 +237,7 @@
                             data-slider-max="1500000" data-slider-step="1000" data-slider-value="[0,1500000]" />
                         <script>
                             $("#enroll").slider({});
-                            $("#pop").on("slideStop", function (event) {
+                            $("#enroll").on("slideStop", function (event) {
                                 console.log(event);
                                 $("#enrollRangeMin").val(event.value[0]);
                                 $("#enrollRangeMax").val(event.value[1]);
@@ -267,7 +259,7 @@
 
 
 
-
+            <!-- 
             <div class="container">
                 <div class="row">
                     <div class="col-sm-2">
@@ -400,12 +392,34 @@
                         </tr>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <input type="submit" class="btn btn-primary" value="Filter">
         </form>
         <div th:replace="bootstrap/bootstrap_footer.html"></div>
     </div>
     <div th:replace="bootstrap/bootstrap_scripts.html"></div>
+    <script>
+        $("#popRangeMin").val(0);
+        $("#popRangeMax").val(10000000);
+        
+        $("#pop").slider({});
+        // $("#pop").setValue(100000); //test
+        $("#pop").on("slideStop", function (event) {
+            console.log(event);
+            $("#popRangeMin").val(event.value[0]);
+            $("#popRangeMax").val(event.value[1]);
+        });
+        function myFunction(v) {
+            console.log(v);
+            // alert("The input value has changed. The new value is: " + val);
+            // $("#pop").slider("setValue", v);
+            var slider = $("#pop").slider();
+            slider.slider("setValue", [+$("#popRangeMax").val(), v]);
+
+            $("#popRangeMin").val(v);
+        }
+        // $("#minpopulation").
+    </script>
 </body>
 
 </html>
