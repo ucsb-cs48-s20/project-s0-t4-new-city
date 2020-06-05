@@ -62,7 +62,7 @@ public class CountyControllerTest {
     @MockBean
     private AuthControllerAdvice aca;
 
-    
+
     @Autowired
     private CountyController cc;
 

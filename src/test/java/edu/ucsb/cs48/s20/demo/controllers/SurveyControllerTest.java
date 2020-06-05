@@ -54,7 +54,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 public class SurveyControllerTest {
 
-    
+
 
     static {
         System.setProperty("newCity.googleMapKey","1");
@@ -76,7 +76,7 @@ public class SurveyControllerTest {
 
     @Test
     public void test_correct_sorting() {
-        
+
         ArrayList<County> countyList = new ArrayList<>();
         County one = new County("One", 1, 1, 1, 1, 1, 3, 3);
         County two = new County("Two", 2, 2, 2, 2, 2, 2, 2);
@@ -92,7 +92,7 @@ public class SurveyControllerTest {
         countyList.sort(s1);
 
         assertEquals(countyList.get(0), one);
-        
+
     }
 
     @Test

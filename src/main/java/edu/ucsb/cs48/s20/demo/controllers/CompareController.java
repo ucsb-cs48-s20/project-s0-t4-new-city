@@ -21,15 +21,15 @@ public class CompareController {
     private CountyRepository countyRepository = null;
 
     @Autowired
-	public void ApplicationController(CountyRepository countyRepository) {
-	       this.countyRepository = countyRepository;
-	}
+    public void ApplicationController(CountyRepository countyRepository) {
+        this.countyRepository = countyRepository;
+    }
 
     @GetMapping("/county/compare-select")
 
-    public String getCountiesComparison(Model model, CompareCounty compareCounty) {  
-	    model.addAttribute("counties",countyRepository.findAll());
-	    return "counties/compare-select";
+    public String getCountiesComparison(Model model, CompareCounty compareCounty) {
+        model.addAttribute("counties",countyRepository.findAll());
+        return "counties/compare-select";
     }
 
     @GetMapping("/county/compare-results")
@@ -40,7 +40,7 @@ public class CompareController {
         model.addAttribute("county2", county2);
         model.addAttribute("County1", countyRepository.findByName(county1));
         model.addAttribute("County2", countyRepository.findByName(county2));
-	    model.addAttribute("compareCounty", compareCounty);
+        model.addAttribute("compareCounty", compareCounty);
         return "counties/compare-results";
     }
 

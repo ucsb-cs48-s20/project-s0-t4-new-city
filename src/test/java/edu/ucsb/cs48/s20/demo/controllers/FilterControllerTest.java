@@ -45,7 +45,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 
 
-@SpringBootTest(classes={Application.class})
+@SpringBootTest(classes= {Application.class})
 @AutoConfigureMockMvc
 @WebAppConfiguration
 @RunWith(SpringRunner.class)
@@ -85,7 +85,7 @@ public class FilterControllerTest {
 
         County c1 = new County("one", 50, 50);
         County c2 = new County("two", 90, 90);
-       
+
         // Mock the database response
         List<County> someCounties = Arrays.asList(c1,c2);
         when(cr.findByAverageIncomeBetweenAndHousePriceBetween(10,100,10,100)).thenReturn(someCounties);
@@ -93,9 +93,9 @@ public class FilterControllerTest {
         // Call the controller
         fc.getCountiesResults(model, cf);
 
-      
+
         // Make sure model has correct attribute
         assert(model.getAttribute("counties").equals(someCounties));
-    
+
     }
 }

@@ -10,14 +10,14 @@ public class CompareCounty {
     @Override
     public String toString() {
         return "{" +
-            " countyone='" + countyone + "'" +
-            ", countytwo='" + countytwo + "'" +
-            "}";
+               " countyone='" + countyone + "'" +
+               ", countytwo='" + countytwo + "'" +
+               "}";
     }
 
     // getters
     public String getCountyone() {
-       return countyone;
+        return countyone;
     }
 
     public String getCountytwo() {

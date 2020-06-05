@@ -96,7 +96,7 @@ public class UserFlowEnd2EndTest {
 
         // Check the values in the resulting table...
         List<WebElement> rows = webDriver.findElements(By.cssSelector("[class='bootstrap-table table table-bordered table-hover'] tr"));
-        
+
         assertEquals(5,rows.size());
 
         assertTrue(rows.get(1).getText().contains("Marin"));
@@ -128,12 +128,12 @@ public class UserFlowEnd2EndTest {
         List<WebElement> rows2 = webDriver.findElements(By.cssSelector("[class='bootstrap-table table table-bordered table-hover'] tr"));
 
         assertEquals(4,rows2.size());
-        
+
         assertTrue(rows2.get(1).getText().contains("Santa Clara"));
         assertTrue(rows2.get(2).getText().contains("Los Angeles"));
         assertTrue(rows2.get(3).getText().contains("Modoc"));
-        
+
     }
-    
+
 
 }
