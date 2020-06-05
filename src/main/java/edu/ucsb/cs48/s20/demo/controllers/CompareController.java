@@ -21,21 +21,22 @@ public class CompareController {
     private CountyRepository countyRepository = null;
 
     @Autowired
-    public void ApplicationController(CountyRepository countyRepository) {
+    public void applicationController(CountyRepository countyRepository) {
         this.countyRepository = countyRepository;
     }
 
     @GetMapping("/county/compare-select")
 
     public String getCountiesComparison(Model model, CompareCounty compareCounty) {
-        model.addAttribute("counties",countyRepository.findAll());
+        model.addAttribute("counties", countyRepository.findAll());
         return "counties/compare-select";
     }
 
     @GetMapping("/county/compare-results")
 
-    public String getComparisonResults(@RequestParam String county1, @RequestParam String county2, Model model, CompareCounty compareCounty) {
-        model.addAttribute("counties",countyRepository.findAll());
+    public String getComparisonResults(@RequestParam String county1, @RequestParam String county2,
+                                        Model model, CompareCounty compareCounty) {
+        model.addAttribute("counties", countyRepository.findAll());
         model.addAttribute("county1", county1);
         model.addAttribute("county2", county2);
         model.addAttribute("County1", countyRepository.findByName(county1));

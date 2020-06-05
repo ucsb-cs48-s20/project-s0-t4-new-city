@@ -5,7 +5,8 @@ public class CompareCounty {
     private String countyone;
     private String countytwo;
 
-    public CompareCounty() {}
+    public CompareCounty() {
+    }
 
     @Override
     public String toString() {
