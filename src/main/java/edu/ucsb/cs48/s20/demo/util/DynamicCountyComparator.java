@@ -14,17 +14,17 @@ public class DynamicCountyComparator implements Comparator<County> {
 
     }
 
-   public int compare(County o1, County o2) {
+    public int compare(County o1, County o2) {
 
         double score1 = (double) surveyResult.getPopulationResult()
                         / (double) (o1.getPopulationRank())
                         + (double) surveyResult.getIncomeResult() / (double) (o1.getIncomeRank())
                         + (double) surveyResult.getHousePriceResult() / (double) (o1.getHouseRank())
                         + (double) surveyResult.getTemperatureResult()
-                          / (double) (o1.getTemperatureRank())
+                        / (double) (o1.getTemperatureRank())
                         + (double) surveyResult.getCrimeRateResult() / (double) (o1.getCrimeRank())
                         + (double) surveyResult.getUnemploymentResult()
-                          / (double) (o1.getUnemploymentRank())
+                        / (double) (o1.getUnemploymentRank())
                         + (double) surveyResult.getStudentResult() / (double) (o1.getStudentRank());
 
         double score2 = (double) surveyResult.getPopulationResult()
@@ -32,10 +32,10 @@ public class DynamicCountyComparator implements Comparator<County> {
                         + (double) surveyResult.getIncomeResult() / (double) (o2.getIncomeRank())
                         + (double) surveyResult.getHousePriceResult() / (double) (o2.getHouseRank())
                         + (double) surveyResult.getTemperatureResult()
-                          / (double) (o2.getTemperatureRank())
+                        / (double) (o2.getTemperatureRank())
                         + (double) surveyResult.getCrimeRateResult() / (double) (o2.getCrimeRank())
                         + (double) surveyResult.getUnemploymentResult()
-                          / (double) (o2.getUnemploymentRank())
+                        / (double) (o2.getUnemploymentRank())
                         + (double) surveyResult.getStudentResult() / (double) (o2.getStudentRank());
 
 

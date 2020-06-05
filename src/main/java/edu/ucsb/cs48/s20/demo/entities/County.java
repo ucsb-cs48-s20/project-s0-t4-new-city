@@ -95,11 +95,11 @@ public class County {
         this.averageIncome = income;
         this.housePrice = houseprice;
     }
-    
+
     public County (String name, int populationRank, int incomeRank,
                    int houseRank, int temperatureRank, int crimeRank,
                    int unemploymentRank, int studentRank) {
-       
+
         this.name = name;
         this.populationRank = populationRank;
         this.incomeRank = incomeRank;
@@ -109,8 +109,8 @@ public class County {
         this.unemploymentRank = unemploymentRank;
         this.studentRank = studentRank;
 
-    } 
-    
+    }
+
     public String getName() {
         return name;
     }
