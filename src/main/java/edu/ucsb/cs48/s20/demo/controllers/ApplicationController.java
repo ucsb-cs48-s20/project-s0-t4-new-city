@@ -18,39 +18,42 @@ import org.springframework.security.oauth2.client.registration.ClientRegistratio
 import org.springframework.ui.Model;
 
 @Controller
-public class ApplicationController{
+public class ApplicationController {
 
-	private Logger logger = LoggerFactory.getLogger(ApplicationController.class);
-	
+    private Logger logger = LoggerFactory.getLogger(ApplicationController.class);
+
     @Autowired
     private ClientRegistrationRepository clientRegistrationRepository;
 
-    
+
     private CountyRepository countyRepository = null;
-    
+
     @Autowired
-	public ApplicationController(CountyRepository countyRepository) {
-	       this.countyRepository = countyRepository;
-	}
-    
+    public ApplicationController(CountyRepository countyRepository) {
+        this.countyRepository = countyRepository;
+    }
+
     @GetMapping("/")
-    public String home(Model model){
-    	logger.info("model={} countyRepository={}",model,countyRepository); // prints to console information
-    	model.addAttribute("counties", countyRepository.findAll());
+    public String home(Model model) {
+        logger.info("model={} countyRepository={}", model,
+                    countyRepository); // prints to console information
+        model.addAttribute("counties", countyRepository.findAll());
         return "index";
     }
 
     @GetMapping("/login")
-    public String getLoginPage(Model model, OAuth2AuthenticationToken oAuth2AuthenticationToken) {
+    public String getLoginPage(Model model,
+                               OAuth2AuthenticationToken oAuth2AuthenticationToken) {
 
         Map<String, String> urls = new HashMap<>();
 
         // get around an unfortunate limitation of the API
         // that requires an unchecked cast to Iterable<ClientRegistration>
 
-        @SuppressWarnings("unchecked") Iterable<ClientRegistration> iterable = ((Iterable<ClientRegistration>) clientRegistrationRepository);
+        @SuppressWarnings("unchecked") Iterable<ClientRegistration> iterable = ((
+                    Iterable<ClientRegistration>) clientRegistrationRepository);
         iterable.forEach(clientRegistration -> urls.put(clientRegistration.getClientName(),
-                "/oauth2/authorization/" + clientRegistration.getRegistrationId()));
+                         "/oauth2/authorization/" + clientRegistration.getRegistrationId()));
 
         model.addAttribute("urls", urls);
         return "login";

@@ -7,9 +7,13 @@
 
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item">
-                <a class="nav-link" href="/county/search">Filter Counties</a>
+            <li class="nav-item ">
+                    <a class="nav-link" href="/table/index" id="navbarDropdown" role="button">
+                        Table
+                    </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/county/search">Filter</a>
             <li class="nav-item ">
                 <a class="nav-link" href="/survey" id="navbarDropdown" role="button">
                     Survey
@@ -55,12 +59,6 @@
                         </form>
                     </li>
                 </ul>
-            </li>
-            <li th:unless="${isLoggedIn}">
-                <form method="GET" action="/oauth2/authorization/google" class="form-inline my-2 my-lg-0"
-                    th:unless="${isLoggedIn}">
-                    <button class="navbar-btn" type="submit">Google Login</button>
-                </form>
             </li>
         </ul>
     </div>

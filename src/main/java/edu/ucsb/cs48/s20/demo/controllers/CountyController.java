@@ -16,19 +16,17 @@ import edu.ucsb.cs48.s20.demo.repositories.CountyRepository;
 @Controller
 @RequestMapping("/counties/")
 public class CountyController {
-	 
-	private final CountyRepository countyRepository;
 
-	@Autowired
-	public CountyController(CountyRepository countyRepository) {
-	       this.countyRepository = countyRepository;
-	}
+    private final CountyRepository countyRepository;
 
-	 @GetMapping("list")
-	 public String showUpdateForm(Model model) {
-	        model.addAttribute("counties", countyRepository.findAll());
-	        return "index";
-	 }
+    @Autowired
+    public CountyController(CountyRepository countyRepository) {
+        this.countyRepository = countyRepository;
+    }
 
-
+    @GetMapping("list")
+    public String showUpdateForm(Model model) {
+        model.addAttribute("counties", countyRepository.findAll());
+        return "index";
+    }
 }
