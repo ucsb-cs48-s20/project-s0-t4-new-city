@@ -20,7 +20,7 @@ public class Application extends WebSecurityConfigurerAdapter {
         http
         .authorizeRequests()
         .antMatchers("/", "/login**", "/webjars/**", "/error**", "/county/**",
-                     "/survey**", "/map**", "/survey/result")
+                     "/survey**", "/map**", "/survey/result", "/table/**")
         .permitAll()
         .anyRequest()
         .authenticated()
