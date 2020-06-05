@@ -11,10 +11,6 @@
         <div th:replace="bootstrap/bootstrap_nav_header.html"></div>
 
         <h1>Compare Counties</h1>
-            <p th:text="${county1}"></p>
-            <p th:text="${county2}"></p>
-            <p th:text="${County1.get(0).getPopulation()}"></p>
-            <p th:text="${County2.get(0).getPopulation()}"></p>
         <h5>Results</h5>
         <form action="#" th:action="@{/county/compare-results}" th:object="${compareCounty}" method="get" id="compareCounty">
 
