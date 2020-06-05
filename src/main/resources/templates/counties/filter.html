@@ -37,32 +37,61 @@
                     <div class="col-sm-2">
                         County Population
                     </div>
-                    <div class="col-sm-8">
-                        <b>0 &#8194</b> <input id="pop" type="text" class="span2" value="" data-slider-min="0"
+                    <div class="col-sm-2">
+                        <td>
+                            <input type="number" th:field="*{minpopulation}" class="form-control" id="minpopulation">
+                        </td>
+                    </div>
+                    <div class="col-sm-3">
+                        &#8197 &#8197 &#8197
+                        <input id="pop" type="text" class="span2" value="" data-slider-min="0"
                             data-slider-max="10000000" data-slider-step="1000" data-slider-value="[0,10000000]" />
-                        <b>&#8194
-                            10000000</b>
+
                         <script>
                             $("#pop").slider({});
+                            $("#pop").on("slideStop", function (event) {
+                                console.log(event);
+                                $("#popRangeMin").val(event.value[0]);
+                                $("#popRangeMax").val(event.value[1]);
+                                $("#minpopulation").val(event.value[0]);
+                                $("#maxpopulation").val(event.value[1]);
+                            });
                         </script>
                         <input type="hidden" id="popRangeMin" th:field="*{minpopulation}" />
                         <input type="hidden" id="popRangeMax" th:field="*{maxpopulation}" />
                     </div>
+                    <div class="col-sm-2">
+                        <td>
+                            <input type="number" th:field="*{maxpopulation}" class="form-control" id="maxpopulation">
+                        </td>
+                    </div>
+
+
                 </div>
                 </br>
                 <div class="row">
                     <div class="col-sm-2">
                         Household Income
                     </div>
-                    <div class="col-sm-4">
-                        <b>0 &#8194</b> <input id="income" type="text" class="span2" value="" data-slider-min="0"
-                            data-slider-max="100000" data-slider-step="1000" data-slider-value="[0,100000]" /> <b>&#8194
-                            100000</b>
+                    <div class="col-sm-2">
+                        <td><input type="number" th:field="*{minincome}" class="form-control" id="minincome">
+                        </td>
+                    </div>
+                    <div class="col-sm-3">
+                        &#8197 &#8197 &#8197
+
+                        <input id="income" type="text" class="span2" value="" data-slider-min="0"
+                            data-slider-max="100000" data-slider-step="1000" data-slider-value="[0,100000]" /> 
                         <script>
                             $("#income").slider({});
                         </script>
                         <input type="hidden" id="costRangeMin" th:field="*{minhousecost}" />
                         <input type="hidden" id="costRangeMax" th:field="*{maxhousecost}" />
+                    </div>
+                    <div class="col-sm-2">
+                        <tr class="form-group">
+                            <td><input type="number" th:field="*{maxincome}" class="form-control" id="maxincome"></td>
+                        </tr>
                     </div>
                 </div>
                 </br>
@@ -70,14 +99,23 @@
                     <div class="col-sm-2">
                         House Price
                     </div>
-                    <div class="col-sm-4">
-                        <b>0 &#8194</b> <input id="price" type="text" class="span2" value="" data-slider-min="0"
+                    <div class="col-sm-2">
+                        <tr class="form-group">
+                            <td><input type="number" th:field="*{minhousecost}" class="form-control" id="minhousecost"></td>
+                        </tr>
+                    </div>
+                    <div class="col-sm-3">
+                        &#8197 &#8197 &#8197
+
+                        <input id="price" type="text" class="span2" value="" data-slider-min="0"
                             data-slider-max="1200000" data-slider-step="1000" data-slider-value="[0,1200000]" />
-                        <b>&#8194
-                            1200000</b>
+                  
                         <script>
                             $("#price").slider({});
                         </script>
+                    </div>
+                    <div class="col-sm-2">
+                            <td><input type="number" th:field="*{maxhousecost}" class="form-control" id="maxhousecost"></td>
                     </div>
                 </div>
                 </br>
@@ -85,15 +123,22 @@
                     <div class="col-sm-2">
                         Temperature (F)
                     </div>
-                    <div class="col-sm-4">
-                        <b>0 &#8194</b> <input id="temp" type="text" class="span2" value="" data-slider-min="0"
-                            data-slider-max="100" data-slider-step="5" data-slider-value="[0,100]" /> <b>&#8194
-                            100</b>
+                    <div class="col-sm-2">
+                            <td><input type="number" th:field="*{mintemperature}" class="form-control" id="mintemperature"></td>
+                    </div>
+                    <div class="col-sm-3">
+                        &#8197 &#8197 &#8197
+
+                         <input id="temp" type="text" class="span2" value="" data-slider-min="0"
+                            data-slider-max="100" data-slider-step="5" data-slider-value="[0,100]" />
                         <script>
                             $("#temp").slider({});
                         </script>
                         <input type="hidden" id="tempRangeMin" th:field="*{mintemperature}" />
                         <input type="hidden" id="tempRangeMax" th:field="*{maxtemperature}" />
+                    </div>
+                    <div class="col-sm-2">
+                            <td><input type="number" th:field="*{maxtemperature}" class="form-control" id="maxtemperature"></td>
                     </div>
                 </div>
                 </br>
@@ -101,15 +146,24 @@
                     <div class="col-sm-2">
                         Crime Rate
                     </div>
-                    <div class="col-sm-4">
-                        <b>0 &#8194</b> <input id=crime type="text" class="span2" value="" data-slider-min="0"
-                            data-slider-max="100" data-slider-step="5" data-slider-value="[0,100]" /> <b>&#8194
-                            100</b>
+                    <div class="col-sm-2">
+                            <td><input type="number" th:field="*{mincrimerate}" class="form-control" id="mincrimerate"></td>
+      
+                    </div>
+                    <div class="col-sm-3">
+                        &#8197 &#8197 &#8197
+
+                         <input id=crime type="text" class="span2" value="" data-slider-min="0"
+                            data-slider-max="100" data-slider-step="5" data-slider-value="[0,100]" />
                         <script>
                             $("#crime").slider({});
                         </script>
                         <input type="hidden" id="crimeRangeMin" th:field="*{mincrimerate}" />
                         <input type="hidden" id="crimeRangeMax" th:field="*{maxcrimerate}" />
+                    </div>
+                    <div class="col-sm-2">
+                        <td><input type="number" th:field="*{maxcrimerate}" class="form-control" id="maxcrimerate"></td>
+
                     </div>
                 </div>
                 </br>
@@ -117,15 +171,24 @@
                     <div class="col-sm-2">
                         Unemployment Rate
                     </div>
-                    <div class="col-sm-4">
-                        <b>0 &#8194</b> <input id="unemploy" type="text" class="span2" value="" data-slider-min="0"
-                            data-slider-max="100" data-slider-step="5" data-slider-value="[0,100]" /> <b>&#8194
-                            100</b>
+                    <div class="col-sm-2">
+                        <td><input type="number" th:field="*{minunemploymentrate}" class="form-control"
+                            id="minunemploymentrate"></td>
+                    </div>
+                    <div class="col-sm-3">
+                        &#8197 &#8197 &#8197
+
+                         <input id="unemploy" type="text" class="span2" value="" data-slider-min="0"
+                            data-slider-max="100" data-slider-step="5" data-slider-value="[0,100]" />
                         <script>
                             $("#unemploy").slider({});
                         </script>
                         <input type="hidden" id="unemployRangeMin" th:field="*{minunemploymentrate}" />
                         <input type="hidden" id="unemployRangeMax" th:field="*{maxunemploymentrate}" />
+                    </div>
+                    <div class="col-sm-2">
+                        <td><input type="number" th:field="*{maxunemploymentrate}" class="form-control"
+                            id="maxunemploymentrate"></td>
                     </div>
                 </div>
                 </br>
@@ -133,16 +196,24 @@
                     <div class="col-sm-2">
                         Student Enrollment
                     </div>
-                    <div class="col-sm-4">
-                        <b>0 &#8194</b> <input id="enroll" type="text" class="span2" value="" data-slider-min="0"
+                    <div class="col-sm-2">
+                        <td><input type="number" th:field="*{minstudentenrollment}" class="form-control"
+                            id="minstudentenrollment"></td>
+                    </div>
+                    <div class="col-sm-3">
+                        &#8197 &#8197 &#8197
+
+                         <input id="enroll" type="text" class="span2" value="" data-slider-min="0"
                             data-slider-max="1500000" data-slider-step="1000" data-slider-value="[0,1500000]" />
-                        <b>&#8194
-                            1500000</b>
                         <script>
                             $("#enroll").slider({});
                         </script>
                         <input type="hidden" id="enrollRangeMin" th:field="*{minstudentenrollment}" />
                         <input type="hidden" id="enrollRangeMax" th:field="*{maxstudentenrollment}" />
+                    </div>
+                    <div class="col-sm-2">
+                        <td><input type="number" th:field="*{maxstudentenrollment}" class="form-control"
+                            id="maxstudentenrollment"></td>
                     </div>
                 </div>
             </div>
