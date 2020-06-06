@@ -68,7 +68,7 @@ public class AdminController {
             String email = admin.get().getEmail();
             if (ms.getAdminEmails().contains(email)) {
                 String message = "Admin " + email +
-                " was set from application properties and cannot be deleted.";
+                                 " was set from application properties and cannot be deleted.";
                 redirAttrs.addFlashAttribute("alertDanger", message);
             } else {
                 adminRepository.delete(admin.get());

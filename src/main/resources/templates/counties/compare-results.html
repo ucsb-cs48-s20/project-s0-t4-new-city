@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <div th:replace="bootstrap/title.html"></div>
+    <div th:replace="bootstrap/bootstrap_head.html"></div>
+</head>
+
+<body>
+    <div class="container">
+        <div th:replace="bootstrap/bootstrap_nav_header.html"></div>
+
+        <h1>Compare Counties</h1>
+        <h5>Results</h5>
+        <form action="#" th:action="@{/county/compare-results}" th:object="${compareCounty}" method="get" id="compareCounty">
+
+            <select id="county1" name="county1" form="compareCounty" class="form-control">
+	        <option value="0">Select County 1</option>
+                <option th:each="county : ${counties}" th:value="${county.name}" th:text="${county.name}" th:selected="${county.name.equals(county1)}">
+                </option>
+            </select>
+	        <select id="county2" name="county2" form="compareCounty" class="form-control">
+	            <option value="0">Select County 2</option>
+		        <option th:each="county : ${counties}" th:value="${county.name}" th:text="${county.name}" th:selected="${county.name.equals(county2)}">
+		        </option>
+            </select>
+            
+            <input type="submit" class="btn btn-primary" value="Compare">
+
+        </form>
+	    <canvas id="myChart" width="400" height="400"></canvas>
+
+        <div th:replace="bootstrap/bootstrap_footer.html"></div>
+    </div>
+    <div th:replace="bootstrap/bootstrap_scripts.html"></div>
+    <script>
+        var e1 = document.getElementById("county1");
+        var e2 = document.getElementById("county2");
+        var strCounty1 = e1.options[e1.selectedIndex].text;
+        var strCounty2 = e2.options[e2.selectedIndex].text;
+        var ctx = document.getElementById("myChart").getContext("2d");
+        var pop1 = [[${County1.get(0).getPopulation()}]];
+        var pop2 = [[${County2.get(0).getPopulation()}]];
+        var inc1 = [[${County1.get(0).getAverageIncome()}]];
+        var inc2 = [[${County2.get(0).getAverageIncome()}]];
+        var house1 = [[${County1.get(0).getHousePrice()}]];
+        var house2 = [[${County2.get(0).getHousePrice()}]];
+        var temp1 = [[${County1.get(0).getTemperature()}]];
+        var temp2 = [[${County2.get(0).getTemperature()}]];
+        var crime1 = [[${County1.get(0).getCrimeRate()}]];
+        var crime2 = [[${County2.get(0).getCrimeRate()}]];
+        var unemp1 = [[${County1.get(0).getUnEmploymentRate()}]];
+        var unemp2 = [[${County2.get(0).getUnEmploymentRate()}]];
+        var enrol1 = [[${County1.get(0).getStudentEnrollment()}]];
+        var enrol2 = [[${County2.get(0).getStudentEnrollment()}]];
+
+        var data = {
+            labels: ["Population", "Avg. Income", "Avg. House Price", "Temperature(F)","Crime Rate(per 1000 people)","Unemployment Rate","Student Enrollement"],
+            datasets: [{
+                label: strCounty1,
+                backgroundColor: "blue",
+                minBarLength: 5,
+                data: [pop1, inc1, house1, temp1, crime1, unemp1, enrol1]
+            }, {
+                label: strCounty2,
+                backgroundColor: "red",
+                minBarLength: 5,
+                data: [pop2, inc2, house2, temp2, crime2, unemp2, enrol2]
+            }]
+        };
+
+        var myBarChart = new Chart(ctx, {
+            type: 'bar',
+            data: data,
+            options: {
+                barValueSpacing: 20,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            min: 5,
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

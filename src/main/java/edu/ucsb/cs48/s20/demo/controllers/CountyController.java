@@ -29,6 +29,4 @@ public class CountyController {
         model.addAttribute("counties", countyRepository.findAll());
         return "index";
     }
-
-
 }

@@ -21,7 +21,6 @@
         <h2>County Filter</h2>
         <form action="#" th:action="@{/county/results}" th:object="${countyFilter}" method="get">
 
-
             <div class="container">
                 <div class="row">
                     <div class="col-sm-2">
@@ -188,7 +187,7 @@
                     </div>
                 </div>
             </div>
-            <input type="submit" class="btn btn-primary" value="Filter">
+            <input type="submit" id="submitid" class="btn btn-primary" value="Filter">
         </form>
 
         <div th:replace="bootstrap/bootstrap_footer.html"></div>

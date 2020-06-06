@@ -12,3 +12,5 @@ A Spring Boot project.
 * [Deployment Instructions](./docs/DEPLOY.md)
 
 
+# Testing
+* Run mvn test
