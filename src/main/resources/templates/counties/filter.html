@@ -25,10 +25,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-2">
-                        <h5>Category</h5>
+                        <h4>Category</h4>
                     </div>
                     <div class="col-sm-2">
-                        <h5>Range</h5>
+                        <h4>Minimum</h4>
+                    </div>
+                    <div class="col-sm-3">
+                    </div>
+                    <div class="col-sm-2">
+                        <h4>Maximum</h4>
                     </div>
                 </div>
                 </br>
@@ -196,9 +201,28 @@
     <script>
         $("#minpopulation").val(0);
         $("#maxpopulation").val(10000000);
+        $("#minincome").val(0);
+        $("#maxincome").val(100000);
+        $("#minhousecost").val(0);
+        $("#maxhousecost").val(1200000);
+        $("#mintemperature").val(0);
+        $("#maxtemperature").val(100);
+        $("#mincrimerate").val(0);
+        $("#maxcrimerate").val(100);
+        $("#minunemploymentrate").val(0);
+        $("#maxunemploymentrate").val(100);
+        $("#minstudentenrollment").val(0);
+        $("#maxstudentenrollment").val(1500000);
 
         $("#pop").slider({});
-        $("#pop").on("slideStop", function (event) {
+        $("#income").slider({});
+        $("#price").slider({});
+        $("#temp").slider({});
+        $("#crime").slider({});
+        $("#unemploy").slider({});
+        $("#enroll").slider({});
+
+        $("#pop").on("slide", function (event) {
             console.log(event);
             $("#minpopulation").val(event.value[0]);
             $("#maxpopulation").val(event.value[1]);
@@ -214,15 +238,10 @@
             console.log(v);
             var slider = $("#pop").slider();
             slider.slider("setValue", [v, +$("#minpopulation").val()]);
-
             $("#maxpopulation").val(v);
         }
-    </script>
-    <script>
-        $("#minincome").val(0);
-        $("#maxincome").val(100000);
-        $("#income").slider({});
-        $("#income").on("slideStop", function (event) {
+
+        $("#income").on("slide", function (event) {
             console.log(event);
             $("#minincome").val(event.value[0]);
             $("#maxincome").val(event.value[1]);
@@ -239,12 +258,8 @@
             slider.slider("setValue", [v, +$("#minincome").val()]);
             $("#maxincome").val(v);
         }
-    </script>
-    <script>
-        $("#minhousecost").val(0);
-        $("#maxhousecost").val(1200000);
-        $("#price").slider({});
-        $("#price").on("slideStop", function (event) {
+
+        $("#price").on("slide", function (event) {
             console.log(event);
             $("#minhousecost").val(event.value[0]);
             $("#maxhousecost").val(event.value[1]);
@@ -261,12 +276,8 @@
             slider.slider("setValue", [v, +$("#minhousecost").val()]);
             $("#maxhousecost").val(v);
         }
-    </script>
-    <script>
-        $("#mintemperature").val(0);
-        $("#maxtemperature").val(100);
-        $("#temp").slider({});
-        $("#temp").on("slideStop", function (event) {
+
+        $("#temp").on("slide", function (event) {
             console.log(event);
             $("#mintemperature").val(event.value[0]);
             $("#maxtemperature").val(event.value[1]);
@@ -283,12 +294,8 @@
             slider.slider("setValue", [v, +$("#mintemperature").val()]);
             $("#maxtemperature").val(v);
         }
-    </script>
-    <script>
-        $("#mincrimerate").val(0);
-        $("#maxcrimerate").val(100);
-        $("#crime").slider({});
-        $("#crime").on("slideStop", function (event) {
+
+        $("#crime").on("slide", function (event) {
             console.log(event);
             $("#mincrimerate").val(event.value[0]);
             $("#maxcrimerate").val(event.value[1]);
@@ -305,12 +312,8 @@
             slider.slider("setValue", [v, +$("#mincrimerate").val()]);
             $("#maxcrimerate").val(v);
         }
-    </script>
-    <script>
-        $("#minunemploymentrate").val(0);
-        $("#maxunemploymentrate").val(100);
-        $("#unemploy").slider({});
-        $("#unemploy").on("slideStop", function (event) {
+
+        $("#unemploy").on("slide", function (event) {
             console.log(event);
             $("#minunemploymentrate").val(event.value[0]);
             $("#maxunemploymentrate").val(event.value[1]);
@@ -327,12 +330,8 @@
             slider.slider("setValue", [v, +$("#minunemploymentrate").val()]);
             $("#maxunemploymentrate").val(v);
         }
-    </script>
-    <script>
-          $("#minstudentenrollment").val(0);
-        $("#maxstudentenrollment").val(1500000);
-        $("#enroll").slider({});
-        $("#enroll").on("slideStop", function (event) {
+        
+        $("#enroll").on("slide", function (event) {
             console.log(event);
             $("#minstudentenrollment").val(event.value[0]);
             $("#maxstudentenrollment").val(event.value[1]);
@@ -350,6 +349,29 @@
             $("#maxstudentenrollment").val(v);
         }
     </script>
+    <!-- <script>
+  
+       
+    </script>
+    <script>
+     
+        
+    </script>
+    <script>
+
+        
+    </script>
+    <script>
+ 
+      
+    </script>
+    <script>
+
+       
+    </script>
+    <script>
+
+    </script> -->
 </body>
 
 </html>
