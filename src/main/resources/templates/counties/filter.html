@@ -39,7 +39,7 @@
                     <div class="col-sm-2">
                         <td>
                             <input type="number" th:field="*{minpopulation}" class="form-control" id="minpopulation"
-                                onchange="myFunction(this.valueAsNumber)">
+                                oninput="popRangeMin(this.valueAsNumber)">
                         </td>
                     </div>
                     <div class="col-sm-3">
@@ -52,7 +52,8 @@
                     </div>
                     <div class="col-sm-2">
                         <td>
-                            <input type="number" th:field="*{maxpopulation}" class="form-control" id="maxpopulation">
+                            <input type="number" th:field="*{maxpopulation}" class="form-control" id="maxpopulation"
+                            oninput="popRangeMax(this.valueAsNumber)">
                         </td>
                     </div>
                 </div>
@@ -62,7 +63,8 @@
                         Household Income
                     </div>
                     <div class="col-sm-2">
-                        <td><input type="number" th:field="*{minincome}" class="form-control" id="incomeRangeMin">
+                        <td><input type="number" th:field="*{minincome}" class="form-control" id="minincome"
+                            oninput="incomeRangeMin(this.valueAsNumber)">
                         </td>
                     </div>
                     <div class="col-sm-3">
@@ -76,7 +78,8 @@
                     </div>
                     <div class="col-sm-2">
                         <tr class="form-group">
-                            <td><input type="number" th:field="*{maxincome}" class="form-control" id="incomeRangeMax">
+                            <td><input type="number" th:field="*{maxincome}" class="form-control" id="maxincome"
+                                oninput="incomeRangeMax(this.valueAsNumber)">
                             </td>
                         </tr>
                     </div>
@@ -88,7 +91,8 @@
                     </div>
                     <div class="col-sm-2">
                         <tr class="form-group">
-                            <td><input type="number" th:field="*{minhousecost}" class="form-control" id="minhousecost">
+                            <td><input type="number" th:field="*{minhousecost}" class="form-control" id="minhousecost"
+                                oninput="costRangeMin(this.valueAsNumber)">
                             </td>
                         </tr>
                     </div>
@@ -103,7 +107,8 @@
                         <input type="hidden" id="costRangeMax" th:field="*{maxhousecost}" /> -->
                     </div>
                     <div class="col-sm-2">
-                        <td><input type="number" th:field="*{maxhousecost}" class="form-control" id="maxhousecost"></td>
+                        <td><input type="number" th:field="*{maxhousecost}" class="form-control" id="maxhousecost"
+                            oninput="costRangeMax(this.valueAsNumber)"></td>
                     </div>
                 </div>
                 </br>
@@ -112,7 +117,8 @@
                         Temperature (F)
                     </div>
                     <div class="col-sm-2">
-                        <td><input type="number" th:field="*{mintemperature}" class="form-control" id="mintemperature">
+                        <td><input type="number" th:field="*{mintemperature}" class="form-control" id="mintemperature"
+                            oninput="tempRangeMin(this.valueAsNumber)">
                         </td>
                     </div>
                     <div class="col-sm-3">
@@ -125,7 +131,8 @@
                         <input type="hidden" id="tempRangeMax" th:field="*{maxtemperature}" /> -->
                     </div>
                     <div class="col-sm-2">
-                        <td><input type="number" th:field="*{maxtemperature}" class="form-control" id="maxtemperature">
+                        <td><input type="number" th:field="*{maxtemperature}" class="form-control" id="maxtemperature"
+                            oninput="tempRangeMax(this.valueAsNumber)">
                         </td>
                     </div>
                 </div>
@@ -135,7 +142,8 @@
                         Crime Rate
                     </div>
                     <div class="col-sm-2">
-                        <td><input type="number" th:field="*{mincrimerate}" class="form-control" id="mincrimerate"></td>
+                        <td><input type="number" th:field="*{mincrimerate}" class="form-control" id="mincrimerate"
+                            oninput="crimeRangeMin(this.valueAsNumber)"></td>
 
                     </div>
                     <div class="col-sm-3">
@@ -148,7 +156,8 @@
                         <input type="hidden" id="crimeRangeMax" th:field="*{maxcrimerate}" /> -->
                     </div>
                     <div class="col-sm-2">
-                        <td><input type="number" th:field="*{maxcrimerate}" class="form-control" id="maxcrimerate"></td>
+                        <td><input type="number" th:field="*{maxcrimerate}" class="form-control" id="maxcrimerate"
+                            oninput="crimeRangeMax(this.valueAsNumber)"></td>
 
                     </div>
                 </div>
@@ -159,7 +168,7 @@
                     </div>
                     <div class="col-sm-2">
                         <td><input type="number" th:field="*{minunemploymentrate}" class="form-control"
-                                id="minunemploymentrate"></td>
+                                id="minunemploymentrate" oninput="unemployRangeMin(this.valueAsNumber)"></td>
                     </div>
                     <div class="col-sm-3">
                         &#8197 &#8197 &#8197
@@ -172,7 +181,7 @@
                     </div>
                     <div class="col-sm-2">
                         <td><input type="number" th:field="*{maxunemploymentrate}" class="form-control"
-                                id="maxunemploymentrate"></td>
+                                id="maxunemploymentrate" oninput="unemployRangeMax(this.valueAsNumber)"></td>
                     </div>
                 </div>
                 </br>
@@ -182,7 +191,7 @@
                     </div>
                     <div class="col-sm-2">
                         <td><input type="number" th:field="*{minstudentenrollment}" class="form-control"
-                                id="minstudentenrollment"></td>
+                                id="minstudentenrollment" oninput="enrollRangeMin(this.valueAsNumber)"></td>
                     </div>
                     <div class="col-sm-3">
                         &#8197 &#8197 &#8197
@@ -195,7 +204,7 @@
                     </div>
                     <div class="col-sm-2">
                         <td><input type="number" th:field="*{maxstudentenrollment}" class="form-control"
-                                id="maxstudentenrollment"></td>
+                                id="maxstudentenrollment" oninput="enrollRangeMax(this.valueAsNumber)"></td>
                     </div>
                 </div>
             </div>
@@ -373,13 +382,22 @@
             $("#minpopulation").val(v);
         }
         // $("#minpopulation").
+        function popRangeMax(v) {
+            console.log(v);
+            // alert("The input value has changed. The new value is: " + val);
+            // $("#pop").slider("setValue", v);
+            var slider = $("#pop").slider();
+            slider.slider("setValue", [v, +$("#minpopulation").val()]);
+
+            $("#maxpopulation").val(v);
+        }
     </script>
     <script>
         $("#income").slider({});
         $("#income").on("slideStop", function (event) {
             console.log(event);
-            $("#incomeRangeMin").val(event.value[0]);
-            $("#incomeRangeMax").val(event.value[1]);
+            // $("#incomeRangeMin").val(event.value[0]);
+            // $("#incomeRangeMax").val(event.value[1]);
             $("#minincome").val(event.value[0]);
             $("#maxincome").val(event.value[1]);
         });
@@ -388,8 +406,8 @@
         $("#price").slider({});
         $("#price").on("slideStop", function (event) {
             console.log(event);
-            $("#costRangeMin").val(event.value[0]);
-            $("#costRangeMax").val(event.value[1]);
+            // $("#costRangeMin").val(event.value[0]);
+            // $("#costRangeMax").val(event.value[1]);
             $("#minhousecost").val(event.value[0]);
             $("#maxhousecost").val(event.value[1]);
         });
@@ -398,8 +416,8 @@
         $("#temp").slider({});
         $("#temp").on("slideStop", function (event) {
             console.log(event);
-            $("#tempRangeMin").val(event.value[0]);
-            $("#tempRangeMax").val(event.value[1]);
+            // $("#tempRangeMin").val(event.value[0]);
+            // $("#tempRangeMax").val(event.value[1]);
             $("#mintemperature").val(event.value[0]);
             $("#maxtemperature").val(event.value[1]);
         });
@@ -408,8 +426,8 @@
         $("#crime").slider({});
         $("#crime").on("slideStop", function (event) {
             console.log(event);
-            $("#crimeRangeMin").val(event.value[0]);
-            $("#crimeRangeMax").val(event.value[1]);
+            // $("#crimeRangeMin").val(event.value[0]);
+            // $("#crimeRangeMax").val(event.value[1]);
             $("#mincrimerate").val(event.value[0]);
             $("#maxcrimerate").val(event.value[1]);
         });
@@ -418,8 +436,8 @@
         $("#unemploy").slider({});
         $("#unemploy").on("slideStop", function (event) {
             console.log(event);
-            $("#unemployRangeMin").val(event.value[0]);
-            $("#unemployRangeMax").val(event.value[1]);
+            // $("#unemployRangeMin").val(event.value[0]);
+            // $("#unemployRangeMax").val(event.value[1]);
             $("#minunemploymentrate").val(event.value[0]);
             $("#maxunemploymentrate").val(event.value[1]);
         });
@@ -428,8 +446,8 @@
         $("#enroll").slider({});
         $("#enroll").on("slideStop", function (event) {
             console.log(event);
-            $("#enrollRangeMin").val(event.value[0]);
-            $("#enrollRangeMax").val(event.value[1]);
+            // $("#enrollRangeMin").val(event.value[0]);
+            // $("#enrollRangeMax").val(event.value[1]);
             $("#minstudentenrollment").val(event.value[0]);
             $("#maxstudentenrollment").val(event.value[1]);
         });
