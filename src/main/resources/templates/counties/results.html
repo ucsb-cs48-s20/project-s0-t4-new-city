@@ -9,137 +9,59 @@
 <body>
     <div class="container">
         <div th:replace="bootstrap/bootstrap_nav_header.html"></div>
-        <h1>County Filter</h1>
-        <form action="#" th:action="@{/county/results}" th:object="${countyFilter}" method="get">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-2">
-                    <h5>Category</h5>
-                </div>
-                <div class="col-sm-2">
-                    <h5>Minimum</h5>
-                </div>
-                <div class="col-sm-2">
-                    <h5>Maximum</h5>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-2">
-                    County Population
-                </div>
-                <div class="col-sm-2">
-                    <tr class="form-group">
-                        <td><input type="number" th:field="*{minpopulation}" class="form-control" id="minpopulation">
-                        </td>
-                    </tr>
-                </div>
-                <div class="col-sm-2">
-                    <tr class="form-group">
-                        <td><input type="number" th:field="*{maxpopulation}" class="form-control" id="maxpopulation">
-                        </td>
-                    </tr>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-2">
-                    Household Income
-                </div>
-                <div class="col-sm-2">
-                    <tr class="form-group">
-                        <td><input type="number" th:field="*{minincome}" class="form-control" id="minincome"></td>
-                    </tr>
-                </div>
-                <div class="col-sm-2">
-                    <tr class="form-group">
-                        <td><input type="number" th:field="*{maxincome}" class="form-control" id="maxincome"></td>
-                    </tr>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-2">
-                    House Price
-                </div>
-                <div class="col-sm-2">
-                    <tr class="form-group">
-                        <td><input type="number" th:field="*{minhousecost}" class="form-control" id="minhousecost"></td>
-                    </tr>
-                </div>
-                <div class="col-sm-2">
-                    <tr class="form-group">
-                        <td><input type="number" th:field="*{maxhousecost}" class="form-control" id="maxhousecost"></td>
-                    </tr>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-2">
-                    Temperature (F)
-                </div>
-                <div class="col-sm-2">
-                    <tr class="form-group">
-                        <td><input type="number" th:field="*{mintemperature}" class="form-control" id="mintemperature"></td>
-                    </tr>
-                </div>
-                <div class="col-sm-2">
-                    <tr class="form-group">
-                        <td><input type="number" th:field="*{maxtemperature}" class="form-control" id="maxtemperature"></td>
-                    </tr>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-2">
-                    Crime Rate
-                </div>
-                <div class="col-sm-2">
-                    <tr class="form-group">
-                        <td><input type="number" th:field="*{mincrimerate}" class="form-control" id="mincrimerate"></td>
-                    </tr>
-                </div>
-                <div class="col-sm-2">
-                    <td><input type="number" th:field="*{maxcrimerate}" class="form-control" id="maxcrimerate"></td>
-                </tr>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-2">
-                    Unemployment Rate
-                </div>
-                <div class="col-sm-2">
-                    <tr class="form-group">
-                        <td><input type="number" th:field="*{minunemploymentrate}" class="form-control"
-                                id="minunemploymentrate"></td>
-                    </tr>
-                </div>
-                <div class="col-sm-2">
-                    <tr class="form-group">
-                        <td><input type="number" th:field="*{maxunemploymentrate}" class="form-control"
-                                id="maxunemploymentrate"></td>
-                    </tr>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-2">
-                    Student Enrollment
-                </div>
-                <div class="col-sm-2">
-                    <tr class="form-group">
-                        <td><input type="number" th:field="*{minstudentenrollment}" class="form-control"
-                                id="minstudentenrollment"></td>
-                    </tr>
-                </div>
-                <div class="col-sm-2">
-                    <tr class="form-group">
-                        <td><input type="number" th:field="*{maxstudentenrollment}" class="form-control"
-                                id="maxstudentenrollment"></td>
-                    </tr>
-                </div>
-            </div>
+        <h2>County Filter Results</h2>
+        <form action="#" th:action="@{/county/filter}" th:object="${countyFilter}" method="get">
+        </br>
+            <!-- <h5>Applied Filters</h5> -->
+            <table class="table" style="width:50%">
+                <tr>
+                    <th>Category</th>
+                    <th>Minimum</th>
+                    <th>Maximum</th>
 
-        </div>
-        <input type="submit" class="btn btn-primary" value="Filter">
+                </tr>
+                <tr>
+                    <th>County Population</th>
+                    <td th:text="*{minpopulation}"> </td>
+                    <td th:text="*{maxpopulation}"> </td>
+                </tr>
+                <tr>
+                    <th>Household Income</th>
+                    <td th:text="*{minincome}"> </td>
+                    <td th:text="*{maxincome}"> </td>
+                </tr>
+                <tr>
+                    <th>House Price</th>
+                    <td th:text="*{minhousecost}"> </td>
+                    <td th:text="*{maxhousecost}"> </td>
+                </tr>
+                <tr>
+                    <th>Temperature (F)</th>
+                    <td th:text="*{mintemperature}"> </td>
+                    <td th:text="*{maxtemperature}"> </td>
+                </tr>
+                <tr>
+                    <th>Crime Rate</th>
+                    <td th:text="*{mincrimerate}"> </td>
+                    <td th:text="*{maxcrimerate}"> </td>
+                </tr>
+                <tr>
+                    <th>Unemployment Rate</th>
+                    <td th:text="*{minunemploymentrate}"> </td>
+                    <td th:text="*{maxunemploymentrate}"> </td>
+                </tr>
+                <tr>
+                    <th>Student Enrollment</th>
+                    <td th:text="*{minstudentenrollment}"> </td>
+                    <td th:text="*{maxstudentenrollment}"> </td>
+                </tr>
+            </table>
+
+        <input type="submit" class="btn btn-primary" value="Filter Again">
         </form>
         </br>
         <div class="container">
-            <h5>All counties in California that fit within the specified criteria.</h5>
+            <h5>All counties in California that fit within the specified criteria are shown below.</h5>
             <table class="bootstrap-table" data-toggle="table" data-search="true" data-show-export="true"
                 data-show-columns="true" data-show-columns-toggle-all="true">
                 <thead class="thead-light">
