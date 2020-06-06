@@ -53,7 +53,7 @@
                     <div class="col-sm-2">
                         <td>
                             <input type="number" th:field="*{maxpopulation}" class="form-control" id="maxpopulation"
-                            oninput="popRangeMax(this.valueAsNumber)">
+                                oninput="popRangeMax(this.valueAsNumber)">
                         </td>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                     </div>
                     <div class="col-sm-2">
                         <td><input type="number" th:field="*{minincome}" class="form-control" id="minincome"
-                            oninput="incomeRangeMin(this.valueAsNumber)">
+                                oninput="incomeRangeMin(this.valueAsNumber)">
                         </td>
                     </div>
                     <div class="col-sm-3">
@@ -79,7 +79,7 @@
                     <div class="col-sm-2">
                         <tr class="form-group">
                             <td><input type="number" th:field="*{maxincome}" class="form-control" id="maxincome"
-                                oninput="incomeRangeMax(this.valueAsNumber)">
+                                    oninput="incomeRangeMax(this.valueAsNumber)">
                             </td>
                         </tr>
                     </div>
@@ -92,7 +92,7 @@
                     <div class="col-sm-2">
                         <tr class="form-group">
                             <td><input type="number" th:field="*{minhousecost}" class="form-control" id="minhousecost"
-                                oninput="costRangeMin(this.valueAsNumber)">
+                                    oninput="costRangeMin(this.valueAsNumber)">
                             </td>
                         </tr>
                     </div>
@@ -108,7 +108,7 @@
                     </div>
                     <div class="col-sm-2">
                         <td><input type="number" th:field="*{maxhousecost}" class="form-control" id="maxhousecost"
-                            oninput="costRangeMax(this.valueAsNumber)"></td>
+                                oninput="costRangeMax(this.valueAsNumber)"></td>
                     </div>
                 </div>
                 </br>
@@ -118,7 +118,7 @@
                     </div>
                     <div class="col-sm-2">
                         <td><input type="number" th:field="*{mintemperature}" class="form-control" id="mintemperature"
-                            oninput="tempRangeMin(this.valueAsNumber)">
+                                oninput="tempRangeMin(this.valueAsNumber)">
                         </td>
                     </div>
                     <div class="col-sm-3">
@@ -132,7 +132,7 @@
                     </div>
                     <div class="col-sm-2">
                         <td><input type="number" th:field="*{maxtemperature}" class="form-control" id="maxtemperature"
-                            oninput="tempRangeMax(this.valueAsNumber)">
+                                oninput="tempRangeMax(this.valueAsNumber)">
                         </td>
                     </div>
                 </div>
@@ -143,7 +143,7 @@
                     </div>
                     <div class="col-sm-2">
                         <td><input type="number" th:field="*{mincrimerate}" class="form-control" id="mincrimerate"
-                            oninput="crimeRangeMin(this.valueAsNumber)"></td>
+                                oninput="crimeRangeMin(this.valueAsNumber)"></td>
 
                     </div>
                     <div class="col-sm-3">
@@ -157,7 +157,7 @@
                     </div>
                     <div class="col-sm-2">
                         <td><input type="number" th:field="*{maxcrimerate}" class="form-control" id="maxcrimerate"
-                            oninput="crimeRangeMax(this.valueAsNumber)"></td>
+                                oninput="crimeRangeMax(this.valueAsNumber)"></td>
 
                     </div>
                 </div>
@@ -393,6 +393,8 @@
         }
     </script>
     <script>
+        $("#minincome").val(0);
+        $("#maxincome").val(100000);
         $("#income").slider({});
         $("#income").on("slideStop", function (event) {
             console.log(event);
@@ -401,8 +403,22 @@
             $("#minincome").val(event.value[0]);
             $("#maxincome").val(event.value[1]);
         });
+        function incomeRangeMin(v) {
+            console.log(v);
+            var slider = $("#income").slider();
+            slider.slider("setValue", [+$("#maxincome").val(), v]);
+            $("#minincome").val(v);
+        }
+        function incomeRangeMax(v) {
+            console.log(v);
+            var slider = $("#income").slider();
+            slider.slider("setValue", [v, +$("#minincome").val()]);
+            $("#maxincome").val(v);
+        }
     </script>
     <script>
+        $("#minhousecost").val(0);
+        $("#maxhousecost").val(1200000);
         $("#price").slider({});
         $("#price").on("slideStop", function (event) {
             console.log(event);
@@ -411,8 +427,22 @@
             $("#minhousecost").val(event.value[0]);
             $("#maxhousecost").val(event.value[1]);
         });
+        function costRangeMin(v) {
+            console.log(v);
+            var slider = $("#price").slider();
+            slider.slider("setValue", [+$("#maxhousecost").val(), v]);
+            $("#minhousecost").val(v);
+        }
+        function costRangeMax(v) {
+            console.log(v);
+            var slider = $("#price").slider();
+            slider.slider("setValue", [v, +$("#minhousecost").val()]);
+            $("#maxhousecost").val(v);
+        }
     </script>
     <script>
+        $("#mintemperature").val(0);
+        $("#maxtemperature").val(100);
         $("#temp").slider({});
         $("#temp").on("slideStop", function (event) {
             console.log(event);
@@ -421,8 +451,22 @@
             $("#mintemperature").val(event.value[0]);
             $("#maxtemperature").val(event.value[1]);
         });
+        function tempRangeMin(v) {
+            console.log(v);
+            var slider = $("#temp").slider();
+            slider.slider("setValue", [+$("#maxtemperature").val(), v]);
+            $("#mintemperature").val(v);
+        }
+        function tempRangeMax(v) {
+            console.log(v);
+            var slider = $("#temp").slider();
+            slider.slider("setValue", [v, +$("#mintemperature").val()]);
+            $("#maxtemperature").val(v);
+        }
     </script>
     <script>
+        $("#mincrimerate").val(0);
+        $("#maxcrimerate").val(100);
         $("#crime").slider({});
         $("#crime").on("slideStop", function (event) {
             console.log(event);
@@ -431,8 +475,22 @@
             $("#mincrimerate").val(event.value[0]);
             $("#maxcrimerate").val(event.value[1]);
         });
+        function crimeRangeMin(v) {
+            console.log(v);
+            var slider = $("#crime").slider();
+            slider.slider("setValue", [+$("#maxcrimerate").val(), v]);
+            $("#mincrimerate").val(v);
+        }
+        function crimeRangeMax(v) {
+            console.log(v);
+            var slider = $("#crime").slider();
+            slider.slider("setValue", [v, +$("#mincrimerate").val()]);
+            $("#maxcrimerate").val(v);
+        }
     </script>
     <script>
+        $("#minunemploymentrate").val(0);
+        $("#maxunemploymentrate").val(100);
         $("#unemploy").slider({});
         $("#unemploy").on("slideStop", function (event) {
             console.log(event);
@@ -441,8 +499,22 @@
             $("#minunemploymentrate").val(event.value[0]);
             $("#maxunemploymentrate").val(event.value[1]);
         });
+        function unemployRangeMin(v) {
+            console.log(v);
+            var slider = $("#unemploy").slider();
+            slider.slider("setValue", [+$("#maxunemploymentrate").val(), v]);
+            $("#minunemploymentrate").val(v);
+        }
+        function unemployRangeMax(v) {
+            console.log(v);
+            var slider = $("#unemploy").slider();
+            slider.slider("setValue", [v, +$("#minunemploymentrate").val()]);
+            $("#maxunemploymentrate").val(v);
+        }
     </script>
     <script>
+          $("#minstudentenrollment").val(0);
+        $("#maxstudentenrollment").val(1500000);
         $("#enroll").slider({});
         $("#enroll").on("slideStop", function (event) {
             console.log(event);
@@ -451,6 +523,18 @@
             $("#minstudentenrollment").val(event.value[0]);
             $("#maxstudentenrollment").val(event.value[1]);
         });
+        function enrollRangeMin(v) {
+            console.log(v);
+            var slider = $("#enroll").slider();
+            slider.slider("setValue", [+$("#maxstudentenrollment").val(), v]);
+            $("#minstudentenrollment").val(v);
+        }
+        function enrollRangeMax(v) {
+            console.log(v);
+            var slider = $("#enroll").slider();
+            slider.slider("setValue", [v, +$("#minstudentenrollment").val()]);
+            $("#maxstudentenrollment").val(v);
+        }
     </script>
 </body>
 
