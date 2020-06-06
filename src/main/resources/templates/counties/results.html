@@ -11,8 +11,8 @@
         <div th:replace="bootstrap/bootstrap_nav_header.html"></div>
         <h2>County Filter Results</h2>
         <form action="#" th:action="@{/county/filter}" th:object="${countyFilter}" method="get">
-        </br>
-            <!-- <h5>Applied Filters</h5> -->
+            </br>
+
             <table class="table" style="width:50%">
                 <tr>
                     <th>Category</th>
@@ -57,7 +57,7 @@
                 </tr>
             </table>
 
-        <input type="submit" class="btn btn-primary" value="Filter Again">
+            <input type="submit" class="btn btn-primary" value="Filter Again">
         </form>
         </br>
         <div class="container">
