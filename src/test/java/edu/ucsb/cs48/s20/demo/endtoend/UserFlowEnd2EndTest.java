@@ -81,15 +81,32 @@ public class UserFlowEnd2EndTest {
     @Test
     public void testFiltering() {
         // Navigate to home page
-        webDriver.get("http://localhost:8080/county/search");
+        webDriver.get("http://localhost:8080/county/filter");
         // Make sure we are not redirected
-        assert(webDriver.getCurrentUrl().equalsIgnoreCase("http://localhost:8080/county/search"));
+        assert(webDriver.getCurrentUrl().equalsIgnoreCase("http://localhost:8080/county/filter"));
 
         // Fill out filters (using .sendKeys)
-        webDriver.findElement(By.id("minincome")).sendKeys("1000");
-        webDriver.findElement(By.id("maxincome")).sendKeys("10000");
-        webDriver.findElement(By.id("minhousecost")).sendKeys("100000");
-        webDriver.findElement(By.id("maxhousecost")).sendKeys("1000000");
+        webDriver.findElement(By.id("minincome")).sendKeys("70000");
+        webDriver.findElement(By.id("maxincome")).sendKeys("0");
+
+        webDriver.findElement(By.id("minhousecost")).sendKeys("1000000");
+        webDriver.findElement(By.id("maxhousecost")).sendKeys("0");
+
+        webDriver.findElement(By.id("mintemperature")).sendKeys("0");
+        webDriver.findElement(By.id("maxtemperature")).sendKeys("0");
+
+        webDriver.findElement(By.id("mincrimerate")).sendKeys("0");
+        webDriver.findElement(By.id("maxcrimerate")).sendKeys("0");
+
+        webDriver.findElement(By.id("minunemploymentrate")).sendKeys("0");
+        webDriver.findElement(By.id("maxunemploymentrate")).sendKeys("0");
+
+        webDriver.findElement(By.id("minstudentenrollment")).sendKeys("0");
+        webDriver.findElement(By.id("maxstudentenrollment")).sendKeys("0");
+
+        webDriver.findElement(By.id("minpopulation")).sendKeys("10000");
+        webDriver.findElement(By.id("maxpopulation")).sendKeys("0");
+
 
         // Submit the form
         webDriver.findElement(By.id("submitid")).click();
@@ -97,12 +114,14 @@ public class UserFlowEnd2EndTest {
         // Check the values in the resulting table...
         List<WebElement> rows = webDriver.findElements(By.cssSelector("[class='bootstrap-table table table-bordered table-hover'] tr"));
 
+        
         assertEquals(5,rows.size());
 
         assertTrue(rows.get(1).getText().contains("Marin"));
         assertTrue(rows.get(2).getText().contains("San Francisco"));
         assertTrue(rows.get(3).getText().contains("San Mateo"));
         assertTrue(rows.get(4).getText().contains("Santa Clara"));
+        
     }
 
     @Test
@@ -135,5 +154,16 @@ public class UserFlowEnd2EndTest {
 
     }
 
+    @Test
+    public void testMainpage() {
+        // Navigate to home page
+        webDriver.get("http://localhost:8080");
+        
+        webDriver.findElement(By.id("surveybutton")).click();
+        // make sure we are redirected to correct page 
+        assert(webDriver.getCurrentUrl().equalsIgnoreCase("http://localhost:8080/survey"));
+    }
+
+    
 
 }

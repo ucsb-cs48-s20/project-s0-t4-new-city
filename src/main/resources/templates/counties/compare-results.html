@@ -28,8 +28,50 @@
             <input type="submit" class="btn btn-primary" value="Compare">
 
         </form>
-	    <canvas id="myChart" width="400" height="400"></canvas>
+        <h2 class="text-center">Ranking Comparison</h2>
+        <canvas id="myChart" width="400" height="200" style="padding-bottom: 50px"></canvas>
 
+        
+        <h2 class="text-center">Data Comparison</h2>
+        <table class="bootstrap-table" data-sticky-header="true" data-toggle="table" data-show-export="true">
+            <thead class="thead-light">
+                <tr>
+                    <th data-sortable="true">County</th>
+                    <th data-sortable="true">Population</th>
+                    <th data-sortable="true">Median House Hold Income</th>
+                    <th data-sortable="true">Median House price</th>
+                    <th data-sortable="true">Temperature(F)</th>
+                    <th data-sortable="true">Crime Rate(per 1000 people)</th>
+                    <th data-sortable="true">Unemployment Rate(%)</th>
+                    <th data-sortable="true">Student Enrollment</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="county : ${County1}">
+                    <td th:text="${county.name}"></td>
+                    <td th:text="${county.population}"></td>
+                    <td th:text="${county.averageIncome}"></td>
+                    <td th:text="${county.housePrice}"></td>
+                    <td th:text="${county.temperature}"></td>
+                    <td th:text="${county.crimeRate}"></td>
+                    <td th:text="${county.unEmploymentRate}"></td>
+                    <td th:text="${county.studentEnrollment}"></td>
+                </tr>
+                <tr th:each="county : ${County2}">
+                    <td th:text="${county.name}"></td>
+                    <td th:text="${county.population}"></td>
+                    <td th:text="${county.averageIncome}"></td>
+                    <td th:text="${county.housePrice}"></td>
+                    <td th:text="${county.temperature}"></td>
+                    <td th:text="${county.crimeRate}"></td>
+                    <td th:text="${county.unEmploymentRate}"></td>
+                    <td th:text="${county.studentEnrollment}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        
+        
         <div th:replace="bootstrap/bootstrap_footer.html"></div>
     </div>
     <div th:replace="bootstrap/bootstrap_scripts.html"></div>
@@ -39,31 +81,31 @@
         var strCounty1 = e1.options[e1.selectedIndex].text;
         var strCounty2 = e2.options[e2.selectedIndex].text;
         var ctx = document.getElementById("myChart").getContext("2d");
-        var pop1 = [[${County1.get(0).getPopulation()}]];
-        var pop2 = [[${County2.get(0).getPopulation()}]];
-        var inc1 = [[${County1.get(0).getAverageIncome()}]];
-        var inc2 = [[${County2.get(0).getAverageIncome()}]];
-        var house1 = [[${County1.get(0).getHousePrice()}]];
-        var house2 = [[${County2.get(0).getHousePrice()}]];
-        var temp1 = [[${County1.get(0).getTemperature()}]];
-        var temp2 = [[${County2.get(0).getTemperature()}]];
-        var crime1 = [[${County1.get(0).getCrimeRate()}]];
-        var crime2 = [[${County2.get(0).getCrimeRate()}]];
-        var unemp1 = [[${County1.get(0).getUnEmploymentRate()}]];
-        var unemp2 = [[${County2.get(0).getUnEmploymentRate()}]];
-        var enrol1 = [[${County1.get(0).getStudentEnrollment()}]];
-        var enrol2 = [[${County2.get(0).getStudentEnrollment()}]];
+        var pop1 = [[${County1.get(0).getPopulationRank()}]];
+        var pop2 = [[${County2.get(0).getPopulationRank()}]];
+        var inc1 = [[${County1.get(0).getIncomeRank()}]];
+        var inc2 = [[${County2.get(0).getIncomeRank()}]];
+        var house1 = [[${County1.get(0).getHouseRank()}]];
+        var house2 = [[${County2.get(0).getHouseRank()}]];
+        var temp1 = [[${County1.get(0).getTemperatureRank()}]];
+        var temp2 = [[${County2.get(0).getTemperatureRank()}]];
+        var crime1 = [[${County1.get(0).getCrimeRank()}]];
+        var crime2 = [[${County2.get(0).getCrimeRank()}]];
+        var unemp1 = [[${County1.get(0).getUnemploymentRank()}]];
+        var unemp2 = [[${County2.get(0).getUnemploymentRank()}]];
+        var enrol1 = [[${County1.get(0).getStudentRank()}]];
+        var enrol2 = [[${County2.get(0).getStudentRank()}]];
 
         var data = {
-            labels: ["Population", "Avg. Income", "Avg. House Price", "Temperature(F)","Crime Rate(per 1000 people)","Unemployment Rate","Student Enrollement"],
+            labels: ["Population Rank", "Income Rank", "House Price Rank", "Temperature Rank","Crime Rate Rank","Unemployment Rate Rank","Student Enrollement Rank"],
             datasets: [{
                 label: strCounty1,
-                backgroundColor: "blue",
+                backgroundColor: "#84EF84",
                 minBarLength: 5,
                 data: [pop1, inc1, house1, temp1, crime1, unemp1, enrol1]
             }, {
                 label: strCounty2,
-                backgroundColor: "red",
+                backgroundColor: "#83DFE7",
                 minBarLength: 5,
                 data: [pop2, inc2, house2, temp2, crime2, unemp2, enrol2]
             }]
@@ -77,7 +119,8 @@
                 scales: {
                     yAxes: [{
                         ticks: {
-                            min: 5,
+                            interval: 20,
+                            min: 0,
                         }
                     }]
                 }

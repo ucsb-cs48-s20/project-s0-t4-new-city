@@ -78,22 +78,40 @@ public class FilterControllerTest {
 
         CountyFilter cf = new CountyFilter();
 
-        cf.setMinincome(10);
-        cf.setMaxincome(100);
-        cf.setMaxhousecost(100);
-        cf.setMinhousecost(10);
+        cf.setMinincome(0);
+        cf.setMaxincome(100000000);
 
-        County c1 = new County("one", 50, 50);
-        County c2 = new County("two", 90, 90);
+        cf.setMaxhousecost(100000000);
+        cf.setMinhousecost(0);
+
+        cf.setMaxpopulation(100000000);
+        cf.setMinpopulation(0);
+
+        cf.setMaxcrimerate(100000000);
+        cf.setMincrimerate(0);
+
+        cf.setMaxstudentenrollment(100000000);
+        cf.setMinstudentenrollment(0);
+
+        cf.setMaxtemperature(100000000);
+        cf.setMintemperature(0);
+
+        cf.setMaxunemploymentrate(100000000);
+        cf.setMinunemploymentrate(0);
+
+
+        //County c1 = new County("one", 50, 50, 50, 50, 50, 50, 50);
+        //County c2 = new County("two", 90, 90, 90, 90, 90, 90, 90);
 
         // Mock the database response
-        List<County> someCounties = Arrays.asList(c1,c2);
-        when(cr.findByAverageIncomeBetweenAndHousePriceBetween(10,100,10,100)).thenReturn(someCounties);
-
+        List<County> someCounties = Arrays.asList();
+        when(cr.findByPopulationBetweenAndAverageIncomeBetweenAndHousePriceBetweenAndTemperatureBetweenAndCrimeRateBetweenAndUnEmploymentRateBetweenAndStudentEnrollmentBetween(10,100,10,100,
+                10, 100, 10, 100, 10, 100, 10, 100, 10, 100)).thenReturn(someCounties);
+        
         // Call the controller
         fc.getCountiesResults(model, cf);
 
-
+        
         // Make sure model has correct attribute
         assert(model.getAttribute("counties").equals(someCounties));
 

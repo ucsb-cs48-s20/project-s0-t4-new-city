@@ -4,42 +4,380 @@
 <head>
     <div th:replace="bootstrap/title.html"></div>
     <div th:replace="bootstrap/bootstrap_head.html"></div>
+    <!-- <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.7.2/css/bootstrap-slider.min.css">
 </head>
 
 <body>
+
     <div class="container">
         <div th:replace="bootstrap/bootstrap_nav_header.html"></div>
-
-        <h1>County Filter</h1>
-        <h5>Filter</h5>
+        <h2>County Filter</h2>
         <form action="#" th:action="@{/county/results}" th:object="${countyFilter}" method="get">
-            <table>
-                <tr class="form-group">
-                    <th><label for="minincome" class="col-form-label">Minimum Income</label></th>
-                    <td><input type="number" th:field="*{minincome}" class="form-control" id="minincome"></td>         
-                </tr>
-                <tr class="form-group">
-                    <th><label for="maxincome" class="col-form-label">Maximum Income</label></th>
-                    <td><input type="number" th:field="*{maxincome}" class="form-control" id="maxincome"></td>                    
-                </tr>
-                <tr class="form-group">
-                    <th><label for="minhousecost" class="col-form-label">Minimum House Cost</label></th>
-                    <td><input type="number" th:field="*{minhousecost}" class="form-control" id="minhousecost"></td>
-                </tr>
-                <tr class="form-group">
-                    <th><label for="maxhousecost" class="col-form-label">Maximum House Cost</label></th>
-                    <td><input type="number" th:field="*{maxhousecost}" class="form-control" id="maxhousecost"></td>
-                </tr>
 
-            </table>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <h4>Category</h4>
+                    </div>
+                    <div class="col-sm-2">
+                        <h4>Minimum</h4>
+                    </div>
+                    <div class="col-sm-3">
+                    </div>
+                    <div class="col-sm-2">
+                        <h4>Maximum</h4>
+                    </div>
+                </div>
+                </br>
+                <div class="row">
+                    <div class="col-sm-2">
+                        County Population
+                    </div>
+                    <div class="col-sm-2">
+                        <td>
+                            <input type="number" th:field="*{minpopulation}" class="form-control" id="minpopulation"
+                                oninput="popRangeMin(this.valueAsNumber)">
+                        </td>
+                    </div>
+                    <div class="col-sm-3">
+                        &#8197 &#8197 &#8197
+                        <input id="pop" type="text" class="span2" value="" data-slider-min="0"
+                            data-slider-max="10000000" data-slider-step="1" data-slider-value="[0,10000000]"
+                            data-slider-tooltip="hide" />
+                    </div>
+                    <div class="col-sm-2">
+                        <td>
+                            <input type="number" th:field="*{maxpopulation}" class="form-control" id="maxpopulation"
+                                oninput="popRangeMax(this.valueAsNumber)">
+                        </td>
+                    </div>
+                </div>
+                </br>
+                <div class="row">
+                    <div class="col-sm-2">
+                        Household Income
+                    </div>
+                    <div class="col-sm-2">
+                        <td><input type="number" th:field="*{minincome}" class="form-control" id="minincome"
+                                oninput="incomeRangeMin(this.valueAsNumber)">
+                        </td>
+                    </div>
+                    <div class="col-sm-3">
+                        &#8197 &#8197 &#8197
+                        <input id="income" type="text" class="span2" value="" data-slider-min="0"
+                            data-slider-max="100000" data-slider-step="1" data-slider-value="[0,100000]"
+                            data-slider-tooltip="hide" />
+                    </div>
+                    <div class="col-sm-2">
+                        <tr class="form-group">
+                            <td><input type="number" th:field="*{maxincome}" class="form-control" id="maxincome"
+                                    oninput="incomeRangeMax(this.valueAsNumber)">
+                            </td>
+                        </tr>
+                    </div>
+                </div>
+                </br>
+                <div class="row">
+                    <div class="col-sm-2">
+                        House Price
+                    </div>
+                    <div class="col-sm-2">
+                        <tr class="form-group">
+                            <td><input type="number" th:field="*{minhousecost}" class="form-control" id="minhousecost"
+                                    oninput="costRangeMin(this.valueAsNumber)">
+                            </td>
+                        </tr>
+                    </div>
+                    <div class="col-sm-3">
+                        &#8197 &#8197 &#8197
+                        <input id="price" type="text" class="span2" value="" data-slider-min="0"
+                            data-slider-max="1200000" data-slider-step="1" data-slider-value="[0,1200000]"
+                            data-slider-tooltip="hide" />
+                    </div>
+                    <div class="col-sm-2">
+                        <td><input type="number" th:field="*{maxhousecost}" class="form-control" id="maxhousecost"
+                                oninput="costRangeMax(this.valueAsNumber)"></td>
+                    </div>
+                </div>
+                </br>
+                <div class="row">
+                    <div class="col-sm-2">
+                        Temperature (F)
+                    </div>
+                    <div class="col-sm-2">
+                        <td><input type="number" th:field="*{mintemperature}" class="form-control" id="mintemperature"
+                                oninput="tempRangeMin(this.valueAsNumber)">
+                        </td>
+                    </div>
+                    <div class="col-sm-3">
+                        &#8197 &#8197 &#8197
+                        <input id="temp" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100"
+                            data-slider-step="1" data-slider-value="[0,100]" data-slider-tooltip="hide" />
+                    </div>
+                    <div class="col-sm-2">
+                        <td><input type="number" th:field="*{maxtemperature}" class="form-control" id="maxtemperature"
+                                oninput="tempRangeMax(this.valueAsNumber)">
+                        </td>
+                    </div>
+                </div>
+                </br>
+                <div class="row">
+                    <div class="col-sm-2">
+                        Crime Rate
+                    </div>
+                    <div class="col-sm-2">
+                        <td><input type="number" th:field="*{mincrimerate}" class="form-control" id="mincrimerate"
+                                oninput="crimeRangeMin(this.valueAsNumber)"></td>
+                    </div>
+                    <div class="col-sm-3">
+                        &#8197 &#8197 &#8197
+                        <input id=crime type="text" class="span2" value="" data-slider-min="0" data-slider-max="100"
+                            data-slider-step="1" data-slider-value="[0,100]" data-slider-tooltip="hide" />
+                    </div>
+                    <div class="col-sm-2">
+                        <td><input type="number" th:field="*{maxcrimerate}" class="form-control" id="maxcrimerate"
+                                oninput="crimeRangeMax(this.valueAsNumber)"></td>
+                    </div>
+                </div>
+                </br>
+                <div class="row">
+                    <div class="col-sm-2">
+                        Unemployment Rate
+                    </div>
+                    <div class="col-sm-2">
+                        <td><input type="number" th:field="*{minunemploymentrate}" class="form-control"
+                                id="minunemploymentrate" oninput="unemployRangeMin(this.valueAsNumber)"></td>
+                    </div>
+                    <div class="col-sm-3">
+                        &#8197 &#8197 &#8197
+                        <input id="unemploy" type="text" class="span2" value="" data-slider-min="0"
+                            data-slider-max="100" data-slider-step="1" data-slider-value="[0,100]"
+                            data-slider-tooltip="hide" />
+                    </div>
+                    <div class="col-sm-2">
+                        <td><input type="number" th:field="*{maxunemploymentrate}" class="form-control"
+                                id="maxunemploymentrate" oninput="unemployRangeMax(this.valueAsNumber)"></td>
+                    </div>
+                </div>
+                </br>
+                <div class="row">
+                    <div class="col-sm-2">
+                        Student Enrollment
+                    </div>
+                    <div class="col-sm-2">
+                        <td><input type="number" th:field="*{minstudentenrollment}" class="form-control"
+                                id="minstudentenrollment" oninput="enrollRangeMin(this.valueAsNumber)"></td>
+                    </div>
+                    <div class="col-sm-3">
+                        &#8197 &#8197 &#8197
+                        <input id="enroll" type="text" class="span2" value="" data-slider-min="0"
+                            data-slider-max="1500000" data-slider-step="1" data-slider-value="[0,1500000]"
+                            data-slider-tooltip="hide" />
+                    </div>
+                    <div class="col-sm-2">
+                        <td><input type="number" th:field="*{maxstudentenrollment}" class="form-control"
+                                id="maxstudentenrollment" oninput="enrollRangeMax(this.valueAsNumber)"></td>
+                    </div>
+                </div>
+            </div>
 
             <input type="submit" id="submitid" class="btn btn-primary" value="Filter">
-
         </form>
 
         <div th:replace="bootstrap/bootstrap_footer.html"></div>
     </div>
     <div th:replace="bootstrap/bootstrap_scripts.html"></div>
+
+    <script>
+        $("#minpopulation").val(0);
+        $("#maxpopulation").val(10000000);
+        $("#minincome").val(0);
+        $("#maxincome").val(100000);
+        $("#minhousecost").val(0);
+        $("#maxhousecost").val(1200000);
+        $("#mintemperature").val(0);
+        $("#maxtemperature").val(100);
+        $("#mincrimerate").val(0);
+        $("#maxcrimerate").val(100);
+        $("#minunemploymentrate").val(0);
+        $("#maxunemploymentrate").val(100);
+        $("#minstudentenrollment").val(0);
+        $("#maxstudentenrollment").val(1500000);
+
+        $("#pop").slider({});
+        $("#income").slider({});
+        $("#price").slider({});
+        $("#temp").slider({});
+        $("#crime").slider({});
+        $("#unemploy").slider({});
+        $("#enroll").slider({});
+
+        $("#pop").on("slide", function (event) {
+            console.log(event);
+            $("#minpopulation").val(event.value[0]);
+            $("#maxpopulation").val(event.value[1]);
+        });
+        $("#pop").on("slideStop", function (event) {
+            console.log(event);
+            $("#minpopulation").val(event.value[0]);
+            $("#maxpopulation").val(event.value[1]);
+        });
+        function popRangeMin(v) {
+            console.log(v);
+            var slider = $("#pop").slider();
+            slider.slider("setValue", [+$("#maxpopulation").val(), v]);
+
+            $("#minpopulation").val(v);
+        }
+        function popRangeMax(v) {
+            console.log(v);
+            var slider = $("#pop").slider();
+            slider.slider("setValue", [v, +$("#minpopulation").val()]);
+            $("#maxpopulation").val(v);
+        }
+
+        $("#income").on("slide", function (event) {
+            console.log(event);
+            $("#minincome").val(event.value[0]);
+            $("#maxincome").val(event.value[1]);
+        });
+        $("#income").on("slideStop", function (event) {
+            console.log(event);
+            $("#minincome").val(event.value[0]);
+            $("#maxincome").val(event.value[1]);
+        });
+        function incomeRangeMin(v) {
+            console.log(v);
+            var slider = $("#income").slider();
+            slider.slider("setValue", [+$("#maxincome").val(), v]);
+            $("#minincome").val(v);
+        }
+        function incomeRangeMax(v) {
+            console.log(v);
+            var slider = $("#income").slider();
+            slider.slider("setValue", [v, +$("#minincome").val()]);
+            $("#maxincome").val(v);
+        }
+
+        $("#price").on("slide", function (event) {
+            console.log(event);
+            $("#minhousecost").val(event.value[0]);
+            $("#maxhousecost").val(event.value[1]);
+        });
+        $("#price").on("slideStop", function (event) {
+            console.log(event);
+            $("#minhousecost").val(event.value[0]);
+            $("#maxhousecost").val(event.value[1]);
+        });
+        function costRangeMin(v) {
+            console.log(v);
+            var slider = $("#price").slider();
+            slider.slider("setValue", [+$("#maxhousecost").val(), v]);
+            $("#minhousecost").val(v);
+        }
+        function costRangeMax(v) {
+            console.log(v);
+            var slider = $("#price").slider();
+            slider.slider("setValue", [v, +$("#minhousecost").val()]);
+            $("#maxhousecost").val(v);
+        }
+
+        $("#temp").on("slide", function (event) {
+            console.log(event);
+            $("#mintemperature").val(event.value[0]);
+            $("#maxtemperature").val(event.value[1]);
+        });
+        $("#temp").on("slideStop", function (event) {
+            console.log(event);
+            $("#mintemperature").val(event.value[0]);
+            $("#maxtemperature").val(event.value[1]);
+        });
+        function tempRangeMin(v) {
+            console.log(v);
+            var slider = $("#temp").slider();
+            slider.slider("setValue", [+$("#maxtemperature").val(), v]);
+            $("#mintemperature").val(v);
+        }
+        function tempRangeMax(v) {
+            console.log(v);
+            var slider = $("#temp").slider();
+            slider.slider("setValue", [v, +$("#mintemperature").val()]);
+            $("#maxtemperature").val(v);
+        }
+
+        $("#crime").on("slide", function (event) {
+            console.log(event);
+            $("#mincrimerate").val(event.value[0]);
+            $("#maxcrimerate").val(event.value[1]);
+        });
+        $("#crime").on("slideStop", function (event) {
+            console.log(event);
+            $("#mincrimerate").val(event.value[0]);
+            $("#maxcrimerate").val(event.value[1]);
+        });
+        function crimeRangeMin(v) {
+            console.log(v);
+            var slider = $("#crime").slider();
+            slider.slider("setValue", [+$("#maxcrimerate").val(), v]);
+            $("#mincrimerate").val(v);
+        }
+        function crimeRangeMax(v) {
+            console.log(v);
+            var slider = $("#crime").slider();
+            slider.slider("setValue", [v, +$("#mincrimerate").val()]);
+            $("#maxcrimerate").val(v);
+        }
+
+        $("#unemploy").on("slide", function (event) {
+            console.log(event);
+            $("#minunemploymentrate").val(event.value[0]);
+            $("#maxunemploymentrate").val(event.value[1]);
+        });
+        $("#unemploy").on("slideStop", function (event) {
+            console.log(event);
+            $("#minunemploymentrate").val(event.value[0]);
+            $("#maxunemploymentrate").val(event.value[1]);
+        });
+        function unemployRangeMin(v) {
+            console.log(v);
+            var slider = $("#unemploy").slider();
+            slider.slider("setValue", [+$("#maxunemploymentrate").val(), v]);
+            $("#minunemploymentrate").val(v);
+        }
+        function unemployRangeMax(v) {
+            console.log(v);
+            var slider = $("#unemploy").slider();
+            slider.slider("setValue", [v, +$("#minunemploymentrate").val()]);
+            $("#maxunemploymentrate").val(v);
+        }
+
+        $("#enroll").on("slide", function (event) {
+            console.log(event);
+            $("#minstudentenrollment").val(event.value[0]);
+            $("#maxstudentenrollment").val(event.value[1]);
+        });
+        $("#enroll").on("slideStop", function (event) {
+            console.log(event);
+            $("#minstudentenrollment").val(event.value[0]);
+            $("#maxstudentenrollment").val(event.value[1]);
+        });
+        function enrollRangeMin(v) {
+            console.log(v);
+            var slider = $("#enroll").slider();
+            slider.slider("setValue", [+$("#maxstudentenrollment").val(), v]);
+            $("#minstudentenrollment").val(v);
+        }
+        function enrollRangeMax(v) {
+            console.log(v);
+            var slider = $("#enroll").slider();
+            slider.slider("setValue", [v, +$("#minstudentenrollment").val()]);
+            $("#maxstudentenrollment").val(v);
+        }
+    </script>
 </body>
 
 </html>
