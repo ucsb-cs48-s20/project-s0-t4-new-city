@@ -12,4 +12,4 @@
 | Thu 05/21 | Steven Seong      | Will do the 2nd demo video                             |
 | Tue 05/26 | Xilin Wang        | Led third Retro                                        |
 | Tue 05/26 | Brian Kang        | Led Spring Goal discussion                             |
-| Tue 05/28 | Steven Seong      | Will lead the final presentation                       | 
+| Tue 05/28 | Ari Polakof       | Will lead the final presentation                       | 
