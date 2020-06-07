@@ -90,10 +90,17 @@ public class County {
 
     }
 
-    public County(String name, double income, double houseprice) {
+    public County(String name, double population, double income,
+                  double houseprice, double temperature, double crime,
+                  double unEmploymentRate, double student) {
         this.name = name;
         this.averageIncome = income;
         this.housePrice = houseprice;
+        this.population = population;
+        this.crimeRate = crime;
+        this.studentEnrollment = student;
+        this.unEmploymentRate = unEmploymentRate;
+        this.temperature = temperature;
     }
 
     public County (String name, int populationRank, int incomeRank,
