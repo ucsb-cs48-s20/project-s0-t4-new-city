@@ -7,19 +7,23 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-fluid">
         <div th:replace="bootstrap/bootstrap_nav_header.html"></div>
-
+        <div class = "container">
         <h1>Compare Counties</h1>
         <h5>Results</h5>
         <form action="#" th:action="@{/county/compare-results}" th:object="${compareCounty}" method="get" id="compareCounty">
 
-            <select id="county1" name="county1" form="compareCounty" class="form-control">
+            <select id="county1" name="county1" form="compareCounty" class="form-control" style="
+            width: 50%;
+        ">
 	        <option value="0">Select County 1</option>
                 <option th:each="county : ${counties}" th:value="${county.name}" th:text="${county.name}" th:selected="${county.name.equals(county1)}">
                 </option>
             </select>
-	        <select id="county2" name="county2" form="compareCounty" class="form-control">
+	        <select id="county2" name="county2" form="compareCounty" class="form-control" style="
+            width: 50%;
+        ">
 	            <option value="0">Select County 2</option>
 		        <option th:each="county : ${counties}" th:value="${county.name}" th:text="${county.name}" th:selected="${county.name.equals(county2)}">
 		        </option>
@@ -73,6 +77,7 @@
         
         
         <div th:replace="bootstrap/bootstrap_footer.html"></div>
+    </div>
     </div>
     <div th:replace="bootstrap/bootstrap_scripts.html"></div>
     <script>
